@@ -53,4 +53,5 @@ class CustomUserAdmin(admin.ModelAdmin):
         "pk",
         "username",
         "name",
+        "username",
     )
