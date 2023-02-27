@@ -53,6 +53,5 @@ class CustomUserAdmin(admin.ModelAdmin):
         "pk",
         "name",
         "email",
-        "address",
         "gender",
     )
