@@ -7,7 +7,7 @@ class User(AbstractUser):
         MALE = ("male", "Male")
         FEMALE = ("female", "Female")
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     gender = models.CharField(
