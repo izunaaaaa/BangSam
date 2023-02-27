@@ -4,7 +4,4 @@ from .models import Wishlist
 
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
-    list_display = (
-        "user",
-        "house",
-    )
+    list_display = ("user",)
