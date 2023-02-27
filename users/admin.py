@@ -9,6 +9,5 @@ class UserAdmin(admin.ModelAdmin):
         "pk",
         "name",
         "email",
-        "address",
         "gender",
     )
