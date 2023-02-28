@@ -14,6 +14,11 @@ class House(CommonModel):
         MONTHLY_RENT = ("월세", "월세")  # 월세
         SALE = ("매매", "매매")  # 매매
 
+    # title char
+    # address_gu
+    # address_dong 클래스로 따로 빼기
+    # keyword char
+
     owner = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
