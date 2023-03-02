@@ -4,7 +4,7 @@ from . import serializers
 from .models import Review
 
 
-class Review(APIView):
+class Reviews(APIView):
     def get(self, request):
         review = Review.objects.all()
         serializer = serializers.ReviewSerializer(review, many=True)
