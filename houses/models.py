@@ -14,9 +14,8 @@ class House(CommonModel):
         MONTHLY_RENT = ("월세", "월세")
         CHARTER = ("전세", "전세")
         SALE = ("매매", "매매")
+        WHATEVER = ("상관없음", "상관없음")
 
-    # address_gu
-    # address_dong 클래스로 따로 빼기
     title = models.CharField(
         max_length=100,
         null=True,
@@ -37,6 +36,22 @@ class House(CommonModel):
         "users.User",
         on_delete=models.CASCADE,
         related_name="realtor",
+    )
+    room = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+    )
+    toilet = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+    )
+    pyeongsu = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+    )
+    distance_to_station = models.PositiveIntegerField(
+        null=True,
+        blank=True,
     )
     room_kind = models.CharField(
         max_length=20,
