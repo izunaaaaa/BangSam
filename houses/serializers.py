@@ -7,16 +7,10 @@ class HouseSerializer(ModelSerializer):
     class Meta:
         model = House
         # fields = "__all__"
-        exclude = (
-            "created_at",
-            "updated_at",
-        )
+        exclude = ("updated_at",)
 
 
 class HouseDetailSerializer(ModelSerializer):
     class Meta:
         model = House
-        exclude = (
-            "created_at",
-            "updated_at",
-        )
+        exclude = ("updated_at",)

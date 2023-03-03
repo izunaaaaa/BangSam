@@ -54,11 +54,8 @@ class CustomUserAdmin(admin.ModelAdmin):
         "pk",
         "username",
         "name",
-<<<<<<< HEAD
         "is_host",
         "is_custom",
         "is_realtor",
-=======
         "username",
->>>>>>> d53453c2991c6da1dc5dc7dc201f1aef23dfa85b
     )
