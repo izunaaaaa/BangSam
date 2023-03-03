@@ -4,6 +4,7 @@ from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . import serializers
 from .models import House
+from . import dong
 
 
 class Houses(APIView):
@@ -99,3 +100,8 @@ class HouseDetail(APIView):
         house.save()
         serializer = serializers.HouseDetailSerializer(house)
         return Response(serializer.data)
+
+
+class DongList(APIView):
+    def get_object(self, request, gu):
+        print(dong)

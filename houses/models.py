@@ -16,8 +16,6 @@ class House(CommonModel):
         SALE = ("매매", "매매")
         WHATEVER = ("상관없음", "상관없음")
 
-    # address_gu
-    # address_dong 클래스로 따로 빼기
     title = models.CharField(
         max_length=100,
         null=True,
