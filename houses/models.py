@@ -1,7 +1,6 @@
 from django.db import models
 from common.models import CommonModel
 
-
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
         ONE_ROOM = ("원룸", "원룸")
