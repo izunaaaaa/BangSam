@@ -99,8 +99,3 @@ class HouseDetail(APIView):
         house.save()
         serializer = serializers.HouseDetailSerializer(house)
         return Response(serializer.data)
-
-
-class DongList(APIView):
-    def get_object(self, request, gu):
-        print(dong)
