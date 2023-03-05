@@ -13,6 +13,7 @@ class CustomUserAdmin(admin.ModelAdmin):
                     "username",
                     "password",
                     "name",
+                    "phone_number",
                     "email",
                     "address",
                     "gender",
@@ -24,7 +25,7 @@ class CustomUserAdmin(admin.ModelAdmin):
             {
                 "fields": (
                     "is_host",
-                    "is_custom",
+                    # "is_custom",
                     "is_realtor",
                 )
             },
@@ -55,7 +56,7 @@ class CustomUserAdmin(admin.ModelAdmin):
         "username",
         "name",
         "is_host",
-        "is_custom",
+        # "is_custom",
         "is_realtor",
         "username",
     )
