@@ -11,6 +11,18 @@ class User(AbstractUser):
         max_length=100,
         unique=True,
     )
+    first_name = models.CharField(
+        max_length=100, 
+        editable=False,
+    )
+    last_name = models.CharField(
+        max_length=150, 
+        editable=False,
+    )
+    phone_number = models.CharField(
+        max_length=11,
+        null=True,
+    )
     email = models.EmailField(
         max_length=100,
     )
