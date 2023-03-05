@@ -10,9 +10,10 @@ class CustomUserAdmin(admin.ModelAdmin):
             "Profile",
             {
                 "fields": (
+                    "username",
+                    "password",
                     "name",
                     "email",
-                    "password",
                     "address",
                     "gender",
                 ),
@@ -53,4 +54,8 @@ class CustomUserAdmin(admin.ModelAdmin):
         "pk",
         "username",
         "name",
+        "is_host",
+        "is_custom",
+        "is_realtor",
+        "username",
     )

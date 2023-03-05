@@ -6,6 +6,7 @@ from .models import House
 class HouseAdmin(admin.ModelAdmin):
     list_display = (
         "pk",
+        "title",
         "owner",
         "realtor",
         "room_kind",
