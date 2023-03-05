@@ -99,3 +99,12 @@ class HouseDetail(APIView):
         house.save()
         serializer = serializers.HouseDetailSerializer(house)
         return Response(serializer.data)
+
+
+from .models import Dong_list
+
+
+class Delete(APIView):
+    def get(self, request):
+        Dong_list.objects.all().delete()
+        return Response({"delete": "success"})

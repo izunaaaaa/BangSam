@@ -1,6 +1,7 @@
 from django.db import models
 from common.models import CommonModel
 
+
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
         ONE_ROOM = ("원룸", "원룸")
@@ -60,6 +61,18 @@ class House(CommonModel):
         max_length=20,
         choices=CellKindChoices.choices,
     )
+    gu = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+    )
+
+    dong = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+    )
+
     address = models.CharField(max_length=100)
 
     photo = models.URLField(
@@ -87,3 +100,18 @@ class Keyword(CommonModel):
         null=True,
         blank=True,
     )
+
+
+class Gu_list(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Dong_list(models.Model):
+    gu = models.ForeignKey(
+        "houses.Gu_list",
+        on_delete=models.CASCADE,
+    )
+    name = models.CharField(max_length=255, unique=True)
