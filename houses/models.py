@@ -61,16 +61,14 @@ class House(CommonModel):
         max_length=20,
         choices=CellKindChoices.choices,
     )
-    gu = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True,
+    gu = models.ForeignKey(
+        "houses.Gu_list",
+        on_delete=models.CASCADE,
     )
 
-    dong = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True,
+    dong = models.ForeignKey(
+        "houses.Dong_list",
+        on_delete=models.CASCADE,
     )
 
     address = models.CharField(max_length=100)
@@ -103,7 +101,10 @@ class Keyword(CommonModel):
 
 
 class Gu_list(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+    )
 
     def __str__(self):
         return self.name
@@ -114,4 +115,9 @@ class Dong_list(models.Model):
         "houses.Gu_list",
         on_delete=models.CASCADE,
     )
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(
+        max_length=255,
+    )
+
+    def __str__(self):
+        return self.name
