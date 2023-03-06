@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import NotFound
 from . import serializers
 from .models import User
 
@@ -22,8 +23,8 @@ class UserMe(APIView):
     def get(self, request):
         # user = User.objects.get(pk=request.user.id)
         user = request.user
-        serilaizer = serializers.UserSerializer(user)
-        return Response(serilaizer.data)
+        serializer = serializers.UserSerializer(user)
+        return Response(serializer.data)
 
 
 class UserDetail(APIView):
@@ -34,3 +35,4 @@ class UserDetail(APIView):
             raise NotFound
         serializer = serializers.UserSerializer(user)
         return Response(serializer.data)
+
