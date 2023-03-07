@@ -3,6 +3,30 @@ from common.models import CommonModel
 from django.core.exceptions import ValidationError
 
 
+class Gu_list(models.Model):
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Dong_list(models.Model):
+    gu = models.ForeignKey(
+        "houses.Gu_list",
+        on_delete=models.CASCADE,
+        related_name="dong",
+    )
+    name = models.CharField(
+        max_length=255,
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
         ONE_ROOM = ("원룸", "원룸")
@@ -72,15 +96,20 @@ class House(CommonModel):
         null=True,
         blank=True,
     )
-    station_distance = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
+
     description = models.TextField()
     visited = models.PositiveIntegerField(
         editable=False,
         default=0,
     )
+    dong = models.ForeignKey(
+        "houses.Dong_list",
+        on_delete=models.CASCADE,
+    )
+
+    @property
+    def gu(self):
+        return self.dong.gu
 
     def __str__(self) -> str:
         return f"{self.owner}'s Room"

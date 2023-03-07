@@ -1,5 +1,6 @@
 from django.db import models
 from common.models import CommonModel
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Review(CommonModel):
@@ -14,3 +15,20 @@ class Review(CommonModel):
         related_name="reviews",
     )
     comment = models.TextField()
+    house_rating = models.PositiveIntegerField(
+        default=0,
+        help_text="0~5사이 값으로 입력하세요",
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        blank=True,
+        null=True,
+    )
+    user_rating = models.PositiveIntegerField(
+        default=0,
+        help_text="0~5사이 값으로 입력하세요",
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return f"{self.user} / {self.house_rating} / {self.user_rating}"

@@ -51,6 +51,7 @@ CUSTOM_APPS = [
     "reviews.apps.ReviewsConfig",
     "wishlists.apps.WishlistsConfig",
     "images.apps.ImagesConfig",
+    "chatRoom.apps.ChatroomConfig",
 ]
 
 SYSTEM_APPS = [
