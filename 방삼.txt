@@ -1,23 +1,10 @@
-[부동산]
-
-{views.py_get}
-
+[house]
 wishlist 여부
 평점순(높)
 역세권 키워드에 넣는것
 역세권 : 상관없음, 필요(보류)
 
 
-{models.py}
-구/동 구현
-
 [review]
-
-{models.py}
-
 house평점
 유저평점(보류)
-
-
-
-

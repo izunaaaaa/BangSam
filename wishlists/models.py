@@ -8,3 +8,4 @@ class Wishlist(CommonModel):
         "houses.House",
         related_name="wishlist",
     )
+    wishlist = models.BooleanField(default=False)

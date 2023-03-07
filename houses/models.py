@@ -1,5 +1,30 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from common.models import CommonModel
+
+
+class Gu_list(models.Model):
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Dong_list(models.Model):
+    gu = models.ForeignKey(
+        "houses.Gu_list",
+        on_delete=models.CASCADE,
+        related_name="dong",
+    )
+    name = models.CharField(
+        max_length=255,
+    )
+
+    def __str__(self):
+        return self.name
 
 
 class House(CommonModel):
@@ -77,10 +102,7 @@ class House(CommonModel):
         null=True,
         blank=True,
     )
-    station_distance = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
+
     description = models.TextField()
     visited = models.PositiveIntegerField(
         editable=False,
@@ -90,6 +112,15 @@ class House(CommonModel):
     def __str__(self) -> str:
         return f"{self.owner}'s Room"
 
+    def save(self, *args, **kwarg):
+        try:
+            if self.dong.gu != self.gu:
+                raise ValidationError("동과 구가 맞지 않습니다.")
+        except Dong_list.DoesNotExist:
+            raise ValidationError("동이 존재하지 않습니다")
+
+        super(House, self).save(*args, **kwarg)
+
 
 class Keyword(CommonModel):
     name = models.CharField(max_length=255)
@@ -98,26 +129,3 @@ class Keyword(CommonModel):
         null=True,
         blank=True,
     )
-
-
-class Gu_list(models.Model):
-    name = models.CharField(
-        max_length=255,
-        unique=True,
-    )
-
-    def __str__(self):
-        return self.name
-
-
-class Dong_list(models.Model):
-    gu = models.ForeignKey(
-        "houses.Gu_list",
-        on_delete=models.CASCADE,
-    )
-    name = models.CharField(
-        max_length=255,
-    )
-
-    def __str__(self):
-        return self.name
