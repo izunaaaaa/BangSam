@@ -1,8 +1,3 @@
-[참고링크]
-캠핏
-https://www.gdweb.co.kr/sub/view.asp?displayrow=60&Txt_key=all&Txt_word=&Txt_agnumber=&Txt_fgbn=7&Txt_bcode1=&Txt_gbflag=&Txt_bcode2=&Txt_bcode3=&Txt_bcode4=&Txt_bcode5=&Page=1&str_no=18171
-
---------------------------------------------------------------------
 [부동산]
 
 {views.py_get}
@@ -13,12 +8,9 @@ wishlist 여부
 역세권 : 상관없음, 필요(보류)
 
 
-
 {models.py}
 구/동 구현
 
-
--------------------------------------------------------------------
 [review]
 
 {models.py}
