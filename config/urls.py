@@ -22,12 +22,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="My API",
+        title="BangSam BackEnd API",
         default_version="v1",
-        description="My API description",
-        terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@myapi.local"),
-        license=openapi.License(name="BSD License"),
+        description="https://github.com/izunaaaaa/BangSam",
     ),
     public=True,
     # permission_classes=[permissions.AllowAny],
