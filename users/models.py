@@ -12,11 +12,11 @@ class User(AbstractUser):
         unique=True,
     )
     first_name = models.CharField(
-        max_length=100, 
+        max_length=100,
         editable=False,
     )
     last_name = models.CharField(
-        max_length=150, 
+        max_length=150,
         editable=False,
     )
     phone_number = models.CharField(
@@ -38,5 +38,4 @@ class User(AbstractUser):
         null=True,
     )
     is_host = models.BooleanField(default=False)
-    is_custom = models.BooleanField(default=False)
     is_realtor = models.BooleanField(default=False)
