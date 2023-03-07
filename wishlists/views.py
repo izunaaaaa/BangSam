@@ -4,7 +4,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import NotFound
 from . import serializers
 from .models import Wishlist
-from houses.serializers import TinyHouseSerializer
+
+# from houses.serializers import TinyHouseSerializer
+
 
 class Wishlists(APIView):
 
@@ -16,6 +18,5 @@ class Wishlists(APIView):
         except Wishlist.DoesNotExist:
             raise NotFound
         house = wishlist.house.all()
-        serializer = TinyHouseSerializer(house,many=True)
+        serializer = TinyHouseSerializer(house, many=True)
         return Response(serializer.data)
-    

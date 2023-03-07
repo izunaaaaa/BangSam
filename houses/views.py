@@ -4,7 +4,6 @@ from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . import serializers
 from .models import House
-# from . import dong
 
 
 class Houses(APIView):
@@ -102,6 +101,10 @@ class HouseDetail(APIView):
         return Response(serializer.data)
 
 
-class DongList(APIView):
-    def get_object(self, request, gu):
-        print(dong)
+from .models import Dong_list
+
+
+class Delete(APIView):
+    def get(self, request):
+        Dong_list.objects.all().delete()
+        return Response({"delete": "success"})

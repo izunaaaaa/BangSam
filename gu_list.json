@@ -1,0 +1,177 @@
+[
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "종로구"
+    },
+    "pk": 1
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "중구"
+    },
+    "pk": 2
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "용산구"
+    },
+    "pk": 3
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "성동구"
+    },
+    "pk": 4
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "광진구"
+    },
+    "pk": 5
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "동대문구"
+    },
+    "pk": 6
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "중랑구"
+    },
+    "pk": 7
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "성북구"
+    },
+    "pk": 8
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "강북구"
+    },
+    "pk": 9
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "도봉구"
+    },
+    "pk": 10
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "노원구"
+    },
+    "pk": 11
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "은평구"
+    },
+    "pk": 12
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "서대문구"
+    },
+    "pk": 13
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "마포구"
+    },
+    "pk": 14
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "양천구"
+    },
+    "pk": 15
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "강서구"
+    },
+    "pk": 16
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "구로구"
+    },
+    "pk": 17
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "금천구"
+    },
+    "pk": 18
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "영등포구"
+    },
+    "pk": 19
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "동작구"
+    },
+    "pk": 20
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "관악구"
+    },
+    "pk": 21
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "서초구"
+    },
+    "pk": 22
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "강남구"
+    },
+    "pk": 23
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "송파구"
+    },
+    "pk": 24
+  },
+  {
+    "model": "houses.gu_list",
+    "fields": {
+      "name": "강동구"
+    },
+    "pk": 25
+  }
+]
