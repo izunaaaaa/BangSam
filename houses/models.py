@@ -1,5 +1,6 @@
 from django.db import models
 from common.models import CommonModel
+from django.core.exceptions import ValidationError
 
 
 class House(CommonModel):
@@ -14,7 +15,6 @@ class House(CommonModel):
         MONTHLY_RENT = ("월세", "월세")
         CHARTER = ("전세", "전세")
         SALE = ("매매", "매매")
-        WHATEVER = ("상관없음", "상관없음")
 
     title = models.CharField(
         max_length=100,
@@ -31,12 +31,17 @@ class House(CommonModel):
         "users.User",
         on_delete=models.CASCADE,
         related_name="owner",
+        blank=True,
+        null=True,
     )
     realtor = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
         related_name="realtor",
+        blank=True,
+        null=True,
     )
+
     room = models.PositiveIntegerField(
         null=True,
         blank=True,
@@ -79,6 +84,14 @@ class House(CommonModel):
 
     def __str__(self) -> str:
         return f"{self.owner}'s Room"
+
+    def clean(self):
+        if self.owner and self.realtor:
+            raise ValidationError(
+                "Either owner or realtor can be specified, but not both."
+            )
+        elif not self.owner and not self.realtor:
+            raise ValidationError("Either owner or realtor must be specified.")
 
 
 class Keyword(CommonModel):
