@@ -4,10 +4,37 @@ from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . import serializers
 from .models import House
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 # from . import dong
 
 
 class Houses(APIView):
+    @swagger_auto_schema(
+        operation_summary="모든 방에 대한 리스트를 가져오는 api",
+        manual_parameters=[
+            openapi.Parameter(
+                "room_kind",
+                openapi.IN_QUERY,
+                description="룸 타입 / 원룸, 투룸, 쓰리룸, 아파트, 오피스텔",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "cell_kind",
+                openapi.IN_QUERY,
+                description="사는 타입 / 월세, 전세, 매매",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "sort type",
+                openapi.IN_QUERY,
+                description="정렬 타입 / 가격(row_price), 조회수(visitied), 최신순(lastest)",
+                type=openapi.TYPE_STRING,
+            ),
+        ],
+        responses={200: "OK"},
+    )
     def get(self, request):
         room_params = request.query_params.get("room_kind")
         cell_params = request.query_params.get("cell_kind")
@@ -34,7 +61,7 @@ class Houses(APIView):
             house = House.objects.order_by("price")
         elif sort_by == "visited":
             house = House.objects.order_by("-visited")
-        elif sort_by == "latest":
+        elif sort_by == "lastest":
             house = House.objects.order_by("-created_at")
         # 평점순
 
@@ -94,14 +121,13 @@ class HouseDetail(APIView):
         except House.DoesNotExist:
             raise NotFound
 
+    @swagger_auto_schema(
+        operation_summary="각 방에 대한 정보를 가져오는 api",
+        responses={200: "OK", 404: "Not Found"},
+    )
     def get(self, request, pk):
         house = self.get_object(pk)
         house.visited += 1
         house.save()
         serializer = serializers.HouseDetailSerializer(house)
         return Response(serializer.data)
-
-
-class DongList(APIView):
-    def get_object(self, request, gu):
-        print(dong)
