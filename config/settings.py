@@ -130,9 +130,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ko-kr"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "ASIA/Seoul"
 
 USE_I18N = True
 
@@ -159,6 +159,7 @@ AUTH_USER_MODEL = "users.User"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://izuna.pythonanywhere.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -166,4 +167,5 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://localhost:3000",
+    "https://izuna.pythonanywhere.com",
 ]

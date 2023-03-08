@@ -20,10 +20,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         total = options.get("total")
-        print(total)
         fake = Faker(["ko_KR"])
+        new_list = []
         for i in Dong_list.objects.all():
-            new_list = []
             for k in range(total):
                 house = {"model": "houses.House"}
                 data = {
@@ -53,9 +52,11 @@ class Command(BaseCommand):
                     description=data["description"],
                     dong=i,
                 )
+                print(i.name + "makeing")
                 data["owner"] = data["owner"].pk
-                house["field"] = data
+                house["fields"] = data
                 new_list.append(house)
+
         with open("house_data.json", "w", encoding="UTF-8") as m:
             json.dump(new_list, m, ensure_ascii=False, indent=2)
         self.stdout.write(self.style.SUCCESS(f"{total}명의 유저가 작성되었습니다."))
