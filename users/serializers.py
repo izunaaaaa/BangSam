@@ -21,3 +21,4 @@ class UserSerializer(ModelSerializer):
             "groups",
             "user_permissions",
         )
+
