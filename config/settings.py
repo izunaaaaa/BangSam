@@ -49,7 +49,6 @@ THIRD_PARTY_APPS = [
 CUSTOM_APPS = [
     "users.apps.UsersConfig",
     "houses.apps.HousesConfig",
-    "reviews.apps.ReviewsConfig",
     "wishlists.apps.WishlistsConfig",
     "images.apps.ImagesConfig",
     "chatRoom.apps.ChatroomConfig",
