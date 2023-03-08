@@ -44,20 +44,18 @@ class LogIn(APIView):
         operation_summary="유저 로그인 api",
         responses={200: "OK", 400: "Not Found"},
     )
-    def post(self, request):  
-        username = request.data.get('username')
-        password = request.data.get('password')
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
         if not username or not password:
             raise ParseError
         user = authenticate(
-            request, 
+            request,
             username=username,
             password=password,
         )
         if user:
             login(request, user)
-            return Response({"ok":"Welcome!"})
+            return Response({"ok": "Welcome!"})
         else:
-            return Response({"error":"wrong password"}, status=400)
-
-
+            return Response({"error": "wrong password"}, status=400)
