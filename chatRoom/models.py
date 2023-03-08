@@ -47,7 +47,7 @@ class Message(CommonModel):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="messages",
+        related_name="send_messages",
     )
     room = models.ForeignKey(
         "chatRoom.ChatRoom",
@@ -61,8 +61,8 @@ class Message(CommonModel):
         ordering = ["-created_at"]
         unique_together = ["room", "sequence_number"]
 
-    def __str__(self) -> str:
-        return f"{self.sender} to {self.room} : {self.text}"
+    # def __str__(self) -> str:
+    # return f"{self.sender.name} to {self.room} : {self.text}"
 
     def save(self, *args, **kwargs):
         # set the sequence number of the new message to the highest sequence number in the chat room plus one
