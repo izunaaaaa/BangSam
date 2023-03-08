@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . import serializers
-from .models import House
+from .models import House, Gu_list, Dong_list
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
@@ -128,4 +128,37 @@ class HouseDetail(APIView):
         house.visited += 1
         house.save()
         serializer = serializers.HouseDetailSerializer(house)
+        return Response(serializer.data)
+
+
+class GuList(APIView):
+
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get(self, request):
+        gu_list = Gu_list.objects.all()
+        serializer = serializers.GulistSerializer(
+            gu_list,
+            many=True,
+        )
+        return Response(serializer.data)
+
+
+class DongList(APIView):
+
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get_object(self, pk):
+        try:
+            return Dong_list.objects.filter(gu=pk)
+
+        except Dong_list.DoesNotExist:
+            raise NotFound
+
+    def get(self, request, pk):
+        dong_list = self.get_object(pk)
+        serializer = serializers.DonglistSerializer(
+            dong_list,
+            many=True,
+        )
         return Response(serializer.data)
