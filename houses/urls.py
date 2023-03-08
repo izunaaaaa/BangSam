@@ -4,4 +4,6 @@ from . import views
 urlpatterns = [
     path("", views.Houses.as_view()),
     path("<int:pk>", views.HouseDetail.as_view()),
+    path("gulist", views.GuList.as_view()),
+    path("gulist/<int:pk>", views.DongList.as_view()),
 ]

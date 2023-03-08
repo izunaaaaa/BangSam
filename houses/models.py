@@ -42,46 +42,29 @@ class House(CommonModel):
 
     title = models.CharField(
         max_length=100,
-        null=True,
-        blank=True,
     )
 
-    price = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
+    price = models.PositiveIntegerField(default=0)
 
     owner = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
         related_name="owner",
-        blank=True,
         null=True,
+        blank=True,
     )
     realtor = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
         related_name="realtor",
-        blank=True,
         null=True,
+        blank=True,
     )
 
-    room = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
-    toilet = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
-    pyeongsu = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
-    distance_to_station = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-    )
+    room = models.PositiveIntegerField(default=0)
+    toilet = models.PositiveIntegerField(default=0)
+    pyeongsu = models.PositiveIntegerField(default=0)
+    distance_to_station = models.PositiveIntegerField(default=0)
     room_kind = models.CharField(
         max_length=20,
         choices=RoomKindChoices.choices,
@@ -97,7 +80,9 @@ class House(CommonModel):
         blank=True,
     )
 
-    description = models.TextField()
+    description = models.TextField(
+        blank=True,
+    )
     visited = models.PositiveIntegerField(
         editable=False,
         default=0,
@@ -109,7 +94,7 @@ class House(CommonModel):
 
     @property
     def gu(self):
-        return self.dong.gu
+        return self.dong.gu.name
 
     def __str__(self) -> str:
         return f"{self.owner}'s Room"
