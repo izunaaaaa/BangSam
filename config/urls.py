@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
 from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -27,7 +26,7 @@ schema_view = get_schema_view(
         description="https://github.com/izunaaaaa/BangSam",
     ),
     public=True,
-    # permission_classes=[permissions.AllowAny],
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [
@@ -36,6 +35,7 @@ urlpatterns = [
     path("api/v1/reviews/", include("reviews.urls")),
     path("api/v1/houses/", include("houses.urls")),
     path("api/v1/wishlists/", include("wishlists.urls")),
+    path("api/v1/chat/", include("chatRoom.urls")),
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

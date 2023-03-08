@@ -1,0 +1,162 @@
+[
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "미정김윤빌라",
+      "price": 28,
+      "owner": 1,
+      "room": 1,
+      "toilet": 1,
+      "pyeongsu": 36,
+      "distance_to_station": 16,
+      "room_kind": "원룸",
+      "cell_kind": "월세",
+      "address": "도윤박읍 855",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "상철류아파트",
+      "price": 49,
+      "owner": 1,
+      "room": 1,
+      "toilet": 3,
+      "pyeongsu": 13,
+      "distance_to_station": 13,
+      "room_kind": "오피스텔",
+      "cell_kind": "월세",
+      "address": "영희최면 040-67",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "경수안빌라",
+      "price": 24,
+      "owner": 1,
+      "room": 3,
+      "toilet": 1,
+      "pyeongsu": 24,
+      "distance_to_station": 10,
+      "room_kind": "쓰리룸",
+      "cell_kind": "전세",
+      "address": "준호박읍 697-92",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "민준김김타운",
+      "price": 50,
+      "owner": 1,
+      "room": 1,
+      "toilet": 3,
+      "pyeongsu": 23,
+      "distance_to_station": 14,
+      "room_kind": "원룸",
+      "cell_kind": "매매",
+      "address": "지영백면 377",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "민지최타운",
+      "price": 49,
+      "owner": 1,
+      "room": 3,
+      "toilet": 3,
+      "pyeongsu": 17,
+      "distance_to_station": 17,
+      "room_kind": "투룸",
+      "cell_kind": "월세",
+      "address": "정웅장면 874-4",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "서현최김빌라",
+      "price": 19,
+      "owner": 1,
+      "room": 3,
+      "toilet": 2,
+      "pyeongsu": 44,
+      "distance_to_station": 9,
+      "room_kind": "오피스텔",
+      "cell_kind": "전세",
+      "address": "예지박마을 219",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "수빈조이빌라",
+      "price": 43,
+      "owner": 1,
+      "room": 1,
+      "toilet": 2,
+      "pyeongsu": 20,
+      "distance_to_station": 19,
+      "room_kind": "쓰리룸",
+      "cell_kind": "월세",
+      "address": "지연김마을 892",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "서연윤이마을",
+      "price": 37,
+      "owner": 1,
+      "room": 2,
+      "toilet": 2,
+      "pyeongsu": 10,
+      "distance_to_station": 20,
+      "room_kind": "원룸",
+      "cell_kind": "월세",
+      "address": "지후이강면 261-33",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "춘자송백타운",
+      "price": 47,
+      "owner": 1,
+      "room": 1,
+      "toilet": 2,
+      "pyeongsu": 33,
+      "distance_to_station": 10,
+      "room_kind": "쓰리룸",
+      "cell_kind": "전세",
+      "address": "현준진면 002",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  },
+  {
+    "model": "houses.House",
+    "field": {
+      "title": "지우이장마을",
+      "price": 37,
+      "owner": 1,
+      "room": 1,
+      "toilet": 1,
+      "pyeongsu": 13,
+      "distance_to_station": 15,
+      "room_kind": "오피스텔",
+      "cell_kind": "전세",
+      "address": "영환김마을 846",
+      "description": "인근에서 가장 좋은 방입니다."
+    }
+  }
+]

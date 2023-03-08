@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Chatting_Room, Message
+from .models import ChatRoom, Message
 from users.serializers import TinyUserSerializer
 from django.utils import timezone
 
@@ -28,7 +28,7 @@ class ChatRoomListSerializer(serializers.ModelSerializer):
     unread_messages = serializers.SerializerMethodField()
 
     class Meta:
-        model = Chatting_Room
+        model = ChatRoom
         fields = (
             "id",
             "lastMessage",
