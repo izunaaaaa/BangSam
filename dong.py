@@ -9,7 +9,7 @@ dong_list = []
 
 for dong in houses:
     flag = True
-    gu_data = {"model": "houses.gu_list"}
+    gu_data = {"model": "houses.Gu_list"}
     gu_data["fields"] = {"name": dong["gu"]}
     if gu_list:
         if dong["gu"] in [i["fields"]["name"] for i in gu_list]:
@@ -20,7 +20,7 @@ for dong in houses:
     if flag:
         gu_list.append(gu_data)
 
-    dong_data = {"model": "houses.dong_list"}
+    dong_data = {"model": "houses.Dong_list"}
     pk = [i["pk"] for i in gu_list if i["fields"]["name"] == dong["gu"]][0]
     dong_data["fields"] = {"gu": pk, "name": dong["dong"]}
     if dong_data["fields"] in [i["fields"] for i in dong_list]:

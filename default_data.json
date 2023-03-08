@@ -1,181 +1,181 @@
 [
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "종로구"
     },
     "pk": 1
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "중구"
     },
     "pk": 2
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "용산구"
     },
     "pk": 3
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "성동구"
     },
     "pk": 4
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "광진구"
     },
     "pk": 5
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "동대문구"
     },
     "pk": 6
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "중랑구"
     },
     "pk": 7
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "성북구"
     },
     "pk": 8
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "강북구"
     },
     "pk": 9
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "도봉구"
     },
     "pk": 10
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "노원구"
     },
     "pk": 11
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "은평구"
     },
     "pk": 12
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "서대문구"
     },
     "pk": 13
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "마포구"
     },
     "pk": 14
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "양천구"
     },
     "pk": 15
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "강서구"
     },
     "pk": 16
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "구로구"
     },
     "pk": 17
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "금천구"
     },
     "pk": 18
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "영등포구"
     },
     "pk": 19
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "동작구"
     },
     "pk": 20
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "관악구"
     },
     "pk": 21
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "서초구"
     },
     "pk": 22
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "강남구"
     },
     "pk": 23
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "송파구"
     },
     "pk": 24
   },
   {
-    "model": "houses.gu_list",
+    "model": "houses.Gu_list",
     "fields": {
       "name": "강동구"
     },
     "pk": 25
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "청운효자동"
@@ -183,7 +183,7 @@
     "pk": 1
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "사직동"
@@ -191,7 +191,7 @@
     "pk": 2
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "삼청동"
@@ -199,7 +199,7 @@
     "pk": 3
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "부암동"
@@ -207,7 +207,7 @@
     "pk": 4
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "평창동"
@@ -215,7 +215,7 @@
     "pk": 5
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "무악동"
@@ -223,7 +223,7 @@
     "pk": 6
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "교남동"
@@ -231,7 +231,7 @@
     "pk": 7
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "가회동"
@@ -239,7 +239,7 @@
     "pk": 8
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로1.2.3.4가동"
@@ -247,7 +247,7 @@
     "pk": 9
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로5.6가동"
@@ -255,7 +255,7 @@
     "pk": 10
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "이화동"
@@ -263,7 +263,7 @@
     "pk": 11
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "혜화동"
@@ -271,7 +271,7 @@
     "pk": 12
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "창신제1동"
@@ -279,7 +279,7 @@
     "pk": 13
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "창신제2동"
@@ -287,7 +287,7 @@
     "pk": 14
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "창신제3동"
@@ -295,7 +295,7 @@
     "pk": 15
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "숭인제1동"
@@ -303,7 +303,7 @@
     "pk": 16
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "숭인제2동"
@@ -311,7 +311,7 @@
     "pk": 17
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "소공동"
@@ -319,7 +319,7 @@
     "pk": 18
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "회현동"
@@ -327,7 +327,7 @@
     "pk": 19
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "명동"
@@ -335,7 +335,7 @@
     "pk": 20
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "필동"
@@ -343,7 +343,7 @@
     "pk": 21
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "장충동"
@@ -351,7 +351,7 @@
     "pk": 22
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "광희동"
@@ -359,7 +359,7 @@
     "pk": 23
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로동"
@@ -367,7 +367,7 @@
     "pk": 24
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "신당동"
@@ -375,7 +375,7 @@
     "pk": 25
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "다산동"
@@ -383,7 +383,7 @@
     "pk": 26
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "약수동"
@@ -391,7 +391,7 @@
     "pk": 27
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "청구동"
@@ -399,7 +399,7 @@
     "pk": 28
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "신당제5동"
@@ -407,7 +407,7 @@
     "pk": 29
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "동화동"
@@ -415,7 +415,7 @@
     "pk": 30
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "황학동"
@@ -423,7 +423,7 @@
     "pk": 31
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "중림동"
@@ -431,7 +431,7 @@
     "pk": 32
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "후암동"
@@ -439,7 +439,7 @@
     "pk": 33
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산2가동"
@@ -447,7 +447,7 @@
     "pk": 34
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "남영동"
@@ -455,7 +455,7 @@
     "pk": 35
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "청파동"
@@ -463,7 +463,7 @@
     "pk": 36
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로제1동"
@@ -471,7 +471,7 @@
     "pk": 37
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로제2동"
@@ -479,7 +479,7 @@
     "pk": 38
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "효창동"
@@ -487,7 +487,7 @@
     "pk": 39
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용문동"
@@ -495,7 +495,7 @@
     "pk": 40
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "한강로동"
@@ -503,7 +503,7 @@
     "pk": 41
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이촌제1동"
@@ -511,7 +511,7 @@
     "pk": 42
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이촌제2동"
@@ -519,7 +519,7 @@
     "pk": 43
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이태원제1동"
@@ -527,7 +527,7 @@
     "pk": 44
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이태원제2동"
@@ -535,7 +535,7 @@
     "pk": 45
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "한남동"
@@ -543,7 +543,7 @@
     "pk": 46
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "서빙고동"
@@ -551,7 +551,7 @@
     "pk": 47
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "보광동"
@@ -559,7 +559,7 @@
     "pk": 48
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "왕십리제2동"
@@ -567,7 +567,7 @@
     "pk": 49
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "왕십리도선동"
@@ -575,7 +575,7 @@
     "pk": 50
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "마장동"
@@ -583,7 +583,7 @@
     "pk": 51
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "사근동"
@@ -591,7 +591,7 @@
     "pk": 52
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "행당제1동"
@@ -599,7 +599,7 @@
     "pk": 53
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "행당제2동"
@@ -607,7 +607,7 @@
     "pk": 54
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "응봉동"
@@ -615,7 +615,7 @@
     "pk": 55
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호1가동"
@@ -623,7 +623,7 @@
     "pk": 56
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호2.3가동"
@@ -631,7 +631,7 @@
     "pk": 57
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호4가동"
@@ -639,7 +639,7 @@
     "pk": 58
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "옥수동"
@@ -647,7 +647,7 @@
     "pk": 59
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수1가제1동"
@@ -655,7 +655,7 @@
     "pk": 60
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수1가제2동"
@@ -663,7 +663,7 @@
     "pk": 61
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수2가제1동"
@@ -671,7 +671,7 @@
     "pk": 62
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수2가제3동"
@@ -679,7 +679,7 @@
     "pk": 63
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "송정동"
@@ -687,7 +687,7 @@
     "pk": 64
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "용답동"
@@ -695,7 +695,7 @@
     "pk": 65
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "화양동"
@@ -703,7 +703,7 @@
     "pk": 66
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "군자동"
@@ -711,7 +711,7 @@
     "pk": 67
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "중곡제1동"
@@ -719,7 +719,7 @@
     "pk": 68
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "중곡제2동"
@@ -727,7 +727,7 @@
     "pk": 69
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "중곡제3동"
@@ -735,7 +735,7 @@
     "pk": 70
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "중곡제4동"
@@ -743,7 +743,7 @@
     "pk": 71
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "능동"
@@ -751,7 +751,7 @@
     "pk": 72
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "광장동"
@@ -759,7 +759,7 @@
     "pk": 73
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "자양제1동"
@@ -767,7 +767,7 @@
     "pk": 74
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "자양제2동"
@@ -775,7 +775,7 @@
     "pk": 75
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "자양제3동"
@@ -783,7 +783,7 @@
     "pk": 76
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "자양제4동"
@@ -791,7 +791,7 @@
     "pk": 77
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "구의제1동"
@@ -799,7 +799,7 @@
     "pk": 78
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "구의제2동"
@@ -807,7 +807,7 @@
     "pk": 79
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "구의제3동"
@@ -815,7 +815,7 @@
     "pk": 80
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "용신동"
@@ -823,7 +823,7 @@
     "pk": 81
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "제기동"
@@ -831,7 +831,7 @@
     "pk": 82
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "전농제1동"
@@ -839,7 +839,7 @@
     "pk": 83
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "전농제2동"
@@ -847,7 +847,7 @@
     "pk": 84
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "답십리제1동"
@@ -855,7 +855,7 @@
     "pk": 85
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "답십리제2동"
@@ -863,7 +863,7 @@
     "pk": 86
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "장안제1동"
@@ -871,7 +871,7 @@
     "pk": 87
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "장안제2동"
@@ -879,7 +879,7 @@
     "pk": 88
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "청량리동"
@@ -887,7 +887,7 @@
     "pk": 89
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "회기동"
@@ -895,7 +895,7 @@
     "pk": 90
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "휘경제1동"
@@ -903,7 +903,7 @@
     "pk": 91
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "휘경제2동"
@@ -911,7 +911,7 @@
     "pk": 92
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "이문제1동"
@@ -919,7 +919,7 @@
     "pk": 93
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "이문제2동"
@@ -927,7 +927,7 @@
     "pk": 94
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목제2동"
@@ -935,7 +935,7 @@
     "pk": 95
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목제4동"
@@ -943,7 +943,7 @@
     "pk": 96
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목제5동"
@@ -951,7 +951,7 @@
     "pk": 97
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목본동"
@@ -959,7 +959,7 @@
     "pk": 98
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목제7동"
@@ -967,7 +967,7 @@
     "pk": 99
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목제3.8동"
@@ -975,7 +975,7 @@
     "pk": 100
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "상봉제1동"
@@ -983,7 +983,7 @@
     "pk": 101
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "상봉제2동"
@@ -991,7 +991,7 @@
     "pk": 102
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "중화제1동"
@@ -999,7 +999,7 @@
     "pk": 103
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "중화제2동"
@@ -1007,7 +1007,7 @@
     "pk": 104
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "묵제1동"
@@ -1015,7 +1015,7 @@
     "pk": 105
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "묵제2동"
@@ -1023,7 +1023,7 @@
     "pk": 106
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "망우본동"
@@ -1031,7 +1031,7 @@
     "pk": 107
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "망우제3동"
@@ -1039,7 +1039,7 @@
     "pk": 108
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "신내1동"
@@ -1047,7 +1047,7 @@
     "pk": 109
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "신내2동"
@@ -1055,7 +1055,7 @@
     "pk": 110
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "성북동"
@@ -1063,7 +1063,7 @@
     "pk": 111
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동"
@@ -1071,7 +1071,7 @@
     "pk": 112
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동"
@@ -1079,7 +1079,7 @@
     "pk": 113
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "돈암제1동"
@@ -1087,7 +1087,7 @@
     "pk": 114
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "돈암제2동"
@@ -1095,7 +1095,7 @@
     "pk": 115
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동"
@@ -1103,7 +1103,7 @@
     "pk": 116
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동"
@@ -1111,7 +1111,7 @@
     "pk": 117
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "정릉제1동"
@@ -1119,7 +1119,7 @@
     "pk": 118
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "정릉제2동"
@@ -1127,7 +1127,7 @@
     "pk": 119
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "정릉제3동"
@@ -1135,7 +1135,7 @@
     "pk": 120
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "정릉제4동"
@@ -1143,7 +1143,7 @@
     "pk": 121
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "길음제1동"
@@ -1151,7 +1151,7 @@
     "pk": 122
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "길음제2동"
@@ -1159,7 +1159,7 @@
     "pk": 123
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "종암동"
@@ -1167,7 +1167,7 @@
     "pk": 124
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "월곡제1동"
@@ -1175,7 +1175,7 @@
     "pk": 125
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "월곡제2동"
@@ -1183,7 +1183,7 @@
     "pk": 126
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "장위제1동"
@@ -1191,7 +1191,7 @@
     "pk": 127
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "장위제2동"
@@ -1199,7 +1199,7 @@
     "pk": 128
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "장위제3동"
@@ -1207,7 +1207,7 @@
     "pk": 129
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "석관동"
@@ -1215,7 +1215,7 @@
     "pk": 130
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "삼양동"
@@ -1223,7 +1223,7 @@
     "pk": 131
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "미아동"
@@ -1231,7 +1231,7 @@
     "pk": 132
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "송중동"
@@ -1239,7 +1239,7 @@
     "pk": 133
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "송천동"
@@ -1247,7 +1247,7 @@
     "pk": 134
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "삼각산동"
@@ -1255,7 +1255,7 @@
     "pk": 135
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "번1동"
@@ -1263,7 +1263,7 @@
     "pk": 136
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "번2동"
@@ -1271,7 +1271,7 @@
     "pk": 137
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "번3동"
@@ -1279,7 +1279,7 @@
     "pk": 138
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "수유1동"
@@ -1287,7 +1287,7 @@
     "pk": 139
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "수유2동"
@@ -1295,7 +1295,7 @@
     "pk": 140
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "수유3동"
@@ -1303,7 +1303,7 @@
     "pk": 141
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "우이동"
@@ -1311,7 +1311,7 @@
     "pk": 142
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "인수동"
@@ -1319,7 +1319,7 @@
     "pk": 143
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창제1동"
@@ -1327,7 +1327,7 @@
     "pk": 144
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창제2동"
@@ -1335,7 +1335,7 @@
     "pk": 145
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창제3동"
@@ -1343,7 +1343,7 @@
     "pk": 146
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창제4동"
@@ -1351,7 +1351,7 @@
     "pk": 147
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창제5동"
@@ -1359,7 +1359,7 @@
     "pk": 148
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "도봉제1동"
@@ -1367,7 +1367,7 @@
     "pk": 149
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "도봉제2동"
@@ -1375,7 +1375,7 @@
     "pk": 150
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "쌍문제1동"
@@ -1383,7 +1383,7 @@
     "pk": 151
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "쌍문제2동"
@@ -1391,7 +1391,7 @@
     "pk": 152
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "쌍문제3동"
@@ -1399,7 +1399,7 @@
     "pk": 153
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "쌍문제4동"
@@ -1407,7 +1407,7 @@
     "pk": 154
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "방학제1동"
@@ -1415,7 +1415,7 @@
     "pk": 155
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "방학제2동"
@@ -1423,7 +1423,7 @@
     "pk": 156
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "방학제3동"
@@ -1431,7 +1431,7 @@
     "pk": 157
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "월계1동"
@@ -1439,7 +1439,7 @@
     "pk": 158
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "월계2동"
@@ -1447,7 +1447,7 @@
     "pk": 159
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "월계3동"
@@ -1455,7 +1455,7 @@
     "pk": 160
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "공릉1동"
@@ -1463,7 +1463,7 @@
     "pk": 161
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "공릉2동"
@@ -1471,7 +1471,7 @@
     "pk": 162
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "하계1동"
@@ -1479,7 +1479,7 @@
     "pk": 163
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "하계2동"
@@ -1487,7 +1487,7 @@
     "pk": 164
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "중계본동"
@@ -1495,7 +1495,7 @@
     "pk": 165
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "중계1동"
@@ -1503,7 +1503,7 @@
     "pk": 166
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "중계4동"
@@ -1511,7 +1511,7 @@
     "pk": 167
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "중계2.3동"
@@ -1519,7 +1519,7 @@
     "pk": 168
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계1동"
@@ -1527,7 +1527,7 @@
     "pk": 169
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계2동"
@@ -1535,7 +1535,7 @@
     "pk": 170
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계3.4동"
@@ -1543,7 +1543,7 @@
     "pk": 171
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계5동"
@@ -1551,7 +1551,7 @@
     "pk": 172
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계6.7동"
@@ -1559,7 +1559,7 @@
     "pk": 173
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계8동"
@@ -1567,7 +1567,7 @@
     "pk": 174
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계9동"
@@ -1575,7 +1575,7 @@
     "pk": 175
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계10동"
@@ -1583,7 +1583,7 @@
     "pk": 176
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "녹번동"
@@ -1591,7 +1591,7 @@
     "pk": 177
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "불광제1동"
@@ -1599,7 +1599,7 @@
     "pk": 178
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "불광제2동"
@@ -1607,7 +1607,7 @@
     "pk": 179
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "갈현제1동"
@@ -1615,7 +1615,7 @@
     "pk": 180
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "갈현제2동"
@@ -1623,7 +1623,7 @@
     "pk": 181
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "구산동"
@@ -1631,7 +1631,7 @@
     "pk": 182
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "대조동"
@@ -1639,7 +1639,7 @@
     "pk": 183
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "응암제1동"
@@ -1647,7 +1647,7 @@
     "pk": 184
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "응암제2동"
@@ -1655,7 +1655,7 @@
     "pk": 185
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "응암제3동"
@@ -1663,7 +1663,7 @@
     "pk": 186
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "역촌동"
@@ -1671,7 +1671,7 @@
     "pk": 187
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "신사제1동"
@@ -1679,7 +1679,7 @@
     "pk": 188
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "신사제2동"
@@ -1687,7 +1687,7 @@
     "pk": 189
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "증산동"
@@ -1695,7 +1695,7 @@
     "pk": 190
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "수색동"
@@ -1703,7 +1703,7 @@
     "pk": 191
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "진관동"
@@ -1711,7 +1711,7 @@
     "pk": 192
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "천연동"
@@ -1719,7 +1719,7 @@
     "pk": 193
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "북아현동"
@@ -1727,7 +1727,7 @@
     "pk": 194
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "충현동"
@@ -1735,7 +1735,7 @@
     "pk": 195
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "신촌동"
@@ -1743,7 +1743,7 @@
     "pk": 196
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "연희동"
@@ -1751,7 +1751,7 @@
     "pk": 197
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍제제1동"
@@ -1759,7 +1759,7 @@
     "pk": 198
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍제제3동"
@@ -1767,7 +1767,7 @@
     "pk": 199
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍제제2동"
@@ -1775,7 +1775,7 @@
     "pk": 200
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍은제1동"
@@ -1783,7 +1783,7 @@
     "pk": 201
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍은제2동"
@@ -1791,7 +1791,7 @@
     "pk": 202
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "남가좌제1동"
@@ -1799,7 +1799,7 @@
     "pk": 203
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "남가좌제2동"
@@ -1807,7 +1807,7 @@
     "pk": 204
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "북가좌제1동"
@@ -1815,7 +1815,7 @@
     "pk": 205
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "북가좌제2동"
@@ -1823,7 +1823,7 @@
     "pk": 206
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "아현동"
@@ -1831,7 +1831,7 @@
     "pk": 207
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "공덕동"
@@ -1839,7 +1839,7 @@
     "pk": 208
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "도화동"
@@ -1847,7 +1847,7 @@
     "pk": 209
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "용강동"
@@ -1855,7 +1855,7 @@
     "pk": 210
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "대흥동"
@@ -1863,7 +1863,7 @@
     "pk": 211
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "염리동"
@@ -1871,7 +1871,7 @@
     "pk": 212
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "신수동"
@@ -1879,7 +1879,7 @@
     "pk": 213
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "서강동"
@@ -1887,7 +1887,7 @@
     "pk": 214
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "서교동"
@@ -1895,7 +1895,7 @@
     "pk": 215
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "합정동"
@@ -1903,7 +1903,7 @@
     "pk": 216
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "망원제1동"
@@ -1911,7 +1911,7 @@
     "pk": 217
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "망원제2동"
@@ -1919,7 +1919,7 @@
     "pk": 218
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "연남동"
@@ -1927,7 +1927,7 @@
     "pk": 219
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "성산제1동"
@@ -1935,7 +1935,7 @@
     "pk": 220
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "성산제2동"
@@ -1943,7 +1943,7 @@
     "pk": 221
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "상암동"
@@ -1951,7 +1951,7 @@
     "pk": 222
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목1동"
@@ -1959,7 +1959,7 @@
     "pk": 223
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목2동"
@@ -1967,7 +1967,7 @@
     "pk": 224
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목3동"
@@ -1975,7 +1975,7 @@
     "pk": 225
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목4동"
@@ -1983,7 +1983,7 @@
     "pk": 226
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목5동"
@@ -1991,7 +1991,7 @@
     "pk": 227
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월1동"
@@ -1999,7 +1999,7 @@
     "pk": 228
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월2동"
@@ -2007,7 +2007,7 @@
     "pk": 229
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월3동"
@@ -2015,7 +2015,7 @@
     "pk": 230
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월4동"
@@ -2023,7 +2023,7 @@
     "pk": 231
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월5동"
@@ -2031,7 +2031,7 @@
     "pk": 232
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월6동"
@@ -2039,7 +2039,7 @@
     "pk": 233
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월7동"
@@ -2047,7 +2047,7 @@
     "pk": 234
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정1동"
@@ -2055,7 +2055,7 @@
     "pk": 235
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정2동"
@@ -2063,7 +2063,7 @@
     "pk": 236
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정3동"
@@ -2071,7 +2071,7 @@
     "pk": 237
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정4동"
@@ -2079,7 +2079,7 @@
     "pk": 238
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정6동"
@@ -2087,7 +2087,7 @@
     "pk": 239
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정7동"
@@ -2095,7 +2095,7 @@
     "pk": 240
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "염창동"
@@ -2103,7 +2103,7 @@
     "pk": 241
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "등촌제1동"
@@ -2111,7 +2111,7 @@
     "pk": 242
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "등촌제2동"
@@ -2119,7 +2119,7 @@
     "pk": 243
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "등촌제3동"
@@ -2127,7 +2127,7 @@
     "pk": 244
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제1동"
@@ -2135,7 +2135,7 @@
     "pk": 245
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제2동"
@@ -2143,7 +2143,7 @@
     "pk": 246
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제3동"
@@ -2151,7 +2151,7 @@
     "pk": 247
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제4동"
@@ -2159,7 +2159,7 @@
     "pk": 248
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡본동"
@@ -2167,7 +2167,7 @@
     "pk": 249
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제6동"
@@ -2175,7 +2175,7 @@
     "pk": 250
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡제8동"
@@ -2183,7 +2183,7 @@
     "pk": 251
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "가양제1동"
@@ -2191,7 +2191,7 @@
     "pk": 252
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "가양제2동"
@@ -2199,7 +2199,7 @@
     "pk": 253
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "가양제3동"
@@ -2207,7 +2207,7 @@
     "pk": 254
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "발산제1동"
@@ -2215,7 +2215,7 @@
     "pk": 255
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "우장산동"
@@ -2223,7 +2223,7 @@
     "pk": 256
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "공항동"
@@ -2231,7 +2231,7 @@
     "pk": 257
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "방화제1동"
@@ -2239,7 +2239,7 @@
     "pk": 258
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "방화제2동"
@@ -2247,7 +2247,7 @@
     "pk": 259
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "방화제3동"
@@ -2255,7 +2255,7 @@
     "pk": 260
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "신도림동"
@@ -2263,7 +2263,7 @@
     "pk": 261
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로제1동"
@@ -2271,7 +2271,7 @@
     "pk": 262
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로제2동"
@@ -2279,7 +2279,7 @@
     "pk": 263
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로제3동"
@@ -2287,7 +2287,7 @@
     "pk": 264
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로제4동"
@@ -2295,7 +2295,7 @@
     "pk": 265
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로제5동"
@@ -2303,7 +2303,7 @@
     "pk": 266
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "가리봉동"
@@ -2311,7 +2311,7 @@
     "pk": 267
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "고척제1동"
@@ -2319,7 +2319,7 @@
     "pk": 268
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "고척제2동"
@@ -2327,7 +2327,7 @@
     "pk": 269
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "개봉제1동"
@@ -2335,7 +2335,7 @@
     "pk": 270
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "개봉제2동"
@@ -2343,7 +2343,7 @@
     "pk": 271
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "개봉제3동"
@@ -2351,7 +2351,7 @@
     "pk": 272
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "오류제1동"
@@ -2359,7 +2359,7 @@
     "pk": 273
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "오류제2동"
@@ -2367,7 +2367,7 @@
     "pk": 274
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "수궁동"
@@ -2375,7 +2375,7 @@
     "pk": 275
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "가산동"
@@ -2383,7 +2383,7 @@
     "pk": 276
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "독산제1동"
@@ -2391,7 +2391,7 @@
     "pk": 277
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "독산제2동"
@@ -2399,7 +2399,7 @@
     "pk": 278
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "독산제3동"
@@ -2407,7 +2407,7 @@
     "pk": 279
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "독산제4동"
@@ -2415,7 +2415,7 @@
     "pk": 280
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥제1동"
@@ -2423,7 +2423,7 @@
     "pk": 281
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥제2동"
@@ -2431,7 +2431,7 @@
     "pk": 282
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥제3동"
@@ -2439,7 +2439,7 @@
     "pk": 283
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥제4동"
@@ -2447,7 +2447,7 @@
     "pk": 284
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥제5동"
@@ -2455,7 +2455,7 @@
     "pk": 285
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포본동"
@@ -2463,7 +2463,7 @@
     "pk": 286
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동"
@@ -2471,7 +2471,7 @@
     "pk": 287
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "여의동"
@@ -2479,7 +2479,7 @@
     "pk": 288
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산제1동"
@@ -2487,7 +2487,7 @@
     "pk": 289
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산제2동"
@@ -2495,7 +2495,7 @@
     "pk": 290
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "도림동"
@@ -2503,7 +2503,7 @@
     "pk": 291
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동"
@@ -2511,7 +2511,7 @@
     "pk": 292
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평제1동"
@@ -2519,7 +2519,7 @@
     "pk": 293
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평제2동"
@@ -2527,7 +2527,7 @@
     "pk": 294
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제1동"
@@ -2535,7 +2535,7 @@
     "pk": 295
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제3동"
@@ -2543,7 +2543,7 @@
     "pk": 296
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제4동"
@@ -2551,7 +2551,7 @@
     "pk": 297
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제5동"
@@ -2559,7 +2559,7 @@
     "pk": 298
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제6동"
@@ -2567,7 +2567,7 @@
     "pk": 299
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길제7동"
@@ -2575,7 +2575,7 @@
     "pk": 300
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "대림제1동"
@@ -2583,7 +2583,7 @@
     "pk": 301
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "대림제2동"
@@ -2591,7 +2591,7 @@
     "pk": 302
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "대림제3동"
@@ -2599,7 +2599,7 @@
     "pk": 303
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "노량진제1동"
@@ -2607,7 +2607,7 @@
     "pk": 304
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "노량진제2동"
@@ -2615,7 +2615,7 @@
     "pk": 305
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도제1동"
@@ -2623,7 +2623,7 @@
     "pk": 306
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도제2동"
@@ -2631,7 +2631,7 @@
     "pk": 307
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도제3동"
@@ -2639,7 +2639,7 @@
     "pk": 308
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도제4동"
@@ -2647,7 +2647,7 @@
     "pk": 309
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "흑석동"
@@ -2655,7 +2655,7 @@
     "pk": 310
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당제1동"
@@ -2663,7 +2663,7 @@
     "pk": 311
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당제2동"
@@ -2671,7 +2671,7 @@
     "pk": 312
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당제3동"
@@ -2679,7 +2679,7 @@
     "pk": 313
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당제4동"
@@ -2687,7 +2687,7 @@
     "pk": 314
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당제5동"
@@ -2695,7 +2695,7 @@
     "pk": 315
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "대방동"
@@ -2703,7 +2703,7 @@
     "pk": 316
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "신대방제1동"
@@ -2711,7 +2711,7 @@
     "pk": 317
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "신대방제2동"
@@ -2719,7 +2719,7 @@
     "pk": 318
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "보라매동"
@@ -2727,7 +2727,7 @@
     "pk": 319
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "청림동"
@@ -2735,7 +2735,7 @@
     "pk": 320
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "성현동"
@@ -2743,7 +2743,7 @@
     "pk": 321
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "행운동"
@@ -2751,7 +2751,7 @@
     "pk": 322
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "낙성대동"
@@ -2759,7 +2759,7 @@
     "pk": 323
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "청룡동"
@@ -2767,7 +2767,7 @@
     "pk": 324
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "은천동"
@@ -2775,7 +2775,7 @@
     "pk": 325
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "중앙동"
@@ -2783,7 +2783,7 @@
     "pk": 326
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "인헌동"
@@ -2791,7 +2791,7 @@
     "pk": 327
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "남현동"
@@ -2799,7 +2799,7 @@
     "pk": 328
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "서원동"
@@ -2807,7 +2807,7 @@
     "pk": 329
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "신원동"
@@ -2815,7 +2815,7 @@
     "pk": 330
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "서림동"
@@ -2823,7 +2823,7 @@
     "pk": 331
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "신사동"
@@ -2831,7 +2831,7 @@
     "pk": 332
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "신림동"
@@ -2839,7 +2839,7 @@
     "pk": 333
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "난향동"
@@ -2847,7 +2847,7 @@
     "pk": 334
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "조원동"
@@ -2855,7 +2855,7 @@
     "pk": 335
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "대학동"
@@ -2863,7 +2863,7 @@
     "pk": 336
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "삼성동"
@@ -2871,7 +2871,7 @@
     "pk": 337
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "미성동"
@@ -2879,7 +2879,7 @@
     "pk": 338
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "난곡동"
@@ -2887,7 +2887,7 @@
     "pk": 339
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "서초1동"
@@ -2895,7 +2895,7 @@
     "pk": 340
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "서초2동"
@@ -2903,7 +2903,7 @@
     "pk": 341
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "서초3동"
@@ -2911,7 +2911,7 @@
     "pk": 342
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "서초4동"
@@ -2919,7 +2919,7 @@
     "pk": 343
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "잠원동"
@@ -2927,7 +2927,7 @@
     "pk": 344
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포본동"
@@ -2935,7 +2935,7 @@
     "pk": 345
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포1동"
@@ -2943,7 +2943,7 @@
     "pk": 346
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포2동"
@@ -2951,7 +2951,7 @@
     "pk": 347
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포3동"
@@ -2959,7 +2959,7 @@
     "pk": 348
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포4동"
@@ -2967,7 +2967,7 @@
     "pk": 349
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배본동"
@@ -2975,7 +2975,7 @@
     "pk": 350
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배1동"
@@ -2983,7 +2983,7 @@
     "pk": 351
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배2동"
@@ -2991,7 +2991,7 @@
     "pk": 352
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배3동"
@@ -2999,7 +2999,7 @@
     "pk": 353
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배4동"
@@ -3007,7 +3007,7 @@
     "pk": 354
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "양재1동"
@@ -3015,7 +3015,7 @@
     "pk": 355
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "양재2동"
@@ -3023,7 +3023,7 @@
     "pk": 356
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "내곡동"
@@ -3031,7 +3031,7 @@
     "pk": 357
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "신사동"
@@ -3039,7 +3039,7 @@
     "pk": 358
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "논현1동"
@@ -3047,7 +3047,7 @@
     "pk": 359
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "논현2동"
@@ -3055,7 +3055,7 @@
     "pk": 360
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "압구정동"
@@ -3063,7 +3063,7 @@
     "pk": 361
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "청담동"
@@ -3071,7 +3071,7 @@
     "pk": 362
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "삼성1동"
@@ -3079,7 +3079,7 @@
     "pk": 363
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "삼성2동"
@@ -3087,7 +3087,7 @@
     "pk": 364
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "대치1동"
@@ -3095,7 +3095,7 @@
     "pk": 365
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "대치2동"
@@ -3103,7 +3103,7 @@
     "pk": 366
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "대치4동"
@@ -3111,7 +3111,7 @@
     "pk": 367
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "역삼1동"
@@ -3119,7 +3119,7 @@
     "pk": 368
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "역삼2동"
@@ -3127,7 +3127,7 @@
     "pk": 369
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "도곡1동"
@@ -3135,7 +3135,7 @@
     "pk": 370
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "도곡2동"
@@ -3143,7 +3143,7 @@
     "pk": 371
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "개포1동"
@@ -3151,7 +3151,7 @@
     "pk": 372
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "개포2동"
@@ -3159,7 +3159,7 @@
     "pk": 373
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "개포4동"
@@ -3167,7 +3167,7 @@
     "pk": 374
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "세곡동"
@@ -3175,7 +3175,7 @@
     "pk": 375
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "일원본동"
@@ -3183,7 +3183,7 @@
     "pk": 376
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "일원1동"
@@ -3191,7 +3191,7 @@
     "pk": 377
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "일원2동"
@@ -3199,7 +3199,7 @@
     "pk": 378
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "수서동"
@@ -3207,7 +3207,7 @@
     "pk": 379
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "풍납1동"
@@ -3215,7 +3215,7 @@
     "pk": 380
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "풍납2동"
@@ -3223,7 +3223,7 @@
     "pk": 381
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "거여1동"
@@ -3231,7 +3231,7 @@
     "pk": 382
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "거여2동"
@@ -3239,7 +3239,7 @@
     "pk": 383
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "마천1동"
@@ -3247,7 +3247,7 @@
     "pk": 384
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "마천2동"
@@ -3255,7 +3255,7 @@
     "pk": 385
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "방이1동"
@@ -3263,7 +3263,7 @@
     "pk": 386
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "방이2동"
@@ -3271,7 +3271,7 @@
     "pk": 387
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "오륜동"
@@ -3279,7 +3279,7 @@
     "pk": 388
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "오금동"
@@ -3287,7 +3287,7 @@
     "pk": 389
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "송파1동"
@@ -3295,7 +3295,7 @@
     "pk": 390
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "송파2동"
@@ -3303,7 +3303,7 @@
     "pk": 391
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "석촌동"
@@ -3311,7 +3311,7 @@
     "pk": 392
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "삼전동"
@@ -3319,7 +3319,7 @@
     "pk": 393
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "가락본동"
@@ -3327,7 +3327,7 @@
     "pk": 394
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "가락1동"
@@ -3335,7 +3335,7 @@
     "pk": 395
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "가락2동"
@@ -3343,7 +3343,7 @@
     "pk": 396
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "문정1동"
@@ -3351,7 +3351,7 @@
     "pk": 397
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "문정2동"
@@ -3359,7 +3359,7 @@
     "pk": 398
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "장지동"
@@ -3367,7 +3367,7 @@
     "pk": 399
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "위례동"
@@ -3375,7 +3375,7 @@
     "pk": 400
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실본동"
@@ -3383,7 +3383,7 @@
     "pk": 401
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실2동"
@@ -3391,7 +3391,7 @@
     "pk": 402
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실3동"
@@ -3399,7 +3399,7 @@
     "pk": 403
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실4동"
@@ -3407,7 +3407,7 @@
     "pk": 404
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실6동"
@@ -3415,7 +3415,7 @@
     "pk": 405
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실7동"
@@ -3423,7 +3423,7 @@
     "pk": 406
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "강일동"
@@ -3431,7 +3431,7 @@
     "pk": 407
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "상일동"
@@ -3439,7 +3439,7 @@
     "pk": 408
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "명일제1동"
@@ -3447,7 +3447,7 @@
     "pk": 409
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "명일제2동"
@@ -3455,7 +3455,7 @@
     "pk": 410
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "고덕제1동"
@@ -3463,7 +3463,7 @@
     "pk": 411
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "고덕제2동"
@@ -3471,7 +3471,7 @@
     "pk": 412
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "암사제1동"
@@ -3479,7 +3479,7 @@
     "pk": 413
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "암사제2동"
@@ -3487,7 +3487,7 @@
     "pk": 414
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "암사제3동"
@@ -3495,7 +3495,7 @@
     "pk": 415
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "천호제1동"
@@ -3503,7 +3503,7 @@
     "pk": 416
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "천호제2동"
@@ -3511,7 +3511,7 @@
     "pk": 417
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "천호제3동"
@@ -3519,7 +3519,7 @@
     "pk": 418
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "성내제1동"
@@ -3527,7 +3527,7 @@
     "pk": 419
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "성내제2동"
@@ -3535,7 +3535,7 @@
     "pk": 420
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "성내제3동"
@@ -3543,7 +3543,7 @@
     "pk": 421
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "길동"
@@ -3551,7 +3551,7 @@
     "pk": 422
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "둔촌제1동"
@@ -3559,7 +3559,7 @@
     "pk": 423
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "둔촌제2동"
@@ -3567,7 +3567,7 @@
     "pk": 424
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "청운동"
@@ -3575,7 +3575,7 @@
     "pk": 425
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "신교동"
@@ -3583,7 +3583,7 @@
     "pk": 426
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "궁정동"
@@ -3591,7 +3591,7 @@
     "pk": 427
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "효자동"
@@ -3599,7 +3599,7 @@
     "pk": 428
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "창성동"
@@ -3607,7 +3607,7 @@
     "pk": 429
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "통의동"
@@ -3615,7 +3615,7 @@
     "pk": 430
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "적선동"
@@ -3623,7 +3623,7 @@
     "pk": 431
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "통인동"
@@ -3631,7 +3631,7 @@
     "pk": 432
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "누상동"
@@ -3639,7 +3639,7 @@
     "pk": 433
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "누하동"
@@ -3647,7 +3647,7 @@
     "pk": 434
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "옥인동"
@@ -3655,7 +3655,7 @@
     "pk": 435
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "체부동"
@@ -3663,7 +3663,7 @@
     "pk": 436
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "필운동"
@@ -3671,7 +3671,7 @@
     "pk": 437
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "내자동"
@@ -3679,7 +3679,7 @@
     "pk": 438
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "도렴동"
@@ -3687,7 +3687,7 @@
     "pk": 439
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "당주동"
@@ -3695,7 +3695,7 @@
     "pk": 440
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "내수동"
@@ -3703,7 +3703,7 @@
     "pk": 441
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "세종로"
@@ -3711,7 +3711,7 @@
     "pk": 442
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "신문로1가"
@@ -3719,7 +3719,7 @@
     "pk": 443
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "신문로2가"
@@ -3727,7 +3727,7 @@
     "pk": 444
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "청진동"
@@ -3735,7 +3735,7 @@
     "pk": 445
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "서린동"
@@ -3743,7 +3743,7 @@
     "pk": 446
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "수송동"
@@ -3751,7 +3751,7 @@
     "pk": 447
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "중학동"
@@ -3759,7 +3759,7 @@
     "pk": 448
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로1가"
@@ -3767,7 +3767,7 @@
     "pk": 449
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "공평동"
@@ -3775,7 +3775,7 @@
     "pk": 450
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "관훈동"
@@ -3783,7 +3783,7 @@
     "pk": 451
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "견지동"
@@ -3791,7 +3791,7 @@
     "pk": 452
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "와룡동"
@@ -3799,7 +3799,7 @@
     "pk": 453
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "권농동"
@@ -3807,7 +3807,7 @@
     "pk": 454
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "운니동"
@@ -3815,7 +3815,7 @@
     "pk": 455
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "익선동"
@@ -3823,7 +3823,7 @@
     "pk": 456
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "경운동"
@@ -3831,7 +3831,7 @@
     "pk": 457
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "관철동"
@@ -3839,7 +3839,7 @@
     "pk": 458
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "인사동"
@@ -3847,7 +3847,7 @@
     "pk": 459
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "낙원동"
@@ -3855,7 +3855,7 @@
     "pk": 460
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로2가"
@@ -3863,7 +3863,7 @@
     "pk": 461
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "팔판동"
@@ -3871,7 +3871,7 @@
     "pk": 462
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "안국동"
@@ -3879,7 +3879,7 @@
     "pk": 463
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "소격동"
@@ -3887,7 +3887,7 @@
     "pk": 464
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "화동"
@@ -3895,7 +3895,7 @@
     "pk": 465
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "사간동"
@@ -3903,7 +3903,7 @@
     "pk": 466
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "송현동"
@@ -3911,7 +3911,7 @@
     "pk": 467
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "재동"
@@ -3919,7 +3919,7 @@
     "pk": 468
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "계동"
@@ -3927,7 +3927,7 @@
     "pk": 469
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "원서동"
@@ -3935,7 +3935,7 @@
     "pk": 470
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "훈정동"
@@ -3943,7 +3943,7 @@
     "pk": 471
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "묘동"
@@ -3951,7 +3951,7 @@
     "pk": 472
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "봉익동"
@@ -3959,7 +3959,7 @@
     "pk": 473
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "돈의동"
@@ -3967,7 +3967,7 @@
     "pk": 474
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "장사동"
@@ -3975,7 +3975,7 @@
     "pk": 475
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "관수동"
@@ -3983,7 +3983,7 @@
     "pk": 476
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로3가"
@@ -3991,7 +3991,7 @@
     "pk": 477
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "인의동"
@@ -3999,7 +3999,7 @@
     "pk": 478
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "예지동"
@@ -4007,7 +4007,7 @@
     "pk": 479
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "원남동"
@@ -4015,7 +4015,7 @@
     "pk": 480
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "연지동"
@@ -4023,7 +4023,7 @@
     "pk": 481
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로4가"
@@ -4031,7 +4031,7 @@
     "pk": 482
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "효제동"
@@ -4039,7 +4039,7 @@
     "pk": 483
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로5가"
@@ -4047,7 +4047,7 @@
     "pk": 484
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "종로6가"
@@ -4055,7 +4055,7 @@
     "pk": 485
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "연건동"
@@ -4063,7 +4063,7 @@
     "pk": 486
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "충신동"
@@ -4071,7 +4071,7 @@
     "pk": 487
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "동숭동"
@@ -4079,7 +4079,7 @@
     "pk": 488
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "명륜1가"
@@ -4087,7 +4087,7 @@
     "pk": 489
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "명륜2가"
@@ -4095,7 +4095,7 @@
     "pk": 490
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "명륜4가"
@@ -4103,7 +4103,7 @@
     "pk": 491
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "명륜3가"
@@ -4111,7 +4111,7 @@
     "pk": 492
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "창신동"
@@ -4119,7 +4119,7 @@
     "pk": 493
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "숭인동"
@@ -4127,7 +4127,7 @@
     "pk": 494
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "평동"
@@ -4135,7 +4135,7 @@
     "pk": 495
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "송월동"
@@ -4143,7 +4143,7 @@
     "pk": 496
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "홍파동"
@@ -4151,7 +4151,7 @@
     "pk": 497
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "교북동"
@@ -4159,7 +4159,7 @@
     "pk": 498
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "행촌동"
@@ -4167,7 +4167,7 @@
     "pk": 499
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "구기동"
@@ -4175,7 +4175,7 @@
     "pk": 500
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "홍지동"
@@ -4183,7 +4183,7 @@
     "pk": 501
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 1,
       "name": "신영동"
@@ -4191,7 +4191,7 @@
     "pk": 502
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "무교동"
@@ -4199,7 +4199,7 @@
     "pk": 503
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "다동"
@@ -4207,7 +4207,7 @@
     "pk": 504
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "태평로1가"
@@ -4215,7 +4215,7 @@
     "pk": 505
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로1가"
@@ -4223,7 +4223,7 @@
     "pk": 506
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로2가"
@@ -4231,7 +4231,7 @@
     "pk": 507
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남대문로1가"
@@ -4239,7 +4239,7 @@
     "pk": 508
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "삼각동"
@@ -4247,7 +4247,7 @@
     "pk": 509
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "수하동"
@@ -4255,7 +4255,7 @@
     "pk": 510
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "장교동"
@@ -4263,7 +4263,7 @@
     "pk": 511
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "수표동"
@@ -4271,7 +4271,7 @@
     "pk": 512
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남창동"
@@ -4279,7 +4279,7 @@
     "pk": 513
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "북창동"
@@ -4287,7 +4287,7 @@
     "pk": 514
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "태평로2가"
@@ -4295,7 +4295,7 @@
     "pk": 515
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남대문로2가"
@@ -4303,7 +4303,7 @@
     "pk": 516
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남대문로3가"
@@ -4311,7 +4311,7 @@
     "pk": 517
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남대문로4가"
@@ -4319,7 +4319,7 @@
     "pk": 518
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남대문로5가"
@@ -4327,7 +4327,7 @@
     "pk": 519
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "봉래동1가"
@@ -4335,7 +4335,7 @@
     "pk": 520
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "봉래동2가"
@@ -4343,7 +4343,7 @@
     "pk": 521
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "회현동1가"
@@ -4351,7 +4351,7 @@
     "pk": 522
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "회현동2가"
@@ -4359,7 +4359,7 @@
     "pk": 523
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "회현동3가"
@@ -4367,7 +4367,7 @@
     "pk": 524
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충무로1가"
@@ -4375,7 +4375,7 @@
     "pk": 525
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충무로2가"
@@ -4383,7 +4383,7 @@
     "pk": 526
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "명동1가"
@@ -4391,7 +4391,7 @@
     "pk": 527
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "명동2가"
@@ -4399,7 +4399,7 @@
     "pk": 528
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남산동1가"
@@ -4407,7 +4407,7 @@
     "pk": 529
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남산동2가"
@@ -4415,7 +4415,7 @@
     "pk": 530
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남산동3가"
@@ -4423,7 +4423,7 @@
     "pk": 531
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "저동1가"
@@ -4431,7 +4431,7 @@
     "pk": 532
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충무로4가"
@@ -4439,7 +4439,7 @@
     "pk": 533
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충무로5가"
@@ -4447,7 +4447,7 @@
     "pk": 534
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "인현동2가"
@@ -4455,7 +4455,7 @@
     "pk": 535
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "예관동"
@@ -4463,7 +4463,7 @@
     "pk": 536
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "묵정동"
@@ -4471,7 +4471,7 @@
     "pk": 537
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "필동1가"
@@ -4479,7 +4479,7 @@
     "pk": 538
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "필동2가"
@@ -4487,7 +4487,7 @@
     "pk": 539
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "필동3가"
@@ -4495,7 +4495,7 @@
     "pk": 540
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "남학동"
@@ -4503,7 +4503,7 @@
     "pk": 541
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "주자동"
@@ -4511,7 +4511,7 @@
     "pk": 542
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "예장동"
@@ -4519,7 +4519,7 @@
     "pk": 543
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "장충동1가"
@@ -4527,7 +4527,7 @@
     "pk": 544
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "장충동2가"
@@ -4535,7 +4535,7 @@
     "pk": 545
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "광희동1가"
@@ -4543,7 +4543,7 @@
     "pk": 546
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "광희동2가"
@@ -4551,7 +4551,7 @@
     "pk": 547
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "쌍림동"
@@ -4559,7 +4559,7 @@
     "pk": 548
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로6가"
@@ -4567,7 +4567,7 @@
     "pk": 549
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로7가"
@@ -4575,7 +4575,7 @@
     "pk": 550
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로4가"
@@ -4583,7 +4583,7 @@
     "pk": 551
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로5가"
@@ -4591,7 +4591,7 @@
     "pk": 552
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "주교동"
@@ -4599,7 +4599,7 @@
     "pk": 553
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "방산동"
@@ -4607,7 +4607,7 @@
     "pk": 554
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "오장동"
@@ -4615,7 +4615,7 @@
     "pk": 555
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "을지로3가"
@@ -4623,7 +4623,7 @@
     "pk": 556
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "입정동"
@@ -4631,7 +4631,7 @@
     "pk": 557
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "산림동"
@@ -4639,7 +4639,7 @@
     "pk": 558
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충무로3가"
@@ -4647,7 +4647,7 @@
     "pk": 559
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "초동"
@@ -4655,7 +4655,7 @@
     "pk": 560
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "인현동1가"
@@ -4663,7 +4663,7 @@
     "pk": 561
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "저동2가"
@@ -4671,7 +4671,7 @@
     "pk": 562
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "흥인동"
@@ -4679,7 +4679,7 @@
     "pk": 563
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "무학동"
@@ -4687,7 +4687,7 @@
     "pk": 564
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "서소문동"
@@ -4695,7 +4695,7 @@
     "pk": 565
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "정동"
@@ -4703,7 +4703,7 @@
     "pk": 566
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "순화동"
@@ -4711,7 +4711,7 @@
     "pk": 567
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "의주로1가"
@@ -4719,7 +4719,7 @@
     "pk": 568
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "충정로1가"
@@ -4727,7 +4727,7 @@
     "pk": 569
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "의주로2가"
@@ -4735,7 +4735,7 @@
     "pk": 570
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "만리동1가"
@@ -4743,7 +4743,7 @@
     "pk": 571
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 2,
       "name": "만리동2가"
@@ -4751,7 +4751,7 @@
     "pk": 572
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동2가"
@@ -4759,7 +4759,7 @@
     "pk": 573
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동4가"
@@ -4767,7 +4767,7 @@
     "pk": 574
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "갈월동"
@@ -4775,7 +4775,7 @@
     "pk": 575
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동1가"
@@ -4783,7 +4783,7 @@
     "pk": 576
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "동자동"
@@ -4791,7 +4791,7 @@
     "pk": 577
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "서계동"
@@ -4799,7 +4799,7 @@
     "pk": 578
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "청파동1가"
@@ -4807,7 +4807,7 @@
     "pk": 579
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "청파동2가"
@@ -4815,7 +4815,7 @@
     "pk": 580
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "청파동3가"
@@ -4823,7 +4823,7 @@
     "pk": 581
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로1가"
@@ -4831,7 +4831,7 @@
     "pk": 582
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로2가"
@@ -4839,7 +4839,7 @@
     "pk": 583
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "신창동"
@@ -4847,7 +4847,7 @@
     "pk": 584
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "산천동"
@@ -4855,7 +4855,7 @@
     "pk": 585
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "청암동"
@@ -4863,7 +4863,7 @@
     "pk": 586
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로3가"
@@ -4871,7 +4871,7 @@
     "pk": 587
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "원효로4가"
@@ -4879,7 +4879,7 @@
     "pk": 588
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "도원동"
@@ -4887,7 +4887,7 @@
     "pk": 589
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "문배동"
@@ -4895,7 +4895,7 @@
     "pk": 590
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "신계동"
@@ -4903,7 +4903,7 @@
     "pk": 591
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "한강로1가"
@@ -4911,7 +4911,7 @@
     "pk": 592
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "한강로2가"
@@ -4919,7 +4919,7 @@
     "pk": 593
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동3가"
@@ -4927,7 +4927,7 @@
     "pk": 594
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동5가"
@@ -4935,7 +4935,7 @@
     "pk": 595
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "한강로3가"
@@ -4943,7 +4943,7 @@
     "pk": 596
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이촌동"
@@ -4951,7 +4951,7 @@
     "pk": 597
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "이태원동"
@@ -4959,7 +4959,7 @@
     "pk": 598
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "동빙고동"
@@ -4967,7 +4967,7 @@
     "pk": 599
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "주성동"
@@ -4975,7 +4975,7 @@
     "pk": 600
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 3,
       "name": "용산동6가"
@@ -4983,7 +4983,7 @@
     "pk": 601
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "상왕십리동"
@@ -4991,7 +4991,7 @@
     "pk": 602
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "하왕십리동"
@@ -4999,7 +4999,7 @@
     "pk": 603
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "홍익동"
@@ -5007,7 +5007,7 @@
     "pk": 604
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "도선동"
@@ -5015,7 +5015,7 @@
     "pk": 605
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "행당동"
@@ -5023,7 +5023,7 @@
     "pk": 606
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호동1가"
@@ -5031,7 +5031,7 @@
     "pk": 607
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호동2가"
@@ -5039,7 +5039,7 @@
     "pk": 608
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호동3가"
@@ -5047,7 +5047,7 @@
     "pk": 609
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "금호동4가"
@@ -5055,7 +5055,7 @@
     "pk": 610
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수동1가"
@@ -5063,7 +5063,7 @@
     "pk": 611
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 4,
       "name": "성수동2가"
@@ -5071,7 +5071,7 @@
     "pk": 612
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "중곡동"
@@ -5079,7 +5079,7 @@
     "pk": 613
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "구의동"
@@ -5087,7 +5087,7 @@
     "pk": 614
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 5,
       "name": "자양동"
@@ -5095,7 +5095,7 @@
     "pk": 615
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "신설동"
@@ -5103,7 +5103,7 @@
     "pk": 616
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "용두동"
@@ -5111,7 +5111,7 @@
     "pk": 617
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "전농동"
@@ -5119,7 +5119,7 @@
     "pk": 618
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "답십리동"
@@ -5127,7 +5127,7 @@
     "pk": 619
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "장안동"
@@ -5135,7 +5135,7 @@
     "pk": 620
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "휘경동"
@@ -5143,7 +5143,7 @@
     "pk": 621
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 6,
       "name": "이문동"
@@ -5151,7 +5151,7 @@
     "pk": 622
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "면목동"
@@ -5159,7 +5159,7 @@
     "pk": 623
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "상봉동"
@@ -5167,7 +5167,7 @@
     "pk": 624
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "중화동"
@@ -5175,7 +5175,7 @@
     "pk": 625
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "묵동"
@@ -5183,7 +5183,7 @@
     "pk": 626
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "망우동"
@@ -5191,7 +5191,7 @@
     "pk": 627
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 7,
       "name": "신내동"
@@ -5199,7 +5199,7 @@
     "pk": 628
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "성북동1가"
@@ -5207,7 +5207,7 @@
     "pk": 629
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "돈암동"
@@ -5215,7 +5215,7 @@
     "pk": 630
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동1가"
@@ -5223,7 +5223,7 @@
     "pk": 631
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동2가"
@@ -5231,7 +5231,7 @@
     "pk": 632
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동3가"
@@ -5239,7 +5239,7 @@
     "pk": 633
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동4가"
@@ -5247,7 +5247,7 @@
     "pk": 634
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동5가"
@@ -5255,7 +5255,7 @@
     "pk": 635
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동6가"
@@ -5263,7 +5263,7 @@
     "pk": 636
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동소문동7가"
@@ -5271,7 +5271,7 @@
     "pk": 637
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동1가"
@@ -5279,7 +5279,7 @@
     "pk": 638
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동2가"
@@ -5287,7 +5287,7 @@
     "pk": 639
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동3가"
@@ -5295,7 +5295,7 @@
     "pk": 640
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동4가"
@@ -5303,7 +5303,7 @@
     "pk": 641
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "삼선동5가"
@@ -5311,7 +5311,7 @@
     "pk": 642
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동1가"
@@ -5319,7 +5319,7 @@
     "pk": 643
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동2가"
@@ -5327,7 +5327,7 @@
     "pk": 644
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동3가"
@@ -5335,7 +5335,7 @@
     "pk": 645
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동4가"
@@ -5343,7 +5343,7 @@
     "pk": 646
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "동선동5가"
@@ -5351,7 +5351,7 @@
     "pk": 647
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동1가"
@@ -5359,7 +5359,7 @@
     "pk": 648
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동2가"
@@ -5367,7 +5367,7 @@
     "pk": 649
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동3가"
@@ -5375,7 +5375,7 @@
     "pk": 650
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동4가"
@@ -5383,7 +5383,7 @@
     "pk": 651
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "안암동5가"
@@ -5391,7 +5391,7 @@
     "pk": 652
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동4가"
@@ -5399,7 +5399,7 @@
     "pk": 653
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동5가"
@@ -5407,7 +5407,7 @@
     "pk": 654
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동6가"
@@ -5415,7 +5415,7 @@
     "pk": 655
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동7가"
@@ -5423,7 +5423,7 @@
     "pk": 656
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동1가"
@@ -5431,7 +5431,7 @@
     "pk": 657
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동2가"
@@ -5439,7 +5439,7 @@
     "pk": 658
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "보문동3가"
@@ -5447,7 +5447,7 @@
     "pk": 659
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "정릉동"
@@ -5455,7 +5455,7 @@
     "pk": 660
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "길음동"
@@ -5463,7 +5463,7 @@
     "pk": 661
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "하월곡동"
@@ -5471,7 +5471,7 @@
     "pk": 662
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "상월곡동"
@@ -5479,7 +5479,7 @@
     "pk": 663
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 8,
       "name": "장위동"
@@ -5487,7 +5487,7 @@
     "pk": 664
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "번동"
@@ -5495,7 +5495,7 @@
     "pk": 665
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 9,
       "name": "수유동"
@@ -5503,7 +5503,7 @@
     "pk": 666
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "쌍문동"
@@ -5511,7 +5511,7 @@
     "pk": 667
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "방학동"
@@ -5519,7 +5519,7 @@
     "pk": 668
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "창동"
@@ -5527,7 +5527,7 @@
     "pk": 669
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 10,
       "name": "도봉동"
@@ -5535,7 +5535,7 @@
     "pk": 670
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "월계동"
@@ -5543,7 +5543,7 @@
     "pk": 671
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "공릉동"
@@ -5551,7 +5551,7 @@
     "pk": 672
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "하계동"
@@ -5559,7 +5559,7 @@
     "pk": 673
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "상계동"
@@ -5567,7 +5567,7 @@
     "pk": 674
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 11,
       "name": "중계동"
@@ -5575,7 +5575,7 @@
     "pk": 675
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "불광동"
@@ -5583,7 +5583,7 @@
     "pk": 676
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "갈현동"
@@ -5591,7 +5591,7 @@
     "pk": 677
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "응암동"
@@ -5599,7 +5599,7 @@
     "pk": 678
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 12,
       "name": "신사동"
@@ -5607,7 +5607,7 @@
     "pk": 679
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "충정로2가"
@@ -5615,7 +5615,7 @@
     "pk": 680
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "충정로3가"
@@ -5623,7 +5623,7 @@
     "pk": 681
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "합동"
@@ -5631,7 +5631,7 @@
     "pk": 682
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "미근동"
@@ -5639,7 +5639,7 @@
     "pk": 683
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "냉천동"
@@ -5647,7 +5647,7 @@
     "pk": 684
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "옥천동"
@@ -5655,7 +5655,7 @@
     "pk": 685
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "영천동"
@@ -5663,7 +5663,7 @@
     "pk": 686
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "현저동"
@@ -5671,7 +5671,7 @@
     "pk": 687
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍제동"
@@ -5679,7 +5679,7 @@
     "pk": 688
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "대현동"
@@ -5687,7 +5687,7 @@
     "pk": 689
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "대신동"
@@ -5695,7 +5695,7 @@
     "pk": 690
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "봉원동"
@@ -5703,7 +5703,7 @@
     "pk": 691
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "창천동"
@@ -5711,7 +5711,7 @@
     "pk": 692
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "홍은동"
@@ -5719,7 +5719,7 @@
     "pk": 693
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "북가좌동"
@@ -5727,7 +5727,7 @@
     "pk": 694
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 13,
       "name": "남가좌동"
@@ -5735,7 +5735,7 @@
     "pk": 695
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "신공덕동"
@@ -5743,7 +5743,7 @@
     "pk": 696
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "토정동"
@@ -5751,7 +5751,7 @@
     "pk": 697
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "마포동"
@@ -5759,7 +5759,7 @@
     "pk": 698
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "노고산동"
@@ -5767,7 +5767,7 @@
     "pk": 699
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "현석동"
@@ -5775,7 +5775,7 @@
     "pk": 700
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "구수동"
@@ -5783,7 +5783,7 @@
     "pk": 701
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "창전동"
@@ -5791,7 +5791,7 @@
     "pk": 702
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "상수동"
@@ -5799,7 +5799,7 @@
     "pk": 703
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "하중동"
@@ -5807,7 +5807,7 @@
     "pk": 704
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "신정동"
@@ -5815,7 +5815,7 @@
     "pk": 705
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "당인동"
@@ -5823,7 +5823,7 @@
     "pk": 706
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "동교동"
@@ -5831,7 +5831,7 @@
     "pk": 707
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "망원동"
@@ -5839,7 +5839,7 @@
     "pk": 708
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "성산동"
@@ -5847,7 +5847,7 @@
     "pk": 709
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 14,
       "name": "중동"
@@ -5855,7 +5855,7 @@
     "pk": 710
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신정동"
@@ -5863,7 +5863,7 @@
     "pk": 711
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "목동"
@@ -5871,7 +5871,7 @@
     "pk": 712
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 15,
       "name": "신월동"
@@ -5879,7 +5879,7 @@
     "pk": 713
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "등촌동"
@@ -5887,7 +5887,7 @@
     "pk": 714
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "화곡동"
@@ -5895,7 +5895,7 @@
     "pk": 715
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "가양동"
@@ -5903,7 +5903,7 @@
     "pk": 716
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "마곡동"
@@ -5911,7 +5911,7 @@
     "pk": 717
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "내발산동"
@@ -5919,7 +5919,7 @@
     "pk": 718
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "외발산동"
@@ -5927,7 +5927,7 @@
     "pk": 719
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "방화동"
@@ -5935,7 +5935,7 @@
     "pk": 720
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "개화동"
@@ -5943,7 +5943,7 @@
     "pk": 721
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "과해동"
@@ -5951,7 +5951,7 @@
     "pk": 722
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "오곡동"
@@ -5959,7 +5959,7 @@
     "pk": 723
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 16,
       "name": "오쇠동"
@@ -5967,7 +5967,7 @@
     "pk": 724
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "구로동"
@@ -5975,7 +5975,7 @@
     "pk": 725
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "고척동"
@@ -5983,7 +5983,7 @@
     "pk": 726
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "개봉동"
@@ -5991,7 +5991,7 @@
     "pk": 727
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "오류동"
@@ -5999,7 +5999,7 @@
     "pk": 728
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "궁동"
@@ -6007,7 +6007,7 @@
     "pk": 729
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "온수동"
@@ -6015,7 +6015,7 @@
     "pk": 730
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "천왕동"
@@ -6023,7 +6023,7 @@
     "pk": 731
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 17,
       "name": "항동"
@@ -6031,7 +6031,7 @@
     "pk": 732
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "독산동"
@@ -6039,7 +6039,7 @@
     "pk": 733
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 18,
       "name": "시흥동"
@@ -6047,7 +6047,7 @@
     "pk": 734
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동1가"
@@ -6055,7 +6055,7 @@
     "pk": 735
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동2가"
@@ -6063,7 +6063,7 @@
     "pk": 736
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동3가"
@@ -6071,7 +6071,7 @@
     "pk": 737
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동4가"
@@ -6079,7 +6079,7 @@
     "pk": 738
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동5가"
@@ -6087,7 +6087,7 @@
     "pk": 739
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동6가"
@@ -6095,7 +6095,7 @@
     "pk": 740
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동7가"
@@ -6103,7 +6103,7 @@
     "pk": 741
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "영등포동8가"
@@ -6111,7 +6111,7 @@
     "pk": 742
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "여의도동"
@@ -6119,7 +6119,7 @@
     "pk": 743
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동1가"
@@ -6127,7 +6127,7 @@
     "pk": 744
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동2가"
@@ -6135,7 +6135,7 @@
     "pk": 745
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동3가"
@@ -6143,7 +6143,7 @@
     "pk": 746
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동4가"
@@ -6151,7 +6151,7 @@
     "pk": 747
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동5가"
@@ -6159,7 +6159,7 @@
     "pk": 748
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동6가"
@@ -6167,7 +6167,7 @@
     "pk": 749
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "당산동"
@@ -6175,7 +6175,7 @@
     "pk": 750
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동1가"
@@ -6183,7 +6183,7 @@
     "pk": 751
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동2가"
@@ -6191,7 +6191,7 @@
     "pk": 752
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동3가"
@@ -6199,7 +6199,7 @@
     "pk": 753
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동4가"
@@ -6207,7 +6207,7 @@
     "pk": 754
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동5가"
@@ -6215,7 +6215,7 @@
     "pk": 755
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "문래동6가"
@@ -6223,7 +6223,7 @@
     "pk": 756
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동1가"
@@ -6231,7 +6231,7 @@
     "pk": 757
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동2가"
@@ -6239,7 +6239,7 @@
     "pk": 758
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동3가"
@@ -6247,7 +6247,7 @@
     "pk": 759
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동4가"
@@ -6255,7 +6255,7 @@
     "pk": 760
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동5가"
@@ -6263,7 +6263,7 @@
     "pk": 761
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동6가"
@@ -6271,7 +6271,7 @@
     "pk": 762
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양화동"
@@ -6279,7 +6279,7 @@
     "pk": 763
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "신길동"
@@ -6287,7 +6287,7 @@
     "pk": 764
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "대림동"
@@ -6295,7 +6295,7 @@
     "pk": 765
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 19,
       "name": "양평동"
@@ -6303,7 +6303,7 @@
     "pk": 766
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "노량진동"
@@ -6311,7 +6311,7 @@
     "pk": 767
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도동"
@@ -6319,7 +6319,7 @@
     "pk": 768
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "상도1동"
@@ -6327,7 +6327,7 @@
     "pk": 769
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "본동"
@@ -6335,7 +6335,7 @@
     "pk": 770
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "동작동"
@@ -6343,7 +6343,7 @@
     "pk": 771
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "사당동"
@@ -6351,7 +6351,7 @@
     "pk": 772
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 20,
       "name": "신대방동"
@@ -6359,7 +6359,7 @@
     "pk": 773
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 21,
       "name": "봉천동"
@@ -6367,7 +6367,7 @@
     "pk": 774
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "방배동"
@@ -6375,7 +6375,7 @@
     "pk": 775
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "양재동"
@@ -6383,7 +6383,7 @@
     "pk": 776
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "우면동"
@@ -6391,7 +6391,7 @@
     "pk": 777
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "원지동"
@@ -6399,7 +6399,7 @@
     "pk": 778
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "반포동"
@@ -6407,7 +6407,7 @@
     "pk": 779
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "서초동"
@@ -6415,7 +6415,7 @@
     "pk": 780
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "염곡동"
@@ -6423,7 +6423,7 @@
     "pk": 781
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 22,
       "name": "신원동"
@@ -6431,7 +6431,7 @@
     "pk": 782
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "역삼동"
@@ -6439,7 +6439,7 @@
     "pk": 783
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "개포동"
@@ -6447,7 +6447,7 @@
     "pk": 784
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "삼성동"
@@ -6455,7 +6455,7 @@
     "pk": 785
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "대치동"
@@ -6463,7 +6463,7 @@
     "pk": 786
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "논현동"
@@ -6471,7 +6471,7 @@
     "pk": 787
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "자곡동"
@@ -6479,7 +6479,7 @@
     "pk": 788
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "율현동"
@@ -6487,7 +6487,7 @@
     "pk": 789
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "일원동"
@@ -6495,7 +6495,7 @@
     "pk": 790
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 23,
       "name": "도곡동"
@@ -6503,7 +6503,7 @@
     "pk": 791
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "잠실동"
@@ -6511,7 +6511,7 @@
     "pk": 792
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "신천동"
@@ -6519,7 +6519,7 @@
     "pk": 793
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "풍납동"
@@ -6527,7 +6527,7 @@
     "pk": 794
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "송파동"
@@ -6535,7 +6535,7 @@
     "pk": 795
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "가락동"
@@ -6543,7 +6543,7 @@
     "pk": 796
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "문정동"
@@ -6551,7 +6551,7 @@
     "pk": 797
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "방이동"
@@ -6559,7 +6559,7 @@
     "pk": 798
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "거여동"
@@ -6567,7 +6567,7 @@
     "pk": 799
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 24,
       "name": "마천동"
@@ -6575,7 +6575,7 @@
     "pk": 800
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "명일동"
@@ -6583,7 +6583,7 @@
     "pk": 801
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "고덕동"
@@ -6591,7 +6591,7 @@
     "pk": 802
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "둔촌동"
@@ -6599,7 +6599,7 @@
     "pk": 803
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "암사동"
@@ -6607,7 +6607,7 @@
     "pk": 804
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "성내동"
@@ -6615,7 +6615,7 @@
     "pk": 805
   },
   {
-    "model": "houses.dong_list",
+    "model": "houses.Dong_list",
     "fields": {
       "gu": 25,
       "name": "천호동"
