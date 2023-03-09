@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
@@ -34,6 +35,7 @@ class Houses(APIView):
         responses={200: "OK"},
     )
     def get(self, request):
+
         room_params = request.query_params.get("room_kind")
         cell_params = request.query_params.get("cell_kind")
 
@@ -101,12 +103,29 @@ class Houses(APIView):
         if start_price != None and end_price != None:
             house = House.objects.filter(price__range=(start_price, end_price))
 
+        # pagenations
+        current_page = request.GET.get("page", 1)
+        items_per_page = 24
+        paginator = Paginator(house, items_per_page)
+        try:
+            page = paginator.page(current_page)
+        except EmptyPage:
+            page = paginator.page(paginator.num_pages)
+
         serializer = serializers.HouseSerializer(
-            house,
+            page,
             many=True,
         )
 
-        return Response(serializer.data)
+        data = {
+            "results": serializer.data,
+            "count": paginator.count,
+            "num_pages": paginator.num_pages,
+            "current_page": page.number,
+        }
+        # /?page=2파람으로 받기
+
+        return Response(data)
 
 
 class HouseDetail(APIView):

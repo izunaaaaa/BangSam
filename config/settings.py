@@ -52,6 +52,7 @@ CUSTOM_APPS = [
     "wishlists.apps.WishlistsConfig",
     "images.apps.ImagesConfig",
     "chatRoom.apps.ChatroomConfig",
+    "charts.apps.ChartsConfig",
 ]
 
 SYSTEM_APPS = [
@@ -129,9 +130,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "ko-kr"
+LANGUAGE_CODE = "ko-KR"
 
-TIME_ZONE = "ASIA/Seoul"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
