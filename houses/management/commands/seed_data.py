@@ -52,10 +52,10 @@ class Command(BaseCommand):
                     description=data["description"],
                     dong=i,
                 )
-                print(i.name + "makeing")
                 data["owner"] = data["owner"].pk
                 house["fields"] = data
                 new_list.append(house)
+            print(i.name + "makeing")
 
         with open("house_data.json", "w", encoding="UTF-8") as m:
             json.dump(new_list, m, ensure_ascii=False, indent=2)
