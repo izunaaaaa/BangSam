@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import HouseList
 
-# Register your models here.
+
+@admin.register(HouseList)
+class HouseListAdmin(admin.ModelAdmin):
+    list_display = ("pk",)

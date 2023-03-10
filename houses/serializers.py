@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from .models import House, Gu_list, Dong_list
+from houselists.serializers import HouseListSerializer
 
 
 class TinyHouseSerializer(ModelSerializer):
@@ -34,6 +35,9 @@ class HouseSerializer(ModelSerializer):
 
 
 class HouseDetailSerializer(ModelSerializer):
+
+    # houselist = HouseListSerializer(many=True)
+
     class Meta:
         model = House
         exclude = ("updated_at",)
