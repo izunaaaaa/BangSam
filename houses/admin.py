@@ -6,6 +6,8 @@ from .models import House, Gu_list, Dong_list
 class HouseAdmin(admin.ModelAdmin):
     list_display = (
         "pk",
+        "gu",
+        "dong",
         "title",
         "owner",
         "realtor",

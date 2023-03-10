@@ -1,7 +1,6 @@
 from django.db import models
 from common.models import CommonModel
 from django.core.exceptions import ValidationError
-from charts.models import RecentlyViewed
 
 
 class Gu_list(models.Model):
@@ -88,11 +87,11 @@ class House(CommonModel):
         editable=False,
         default=0,
     )
+    is_sale = models.BooleanField(default=True)
     dong = models.ForeignKey(
         "houses.Dong_list",
         on_delete=models.CASCADE,
     )
-    is_sale = models.BooleanField(default=True)
 
     @property
     def gu(self):

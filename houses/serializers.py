@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from .models import House, Gu_list, Dong_list
+from images.serializers import ImageSerializer
 
 
 class TinyHouseSerializer(ModelSerializer):
@@ -9,11 +10,25 @@ class TinyHouseSerializer(ModelSerializer):
         fields = ("id", "title")
 
 
+class DonglistSerializer(ModelSerializer):
+    class Meta:
+        model = Dong_list
+        fields = (
+            # "gu",
+            "pk",
+            "name",
+        )
+
+
 class HouseSerializer(ModelSerializer):
+    Image = ImageSerializer(many=True, read_only=True)
+    dong = DonglistSerializer(read_only=True)
+
     class Meta:
         model = House
         fields = (
             "id",
+            "Image",
             "gu",
             "title",
             "price",
@@ -43,16 +58,6 @@ class GulistSerializer(ModelSerializer):
     class Meta:
         model = Gu_list
         fields = (
-            "pk",
-            "name",
-        )
-
-
-class DonglistSerializer(ModelSerializer):
-    class Meta:
-        model = Dong_list
-        fields = (
-            "gu",
             "pk",
             "name",
         )
