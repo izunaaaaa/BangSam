@@ -15,7 +15,6 @@ class CustomUserAdmin(UserAdmin):
                     "name",
                     "phone_number",
                     "email",
-                    "address",
                     "gender",
                 ),
             },
