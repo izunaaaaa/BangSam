@@ -1,7 +1,6 @@
 from django.db import models
 from common.models import CommonModel
 from django.core.exceptions import ValidationError
-from charts.models import RecentlyViewed
 
 
 class Gu_list(models.Model):

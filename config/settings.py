@@ -52,7 +52,7 @@ CUSTOM_APPS = [
     "wishlists.apps.WishlistsConfig",
     "images.apps.ImagesConfig",
     "chatRoom.apps.ChatroomConfig",
-    "charts.apps.ChartsConfig",
+    "houselists.apps.HouselistsConfig",
 ]
 
 SYSTEM_APPS = [
