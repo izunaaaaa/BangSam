@@ -29,16 +29,16 @@ class Dong_list(models.Model):
 
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
-        ONE_ROOM = ("원룸", "원룸")
-        TWO_ROOM = ("투룸", "투룸")
-        THREE_ROOM = ("쓰리룸", "쓰리룸")
-        OFFICETEL = ("오피스텔", "오피스텔")
-        APART = ("아파트", "아파트")
+        ONE_ROOM = "ONE_ROOM", "원룸"
+        TWO_ROOM = "TWO_ROOM", "투룸"
+        THREE_ROOM = "THREE_ROOM", "쓰리룸 이상"
+        OFFICETEL = "OFFICETEL", "오피스텔"
+        APART = "APART", "아파트"
 
     class CellKindChoices(models.TextChoices):
-        MONTHLY_RENT = ("월세", "월세")
-        CHARTER = ("전세", "전세")
-        SALE = ("매매", "매매")
+        MONTHLY_RENT = ("MONTHLY_RENT", "월세")
+        CHARTER = ("CHARTER", "전세")
+        SALE = ("SALE", "매매")
 
     title = models.CharField(
         max_length=100,

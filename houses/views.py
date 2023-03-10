@@ -87,11 +87,11 @@ class Houses(APIView):
         sort_by = request.GET.get("sort_by")
 
         if sort_by == "row_price":
-            house = House.objects.order_by("price")
+            house = house.order_by("price")
         elif sort_by == "visited":
-            house = House.objects.order_by("-visited")
+            house = house.order_by("-visited")
         elif sort_by == "lastest":
-            house = House.objects.order_by("-created_at")
+            house = house.order_by("-created_at")
         # 평점순
 
         # sort_count : room/toilet/pyeong
