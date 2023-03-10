@@ -1,24 +1,34 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from .models import User
+from rest_framework.exceptions import ParseError
 
 
 class TinyUserSerializer(ModelSerializer):
-    model = User
-    fields = ("name", "email", "avatar", "is_host", "is_realtor")
+    class Meta:
+        model = User
+        fields = (
+            "name",
+            "email",
+            "avatar",
+            "is_host",
+            "is_realtor",
+        )
 
 
-class UserSerializer(ModelSerializer):
+class PrivateUserSerializer(ModelSerializer):
+    date_joined = serializers.DateTimeField(read_only=True)
+
     class Meta:
         model = User
         exclude = (
-            "password",
-            "last_login",
             "first_name",
             "last_name",
-            "date_joined",
-            "avatar",
+            "last_login",
+            "password",
+            "is_superuser",
+            "is_staff",
+            "is_active",
             "groups",
             "user_permissions",
         )
-

@@ -14,6 +14,12 @@ class Houses(APIView):
         operation_summary="모든 방에 대한 리스트를 가져오는 api",
         manual_parameters=[
             openapi.Parameter(
+                "page",
+                openapi.IN_QUERY,
+                description="1 페이지당 24개의 데이터",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
                 "room_kind",
                 openapi.IN_QUERY,
                 description="룸 타입 / 원룸, 투룸, 쓰리룸, 아파트, 오피스텔",
@@ -26,13 +32,36 @@ class Houses(APIView):
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
-                "sort type",
+                "sort_by",
                 openapi.IN_QUERY,
                 description="정렬 타입 / 가격(row_price), 조회수(visitied), 최신순(lastest)",
                 type=openapi.TYPE_STRING,
             ),
+            openapi.Parameter(
+                "sort_count",
+                openapi.IN_QUERY,
+                description="추가 필터 / room_1,2,3 / toilet_1,2,3 / pyeongsu_10,20,30",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "start_price",
+                openapi.IN_QUERY,
+                description="최소 가격 필터",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "end_price",
+                openapi.IN_QUERY,
+                description="최대 가격 필터",
+                type=openapi.TYPE_INTEGER,
+            ),
         ],
-        responses={200: "OK"},
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseSerializer(many=True),
+            )
+        },
     )
     def get(self, request):
 
@@ -109,7 +138,7 @@ class Houses(APIView):
         paginator = Paginator(house, items_per_page)
         try:
             page = paginator.page(current_page)
-        except EmptyPage:
+        except:
             page = paginator.page(paginator.num_pages)
 
         serializer = serializers.HouseSerializer(
@@ -118,10 +147,10 @@ class Houses(APIView):
         )
 
         data = {
-            "results": serializer.data,
-            "count": paginator.count,
             "num_pages": paginator.num_pages,
             "current_page": page.number,
+            "count": paginator.count,
+            "results": serializer.data,
         }
         # /?page=2파람으로 받기
 
@@ -140,7 +169,13 @@ class HouseDetail(APIView):
 
     @swagger_auto_schema(
         operation_summary="각 방에 대한 정보를 가져오는 api",
-        responses={200: "OK", 404: "Not Found"},
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseDetailSerializer(),
+            ),
+            404: "Not Found",
+        },
     )
     def get(self, request, pk):
         house = self.get_object(pk)
@@ -154,6 +189,15 @@ class GuList(APIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
+    @swagger_auto_schema(
+        operation_summary="구 리스트 가져오기 위한 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.GulistSerializer(many=True),
+            )
+        },
+    )
     def get(self, request):
         gu_list = Gu_list.objects.all()
         serializer = serializers.GulistSerializer(
@@ -174,6 +218,15 @@ class DongList(APIView):
         except Dong_list.DoesNotExist:
             raise NotFound
 
+    @swagger_auto_schema(
+        operation_summary="동 리스트 가져오기 위한 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.DonglistSerializer(many=True),
+            )
+        },
+    )
     def get(self, request, pk):
         dong_list = self.get_object(pk)
         serializer = serializers.DonglistSerializer(
@@ -181,3 +234,12 @@ class DongList(APIView):
             many=True,
         )
         return Response(serializer.data)
+
+
+class DeleteRoom(APIView):
+    @swagger_auto_schema(
+        operation_summary="모든 방 삭제 ( 개발용 임시 api, 사용 금지 )",
+        responses={200: "OK"},
+    )
+    def get(self, request):
+        House.objects.all().delete()

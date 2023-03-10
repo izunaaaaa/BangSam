@@ -21,12 +21,8 @@ class User(AbstractUser):
     )
     phone_number = models.CharField(
         max_length=11,
-        null=True,
     )
     email = models.EmailField(
-        max_length=100,
-    )
-    address = models.CharField(
         max_length=100,
     )
     gender = models.CharField(
