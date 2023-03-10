@@ -85,7 +85,7 @@ class Command(BaseCommand):
                     dong=i,
                     is_sale=True,
                 )
-                for i in range(5):
+                for j in range(5):
                     Image.objects.create(
                         house=create_house,
                         url=f"https://imagedelivery.net/TfkiqSGnbio9VWWQtYee6A/{random.choice(image_key)}/public",
