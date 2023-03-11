@@ -35,11 +35,8 @@ urlpatterns = [
     path("api/v1/houses/", include("houses.urls")),
     path("api/v1/wishlists/", include("wishlists.urls")),
     path("api/v1/chat/", include("chatRoom.urls")),
-<<<<<<< HEAD
     path("api/v1/images/", include("images.urls")),
-=======
     path("api/v1/houselists/", include("houselists.urls")),
->>>>>>> edc72dff70f4576a8b42ff330700a68963b55b22
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

@@ -23,6 +23,7 @@ class User(AbstractUser):
     )
     email = models.EmailField(
         max_length=100,
+        unique=True,
     )
     gender = models.CharField(
         max_length=100,
