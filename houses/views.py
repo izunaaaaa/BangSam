@@ -144,16 +144,16 @@ class HouseDetail(APIView):
         responses={200: "OK", 404: "Not Found"},
     )
     def get(self, request, pk):
-        # 조회 횟수
 
+        # 조회 횟수
         house = self.get_object(pk)
         house.visited += 1
         house.save()
-
         serializer = serializers.HouseDetailSerializer(
             house,
         )
 
+        # 조회 목록
         if request.user.is_authenticated:
             try:
                 houselist = HouseList.objects.get(user=request.user)

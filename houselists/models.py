@@ -12,14 +12,32 @@ class HouseList(CommonModel):
         "houses.House",
     )
 
+    # def save(self, *args, **kwargs):
+    #     MAX_RECENTLY_HOUSES = 10
+
+    #     viewed_houses = self.recently_views.all()
+
+    #     if viewed_houses.count() > MAX_RECENTLY_HOUSES:
+    #         oldest_houses = viewed_houses.order_by("created_at")
+    #         oldest_houses_to_remove = oldest_houses[MAX_RECENTLY_HOUSES:]
+    #         self.recently_views.remove(*oldest_houses_to_remove)
+
+    #     super(HouseList, self).save(*args, **kwargs)
+
+    # if viewed_houses.count() >= MAX_RECENTLY_HOUSES:
+    #     oldest_houses = viewed_houses[MAX_RECENTLY_HOUSES:]
+    #     self.recently_views.remove(*oldest_houses)
+
+    # super(HouseList, self).save(*args, **kwargs)
+
     def save(self, *args, **kwargs):
         MAX_RECENTLY_HOUSES = 10
 
-        recently_viewed_houses = self.recently_views.all()
+        viewed_houses = self.recently_views.order_by("created_at")
 
-        if recently_viewed_houses.count() > MAX_RECENTLY_HOUSES:
-            oldest_houses = recently_viewed_houses.order_by("-updated_at")
-            oldest_houses_to_remove = oldest_houses[MAX_RECENTLY_HOUSES:]
-            self.recently_views.remove(*oldest_houses_to_remove)
+        if viewed_houses.count() > MAX_RECENTLY_HOUSES:
+            oldest_houses = viewed_houses[:MAX_RECENTLY_HOUSES]
+            houses_to_remove = viewed_houses[MAX_RECENTLY_HOUSES:]
+            self.recently_views.remove(*houses_to_remove)
 
-        super(HouseList, self).save(*args, **kwargs)
+    super(HouseList, self).save(*args, **kwargs)
