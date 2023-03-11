@@ -29,7 +29,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # SECRET_KEY = "django-insecure-063k$@4q2fdvx027!ae^k3u4r8#kxtl^6xefs67@cci+jz4-zq"
 
 SECRET_KEY = env("SECRET_KEY")
-
+CF_TOKEN = env("CF_TOKEN")
+CF_ID = env("CF_ID")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

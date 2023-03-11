@@ -22,6 +22,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if not Gu_list.objects.all():
+            Gu_list.objects.get_or_create
             with open("gu_list.json", "r", encoding="UTF-8") as gu_data:
                 gu = json.load(gu_data)
             for i in gu:
