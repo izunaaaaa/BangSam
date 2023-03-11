@@ -23,13 +23,13 @@ class Houses(APIView):
             openapi.Parameter(
                 "room_kind",
                 openapi.IN_QUERY,
-                description="룸 타입 / 원룸, 투룸, 쓰리룸, 아파트, 오피스텔",
+                description="룸 타입 / ONE_ROOM, TWO_ROOM, THREE_ROOM, OFFICETEL, APART",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "cell_kind",
                 openapi.IN_QUERY,
-                description="사는 타입 / 월세, 전세, 매매",
+                description="사는 타입 / MONTHLY_RENT, CHARTER, SALE",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(

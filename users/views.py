@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.status import HTTP_409_CONFLICT
 from . import serializers
 from .models import User
 from drf_yasg.utils import swagger_auto_schema
@@ -197,3 +198,30 @@ class LogOut(APIView):
     def post(self, request):
         logout(request)
         return Response({"LogOut": True})
+
+
+class CheckID(APIView):
+    def get(self, request):
+        id = request.GET.get("id")
+        if User.objects.filter(username=id).exists():
+            return Response(status=HTTP_409_CONFLICT)
+
+
+class CheckValidate(APIView):
+    def validate_password(self, password):
+        REGEX_PASSWORD = "^(?=.*[\d])(?=.*[a-z])(?=.*[!@#$%^&*()])[\w\d!@#$%^&*()]{8,}$"
+        if not re.fullmatch(REGEX_PASSWORD, password):
+            raise ParseError(
+                "비밀번호를 확인하세요. 최소 1개 이상의 소문자, 숫자, 특수문자로 구성되어야 하며 길이는 8자리 이상이어야 합니다."
+            )
+
+    def post(self, request):
+        password = str(request.data.get("password"))
+        if not password:
+            raise ParseError("password 가 입력되지 않았습니다.")
+
+        serializer = serializers.PrivateUserSerializer(data=request.data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=200)
+        else:
+            return Response(serializer.errors, status=400)
