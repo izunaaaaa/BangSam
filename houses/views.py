@@ -8,6 +8,7 @@ from .models import House, Gu_list, Dong_list
 from houselists.models import HouseList
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from django.db.models import Q
 
 
 class Houses(APIView):
@@ -45,13 +46,13 @@ class Houses(APIView):
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
-                "start_price",
+                "sale_start_params",
                 openapi.IN_QUERY,
                 description="최소 가격 필터",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "end_price",
+                "sale_end_params",
                 openapi.IN_QUERY,
                 description="최대 가격 필터",
                 type=openapi.TYPE_INTEGER,
@@ -66,25 +67,121 @@ class Houses(APIView):
     )
     def get(self, request):
 
-        room_params = request.query_params.get("room_kind")
-        cell_params = request.query_params.get("cell_kind")
+        house = House.objects.all()
 
-        # filter_keyword : room/cell
-        if room_params != None or cell_params != None:
-            if room_params != None and cell_params != None:
-                house = House.objects.filter(
-                    room_kind=room_params, cell_kind=cell_params
+        # 방종류
+        room_kind_params = request.query_params.get("room_kind_params")
+
+        # 매매종류
+        cell_kind_params = request.query_params.get("cell_kind_params")
+
+        # 매매가
+        sale_start_params = request.GET.get("sale_start_params")
+        sale_end_params = request.GET.get("sale_end_params")
+
+        # 보증금
+        deposit_start_params = request.GET.get("deposit_start_params")
+        deposit_end_params = request.GET.get("deposit_end_params")
+
+        # 월세
+        monthly_rent_start_params = request.GET.get("monthly_rent_start_params")
+        monthly_rent_end_params = request.GET.get("monthly_rent_end_params")
+
+        # 관리비
+        maintenance_cost_start_params = request.GET.get("maintenance_cost_start_params")
+        maintenance_cost_end_params = request.GET.get("maintenance_cost_end_params")
+
+        # 방개수
+        num_of_room = request.GET.get("num_of_room")
+
+        # 화장실개수
+        num_of_toilet = request.GET.get("num_of_toilet")
+
+        # 평수
+        pyeongsu = request.GET.get("pyeongsu")
+
+        # 주소(서울시, 구, 동)
+        dong_params = request.GET.get("dong")
+
+        filters = []
+
+        # 방종류 필터링
+        if room_kind_params != None:
+            filters.append(Q(room_kind=room_kind_params))
+
+        # 매매종류 필터링
+        if cell_kind_params != None:
+            filters.append(Q(cell_kind=cell_kind_params))
+
+        # 매매가 필터링
+        if sale_start_params != None and sale_end_params != None:
+            filters.append(Q(sale__range=(sale_start_params, sale_end_params)))
+
+        # 보증금 필터링
+        if deposit_start_params != None and deposit_end_params != None:
+            filters.append(Q(deposit__range=(deposit_start_params, deposit_end_params)))
+
+        # 월세 필터링
+        if monthly_rent_start_params != None and monthly_rent_end_params != None:
+            filters.append(
+                Q(
+                    monthly_rent__range=(
+                        monthly_rent_start_params,
+                        monthly_rent_end_params,
+                    )
                 )
-            elif room_params != None and cell_params == None:
-                house = House.objects.filter(room_kind=room_params)
+            )
 
-            elif room_params == None and cell_params != None:
-                house = House.objects.filter(cell_kind=cell_params)
+        # 관리비 필터링
+        if (
+            maintenance_cost_start_params != None
+            and maintenance_cost_end_params != None
+        ):
+            filters.append(
+                Q(
+                    maintenance_cost__range=(
+                        maintenance_cost_start_params,
+                        maintenance_cost_end_params,
+                    )
+                )
+            )
 
+        # 방개수 필터링
+        if num_of_room != None:
+            if num_of_room == "1" or num_of_room == "2" or num_of_room == "3":
+                filters.append(Q(room=num_of_room))
+            else:
+                filters.append(Q(room__gte=4))
+
+        # 화장실개수 필터링
+        if num_of_toilet != None:
+            if num_of_toilet == "1" or num_of_toilet == "2" or num_of_toilet == "3":
+                filters.append(Q(toilet=num_of_toilet))
+            else:
+                filters.append(Q(toilet__gte=4))
+
+        # 평수 필터링
+        if pyeongsu == "10":
+            filters.append(Q(pyeongsu__range=(10, 19)))
+        elif pyeongsu == "20":
+            filters.append(Q(pyeongsu__range=(20, 29)))
+        elif pyeongsu == "30":
+            filters.append(Q(pyeongsu__range=(30, 39)))
+        elif pyeongsu == "40":
+            filters.append(Q(pyeongsu__gt=40))
+        elif pyeongsu == "0":
+            filters.append(Q(pyeongsu__range=(1, 9)))
+
+        # 주소(서울시, 구, 동) 필터링
+        if dong_params != None:
+            filters.append(Q(dong=dong_params))
+
+        if filters:
+            house = House.objects.filter(*filters)
         else:
             house = House.objects.all()
 
-        # sort_by : price/visited
+        # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
         if sort_by == "row_price":
@@ -93,45 +190,6 @@ class Houses(APIView):
             house = house.order_by("-visited")
         elif sort_by == "lastest":
             house = house.order_by("-created_at")
-        # 평점순
-
-        # sort_count : room/toilet/pyeong
-        sort_count = request.GET.get("sort_count")
-
-        if sort_count != None:
-            if sort_count == "room_1":
-                house = House.objects.filter(room=1)
-            elif sort_count == "room_2":
-                house = House.objects.filter(room=2)
-            elif sort_count == "room_3":
-                house = House.objects.filter(room=3)
-            elif sort_count == "room_4":
-                house = House.objects.filter(room__gte=4)
-
-            if sort_count == "toilet_1":
-                house = House.objects.filter(toilet=1)
-            elif sort_count == "toilet_2":
-                house = House.objects.filter(toilet=2)
-            elif sort_count == "toilet_3":
-                house = House.objects.filter(toilet=3)
-            elif sort_count == "toilet_4":
-                house = House.objects.filter(toilet__gte=4)
-
-            if sort_count == "pyeongsu_10":
-                house = House.objects.filter(pyeongsu__range=(10, 19))
-            elif sort_count == "pyeongsu_20":
-                house = House.objects.filter(pyeongsu__range=(20, 29))
-            elif sort_count == "pyeongsu_30":
-                house = House.objects.filter(pyeongsu__range=(30, 39))
-            elif sort_count == "pyeongsu_40":
-                house = House.objects.filter(pyeongsu__gt=40)
-
-        # filter_range : price
-        start_price = request.GET.get("start_price")
-        end_price = request.GET.get("end_price")
-
-        if start_price != None and end_price != None:
-            house = House.objects.filter(price__range=(start_price, end_price))
 
         # pagenations
         current_page = request.GET.get("page", 1)
