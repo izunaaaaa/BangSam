@@ -30,21 +30,28 @@ class Dong_list(models.Model):
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
         ONE_ROOM = "ONE_ROOM", "원룸"
-        TWO_ROOM = "TWO_ROOM", "투룸"
-        THREE_ROOM = "THREE_ROOM", "쓰리룸 이상"
-        OFFICETEL = "OFFICETEL", "오피스텔"
+        HOME = "HOME", "주택"
         APART = "APART", "아파트"
+        VILLA = "VILLA", "빌라"
+        OFFICETEL = "OFFICETEL", "오피스텔"
+        SHARE_HOUSE = "SHARE_HOUSE", "쉐어하우스"
 
     class CellKindChoices(models.TextChoices):
-        MONTHLY_RENT = ("MONTHLY_RENT", "월세")
-        CHARTER = ("CHARTER", "전세")
         SALE = ("SALE", "매매")
+        CHARTER = ("CHARTER", "전세")
+        MONTHLY_RENT = ("MONTHLY_RENT", "월세")
 
     title = models.CharField(
         max_length=100,
-    )
+    )  # 방 이름
 
-    price = models.PositiveIntegerField(default=0)
+    sale = models.PositiveIntegerField(default=0)  # 매매가
+
+    deposit = models.PositiveIntegerField(default=0)  # 보증금
+
+    monthly_rent = models.PositiveIntegerField(default=0)  # 월세
+
+    maintenanc_cost = models.PositiveIntegerField(default=0)  # 관리비
 
     owner = models.ForeignKey(
         "users.User",
@@ -53,6 +60,7 @@ class House(CommonModel):
         null=True,
         blank=True,
     )
+
     realtor = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
