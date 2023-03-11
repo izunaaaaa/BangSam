@@ -58,7 +58,10 @@ class Command(BaseCommand):
                 house = {"model": "houses.House"}
                 data = {
                     "title": fake.building_name(),
-                    "price": random.randint(10, 50),
+                    "sale": random.randint(10, 50),
+                    "deposit": random.randint(10, 50),
+                    "monthly_rent": random.randint(10, 50),
+                    "maintenance_cost": random.randint(10, 50),
                     "owner": User.objects.get(pk=1),
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
@@ -72,7 +75,10 @@ class Command(BaseCommand):
                 create_house = House.objects.create(
                     pk=House.objects.count() + 1,
                     title=data["title"],
-                    price=data["price"],
+                    sale=data["sale"],
+                    deposit=data["deposit"],
+                    monthly_rent=data["monthly_rent"],
+                    maintenance_cost=data["maintenance_cost"],
                     owner=data["owner"],
                     room=data["room"],
                     toilet=data["toilet"],
