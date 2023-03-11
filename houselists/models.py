@@ -40,4 +40,4 @@ class HouseList(CommonModel):
             houses_to_remove = viewed_houses[MAX_RECENTLY_HOUSES:]
             self.recently_views.remove(*houses_to_remove)
 
-    super(HouseList, self).save(*args, **kwargs)
+        super(HouseList, self).save(*args, **kwargs)
