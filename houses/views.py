@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . import serializers
 from .models import House, Gu_list, Dong_list
+from houselists.models import HouseList
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
@@ -178,10 +179,27 @@ class HouseDetail(APIView):
         },
     )
     def get(self, request, pk):
+
+        # 조회 횟수
         house = self.get_object(pk)
         house.visited += 1
         house.save()
-        serializer = serializers.HouseDetailSerializer(house)
+        serializer = serializers.HouseDetailSerializer(
+            house,
+        )
+
+        # 조회 목록
+        if request.user.is_authenticated:
+            try:
+                houselist = HouseList.objects.get(user=request.user)
+            except HouseList.DoesNotExist:
+                houselist = HouseList.objects.create(user=request.user)
+
+            houselist.recently_views.add(house)
+            houselist.save()
+        else:
+            raise ParseError("please login")
+
         return Response(serializer.data)
 
 
