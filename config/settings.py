@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_yasg",
     "django_seed",
+    "rest_framework_simplejwt",
 ]
 
 CUSTOM_APPS = [
@@ -168,3 +169,15 @@ CORS_ALLOWED_ORIGINS = [
 
 
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000", "https://izuna.pythonanywhere.com"]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}

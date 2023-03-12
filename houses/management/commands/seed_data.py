@@ -22,6 +22,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if not Gu_list.objects.all():
+            self.stdout.write(self.style.SUCCESS("구 리스트를 작성중입니다."))
             Gu_list.objects.get_or_create
             with open("gu_list.json", "r", encoding="UTF-8") as gu_data:
                 gu = json.load(gu_data)
@@ -33,6 +34,7 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS("구 리스트가 작성되었습니다."))
 
         if not Dong_list.objects.all():
+            self.stdout.write(self.style.SUCCESS("동 리스트를 작성중입니다."))
             with open("dong_list.json", "r", encoding="UTF-8") as dong_data:
                 dong_list = json.load(dong_data)
             for dong in dong_list:
@@ -47,13 +49,14 @@ class Command(BaseCommand):
         fake = Faker(["ko_KR"])
         new_list = []
         image_key = [
-            "85b5fb3d-c23a-4e91-96cd-92c23cfec900",
-            "a6e6873b-a65f-483e-27d6-18bdce658200",
-            "66036eed-79fe-40fd-7adc-9a10686bbf00",
-            "8dd960f2-32e3-4854-0c92-6a3b9dfb2800",
-            "2512511d-6de1-4d14-97dd-517fdf5baf00",
-            "942fcc68-a692-4564-aa14-55998fadb200",
+            "4b618568-d21e-4f4c-35bc-12d770c9d200",
+            "b254536e-83e6-4167-74f8-970b5b46e700",
+            "eb6ccedd-4af5-4597-563c-381d93770100",
+            "59f0b7dd-e2f0-4808-92ab-a9636701e600",
+            "c88e7a1d-8a03-46a1-35de-a22465f44100",
+            "5cd3caef-5455-42ae-0928-819766aade00",
         ]
+        self.stdout.write(self.style.SUCCESS("새로운 방을 작성중입니다."))
         for i in Dong_list.objects.all():
             for k in range(total):
                 house = {"model": "houses.House"}
@@ -101,4 +104,4 @@ class Command(BaseCommand):
                 house["fields"] = data
                 new_list.append(house)
 
-        self.stdout.write(self.style.SUCCESS(f"{total}명의 유저가 작성되었습니다."))
+        self.stdout.write(self.style.SUCCESS(f"{total}명의 방이 작성되었습니다."))

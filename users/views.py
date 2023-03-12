@@ -10,6 +10,8 @@ from .models import User
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 import re
+import requests
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserMe(APIView):
@@ -109,7 +111,10 @@ class LogIn(APIView):
         )
         if user:
             login(request, user)
-            return Response({"ok": "Welcome!"})
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                {"access": str(refresh.access_token), "refresh": str(refresh)}
+            )
         else:
             return Response({"error": "wrong name or password"}, status=400)
 
@@ -137,15 +142,21 @@ class SignUp(APIView):
 
         serializer = serializers.PrivateUserSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.save()
             self.validate_password(password)
+            user = serializer.save()
             user.set_password(password)
             # user.password = password 시에는 raw password로 저장
             user.save()
             # set_password 후 다시 저장
             serializer = serializers.PrivateUserSerializer(user)
             login(request, user)
-            return Response(serializer.data, status=201)
+
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                serializer.data,
+                {"access": str(refresh.access_token), "refresh": str(refresh)},
+                status=201,
+            )
         else:
             return Response(serializer.errors, status=400)
 
@@ -222,6 +233,117 @@ class CheckValidate(APIView):
 
         serializer = serializers.PrivateUserSerializer(data=request.data)
         if serializer.is_valid():
+            self.validate_password(password)
             return Response(serializer.data, status=200)
         else:
             return Response(serializer.errors, status=400)
+
+
+class KakaoLogin(APIView):
+    def post(self, request):
+        try:
+            code = request.data.get("code")
+            access_token = (
+                requests.post(
+                    "https://kauth.kakao.com/oauth/token",
+                    headers={
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    data={
+                        "grant_type": "authorization_code",
+                        "client_id": "69ba16ba77556c01d4a4ea9911fc06ad",
+                        "redirect_uri": "http://127.0.0.1:3000/social/kakao",
+                        "code": code,
+                    },
+                )
+                .json()
+                .get("access_token")
+            )
+            user_data = requests.get(
+                "https://kapi.kakao.com/v2/user/me",
+                headers={
+                    "Authorization": f"Bearer {access_token}",
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                },
+            ).json()
+            # print(user_data)
+            kakao_account = user_data.get("kakao_account")
+            profile = kakao_account.get("profile")
+            try:
+                user = User.objects.get(email=kakao_account.get("email"))
+                login(request, user)
+
+                return Response(status=200)
+            except:
+                user = User.objects.create(
+                    email=kakao_account.get("email"),
+                    username=profile.get("nickname"),
+                    name=profile.get("nickname"),
+                    avatar=profile.get("profile_image_url"),
+                    gender=kakao_account.get("gender"),
+                )
+            user.set_unusable_password()
+            user.save()
+            login(request, user)
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                {"access": str(refresh.access_token), "refresh": str(refresh)},
+                status=201,
+            )
+        except Exception as e:
+            return Response(status=400)
+
+
+class NaverLogin(APIView):
+    def post(self, request):
+        code = request.data.get("code")
+        state = request.data.get("state")
+        if state == "OzCoding":
+            access_token = (
+                requests.post(
+                    "https://nid.naver.com/oauth2.0/token",
+                    headers={
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    data={
+                        "grant_type": "authorization_code",
+                        "client_id": "1Vm0j0Ggt3_VZer8jmHA",
+                        "client_secret": "a4a3AQC1SB",
+                        "code": code,
+                        "state": state,
+                    },
+                )
+                .json()
+                .get("access_token")
+            )
+            user_data = requests.get(
+                "https://openapi.naver.com/v1/nid/me",
+                headers={"Authorization": f"Bearer {access_token}"},
+            ).json()
+            if (
+                user_data.get("resultcode") == "00"
+                and user_data.get("message") == "success"
+            ):
+                response = user_data.get("response")
+                try:
+                    user = User.objects.get(email=response.get("email"))
+                    login(request, user)
+                    return Response(status=200)
+                except User.DoesNotExist:
+                    user = User.objects.create(
+                        name=response.get("name"),
+                        phone_number=response.get("mobile"),
+                        email=response.get("email"),
+                        gender="male" if response.get("gender") == "M" else "female",
+                        avatar=response.get("profile_image"),
+                    )
+                    user.set_unusable_password()
+                    user.save()
+                    login(request, user)
+                    refresh = RefreshToken.for_user(user)
+                    return Response(
+                        {"access": str(refresh.access_token), "refresh": str(refresh)},
+                        status=201,
+                    )
+
+            return Response(status=400)
