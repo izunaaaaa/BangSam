@@ -11,6 +11,7 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 import re
 import requests
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserMe(APIView):
@@ -110,7 +111,10 @@ class LogIn(APIView):
         )
         if user:
             login(request, user)
-            return Response({"ok": "Welcome!"})
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                {"access": str(refresh.access_token), "refresh": str(refresh)}
+            )
         else:
             return Response({"error": "wrong name or password"}, status=400)
 
@@ -146,7 +150,13 @@ class SignUp(APIView):
             # set_password 후 다시 저장
             serializer = serializers.PrivateUserSerializer(user)
             login(request, user)
-            return Response(serializer.data, status=201)
+
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                serializer.data,
+                {"access": str(refresh.access_token), "refresh": str(refresh)},
+                status=201,
+            )
         else:
             return Response(serializer.errors, status=400)
 
@@ -262,6 +272,7 @@ class KakaoLogin(APIView):
             try:
                 user = User.objects.get(email=kakao_account.get("email"))
                 login(request, user)
+
                 return Response(status=200)
             except:
                 user = User.objects.create(
@@ -274,7 +285,11 @@ class KakaoLogin(APIView):
             user.set_unusable_password()
             user.save()
             login(request, user)
-            return Response(status=200)
+            refresh = RefreshToken.for_user(user)
+            return Response(
+                {"access": str(refresh.access_token), "refresh": str(refresh)},
+                status=201,
+            )
         except Exception as e:
             return Response(status=400)
 
@@ -325,6 +340,10 @@ class NaverLogin(APIView):
                     user.set_unusable_password()
                     user.save()
                     login(request, user)
-                return Response(status=200)
+                    refresh = RefreshToken.for_user(user)
+                    return Response(
+                        {"access": str(refresh.access_token), "refresh": str(refresh)},
+                        status=201,
+                    )
 
             return Response(status=400)
