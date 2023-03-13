@@ -308,14 +308,12 @@ class HouseDetail(APIView):
 
         # 조회 목록
         if request.user.is_authenticated:
-            try:
+            try: 
                 houselist = HouseList.objects.get(user=request.user)
             except HouseList.DoesNotExist:
                 houselist = HouseList.objects.create(user=request.user)
 
-            print(houselist)
             houselist.recently_views.add(house)
-            print(houselist.recently_views)
             houselist.save()
 
         return Response(serializer.data)
