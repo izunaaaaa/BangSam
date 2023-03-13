@@ -49,6 +49,7 @@ class HouseSerializer(ModelSerializer):
             "owner",
             "realtor",
             "dong",
+            "is_owner",
         )
 
 
