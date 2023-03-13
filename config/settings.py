@@ -161,15 +161,6 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://127.0.0.1:3000",
-    "https://izuna.pythonanywhere.com/",
-    "http://izuna.pythonanywhere.com/",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "https://izuna.pythonanywhere.com/",
-    "http://izuna.pythonanywhere.com/",
-]
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
 
 

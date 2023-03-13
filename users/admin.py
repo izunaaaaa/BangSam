@@ -16,6 +16,7 @@ class CustomUserAdmin(UserAdmin):
                     "phone_number",
                     "email",
                     "gender",
+                    "avatar",
                 ),
             },
         ),
