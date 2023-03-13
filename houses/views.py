@@ -305,9 +305,11 @@ class HouseDetail(APIView):
         house.save()
 
         if request.user.is_authenticated:
+
             try:
                 houselist = HouseList.objects.get(recently_views=house)
                 houselist.updated_at = timezone.now()
+
             except HouseList.DoesNotExist:
                 houselist = HouseList.objects.create(
                     user=request.user,
@@ -315,6 +317,7 @@ class HouseDetail(APIView):
                 )
 
             serializer = serializers.HouseDetailSerializer(house)
+
 
         return Response(serializer.data)
 
