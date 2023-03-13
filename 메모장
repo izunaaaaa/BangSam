@@ -1,24 +1,32 @@
 [할것]
-최근 본 방 저장(모델로 만들기, 필요조건 유저당 10개씩만)
-올리기나 수정 삭제를 방을 올린사람만 지울수 있어야하므로 프론트에 지금 유저가 방의 주인인지 알려주는 컬럼 만들기(serializers is_owner로)
-views delete까지 기본 만들기
+- 최근 본방(10개씩)
+- 조회랑 필터링 섞기
+- views delete까지 기본 만들기
 
+[시간남으면 할것]
+- 모델 db다시 작성
+- 피그마로 똑같이
 
-[필터링]
-방종류 : 원룸, 주택, 아파트, 빌라, 오피스텔, 쉐어하우스(선택)
-매매종류 : 전체, 매매, 전세, 월세(선택)
-        매매가, 보증금, 월세
-관리비 : 
-평수 : 10평이하, 10평대, 20평대, 30평대, 40평대, 50평이상
-방 : 전체 1개 2개 3개 4개이상
-화장실 전체 1개 2개 3개 4개이상
-역세권 : 전체 필요 ?
-구 : 동
+------------------------------------------------------------
 
 [컬러]
 https://colorswall.com/palette/197735 
 
-[안건]
-모델 db다시 작성
-피그마로 똑같이
-역세권을 없애는걸루
+
+[문제]
+올리기나 수정 삭제를 방을 올린사람만 지울수 있어야하므로 프론트에 지금 유저가 방의 주인인지 알려주는 컬럼 만들기(serializers is_owner로)
+이거 왜해?
+
+
+        if request.user == house.owner:
+            house.owner = True
+        else:
+            house.owner = False
+
+               --------------------
+
+    current_user = request.user.id
+    if current_user == user_id:
+        return Response({'message': 'Current user matches provided user ID.'}, status=200)
+    else:
+        return Response({'message': 'Current user does not match provided user ID.'}, status=400)

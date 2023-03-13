@@ -24,13 +24,13 @@ class Houses(APIView):
             openapi.Parameter(
                 "room_kind_params",
                 openapi.IN_QUERY,
-                description="방종류 : 원룸, 주택, 아파트, 빌라, 오피스텔, 쉐어하우스 ",
+                description="방종류 : ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "cell_kind_params",
                 openapi.IN_QUERY,
-                description="매매종류 : 매매, 전세, 월세 ",
+                description="매매종류 : SALE, CHARTER, MONTHLY_RENT ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
@@ -96,13 +96,19 @@ class Houses(APIView):
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="평수",
+                description="평수 : 10(10, 19),20(20, 29),30(30, 39),40(40, 49),50(pyeongsu__gt=50),0(1-9)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
                 description="동",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "sort_by",
+                openapi.IN_QUERY,
+                description="row_price,visited,lastest",
                 type=openapi.TYPE_INTEGER,
             ),
         ],
@@ -152,11 +158,9 @@ class Houses(APIView):
         dong_params = request.GET.get("dong")
 
         filters = []
-
         # 방종류 필터링
         if room_kind_params != None:
             filters.append(Q(room_kind=room_kind_params))
-
         # 매매종류 필터링
         if cell_kind_params != None:
             filters.append(Q(cell_kind=cell_kind_params))
@@ -216,7 +220,9 @@ class Houses(APIView):
         elif pyeongsu == "30":
             filters.append(Q(pyeongsu__range=(30, 39)))
         elif pyeongsu == "40":
-            filters.append(Q(pyeongsu__gt=40))
+            filters.append(Q(pyeongsu__range=(40, 49)))
+        elif pyeongsu == "50":
+            filters.append(Q(pyeongsu__gt=50))
         elif pyeongsu == "0":
             filters.append(Q(pyeongsu__range=(1, 9)))
 
@@ -232,8 +238,13 @@ class Houses(APIView):
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
-        if sort_by == "row_price":
-            house = house.order_by("price")
+        if sort_by == "price":
+            if cell_kind_params == "SALE":
+                house = house.order_by("sale")
+            if cell_kind_params == "CHARTER":
+                house = house.order_by("deposit")
+            if cell_kind_params == "MONTHLY_RENT ":
+                house = house.order_by("monthly_rent")
         elif sort_by == "visited":
             house = house.order_by("-visited")
         elif sort_by == "lastest":
@@ -289,7 +300,9 @@ class HouseDetail(APIView):
         # 조회 횟수
         house = self.get_object(pk)
         house.visited += 1
+
         house.save()
+
         serializer = serializers.HouseDetailSerializer(
             house,
         )
@@ -301,10 +314,10 @@ class HouseDetail(APIView):
             except HouseList.DoesNotExist:
                 houselist = HouseList.objects.create(user=request.user)
 
+            print(houselist)
             houselist.recently_views.add(house)
+            print(houselist.recently_views)
             houselist.save()
-        else:
-            raise ParseError("please login")
 
         return Response(serializer.data)
 
