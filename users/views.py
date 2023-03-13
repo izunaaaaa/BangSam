@@ -144,6 +144,8 @@ class SignUp(APIView):
         if serializer.is_valid():
             self.validate_password(password)
             user = serializer.save()
+            if request.data.get("avatar"):
+                user.avatar = request.data.get("avatar")
             user.set_password(password)
             # user.password = password 시에는 raw password로 저장
             user.save()
@@ -153,8 +155,11 @@ class SignUp(APIView):
 
             refresh = RefreshToken.for_user(user)
             return Response(
-                serializer.data,
-                {"access": str(refresh.access_token), "refresh": str(refresh)},
+                {
+                    "access": str(refresh.access_token),
+                    "refresh": str(refresh),
+                    "data": serializer.data,
+                },
                 status=201,
             )
         else:

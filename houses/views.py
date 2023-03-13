@@ -241,9 +241,7 @@ class HouseDetail(APIView):
         house = self.get_object(pk)
         house.visited += 1
         house.save()
-        serializer = serializers.HouseDetailSerializer(
-            house,
-        )
+        serializer = serializers.HouseDetailSerializer(house)
 
         # 조회 목록
         if request.user.is_authenticated:
@@ -254,8 +252,6 @@ class HouseDetail(APIView):
 
             houselist.recently_views.add(house)
             houselist.save()
-        else:
-            raise ParseError("please login")
 
         return Response(serializer.data)
 
