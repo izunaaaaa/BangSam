@@ -107,7 +107,7 @@ class House(CommonModel):
         return self.dong.gu.name
 
     def __str__(self) -> str:
-        return f"{self.owner}'s Room"
+        return f"{self.pk}"
 
     def clean(self):
         if self.owner and self.realtor:
