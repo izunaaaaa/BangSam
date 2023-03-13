@@ -9,6 +9,7 @@ from houselists.models import HouseList
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from django.db.models import Q
+from django.utils import timezone
 
 
 class Houses(APIView):
@@ -160,6 +161,7 @@ class Houses(APIView):
         # 방종류 필터링
         if room_kind_params != None:
             filters.append(Q(room_kind=room_kind_params))
+
         # 매매종류 필터링
         if cell_kind_params != None:
             filters.append(Q(cell_kind=cell_kind_params))
@@ -302,21 +304,17 @@ class HouseDetail(APIView):
 
         house.save()
 
-        serializer = serializers.HouseDetailSerializer(
-            house,
-        )
-
-        # 조회 목록
         if request.user.is_authenticated:
             try:
-                houselist = HouseList.objects.get(user=request.user)
+                houselist = HouseList.objects.get(recently_views=house)
+                houselist.updated_at = timezone.now()
             except HouseList.DoesNotExist:
-                houselist = HouseList.objects.create(user=request.user)
+                houselist = HouseList.objects.create(
+                    user=request.user,
+                    recently_views=house,
+                )
 
-            print(houselist)
-            houselist.recently_views.add(house)
-            print(houselist.recently_views)
-            houselist.save()
+            serializer = serializers.HouseDetailSerializer(house)
 
         return Response(serializer.data)
 
