@@ -301,14 +301,10 @@ class HouseDetail(APIView):
         house.visited += 1
 
         house.save()
-<<<<<<< HEAD
-        serializer = serializers.HouseDetailSerializer(house)
-=======
 
         serializer = serializers.HouseDetailSerializer(
             house,
         )
->>>>>>> d7dc0d00026ce0ae057cd6705df37811df822472
 
         # 조회 목록
         if request.user.is_authenticated:
