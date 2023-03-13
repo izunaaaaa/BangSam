@@ -122,7 +122,6 @@ class Houses(APIView):
     def get(self, request):
 
         house = House.objects.all()
-
         # 방종류
         room_kind_params = request.query_params.get("room_kind_params")
 

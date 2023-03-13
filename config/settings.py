@@ -29,7 +29,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # SECRET_KEY = "django-insecure-063k$@4q2fdvx027!ae^k3u4r8#kxtl^6xefs67@cci+jz4-zq"
 
 SECRET_KEY = env("SECRET_KEY")
-
+CF_TOKEN = env("CF_TOKEN")
+CF_ID = env("CF_ID")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,6 +45,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_yasg",
     "django_seed",
+    "rest_framework_simplejwt",
 ]
 
 CUSTOM_APPS = [
@@ -68,9 +70,9 @@ INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -159,11 +161,29 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
-    "https://izuna.pythonanywhere.com",
+    "https://izuna.pythonanywhere.com/",
+    "http://izuna.pythonanywhere.com/",
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://izuna.pythonanywhere.com/",
+    "http://izuna.pythonanywhere.com/",
+]
+CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
 
 
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000", "https://izuna.pythonanywhere.com"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}

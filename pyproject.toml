@@ -16,6 +16,7 @@ daphne = "^4.0.0"
 channels = "^4.0.0"
 django-seed = "^0.3.1"
 psycopg2-binary = "^2.9.5"
+djangorestframework-simplejwt = "^5.2.2"
 
 
 [build-system]

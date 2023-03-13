@@ -57,4 +57,5 @@ class CustomUserAdmin(UserAdmin):
         "is_host",
         "is_realtor",
         "username",
+        "email",
     )
