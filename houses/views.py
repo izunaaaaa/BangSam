@@ -316,8 +316,7 @@ class HouseDetail(APIView):
                     recently_views=house,
                 )
 
-            serializer = serializers.HouseDetailSerializer(house)
-
+        serializer = serializers.HouseDetailSerializer(house)
 
         return Response(serializer.data)
 
