@@ -1,32 +1,19 @@
 [할것]
-- views delete까지 기본 만들기
 - wishlist
+- views delete
+- views post
+- 이미지
 
-[시간남으면 할것]
+[시간남으면 할것] 
 - 모델 db다시 작성
 - 피그마로 똑같이
+
+- 틀렸던거나 안됐던거 벨로그
 
 [컬러]
 https://colorswall.com/palette/197735 
 
 [Q]
-올리기나 수정 삭제를 방을 올린사람만 지울수 있어야하므로 프론트에 지금 유저가 방의 주인인지 알려주는 컬럼 만들기(serializers is_owner로)
-
-
-        if request.user == house.owner:
-            house.owner = True
-        else:
-            house.owner = False
-
-               --------------------
-
-    current_user = request.user.id
-    if current_user == user_id:
-        return Response({'message': 'Current user matches provided user ID.'}, status=200)
-    else:
-        return Response({'message': 'Current user does not match provided user ID.'}, status=400)
-
-        --------------------------------
 
 [houselist.view]
 
@@ -87,3 +74,10 @@ house.models
             houselist.save()
 
         return Response(serializer.data)
+
+[끄적임]
+
+하트를 누르면 post
+하트를 지우면 delete
+wishlist에 hosue모델을 save
+wishlist에 house모델을 delete

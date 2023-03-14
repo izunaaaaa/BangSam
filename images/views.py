@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.conf import settings
 import requests
 
-# Create your views here.
+
 class GetUploadURL(APIView):
     def post(self, request):
         url = f"https://api.cloudflare.com/client/v4/accounts/{settings.CF_ID}/images/v2/direct_upload"
