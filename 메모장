@@ -81,3 +81,9 @@ house.models
 하트를 지우면 delete
 wishlist에 hosue모델을 save
 wishlist에 house모델을 delete
+
+유저 하나에 위시리스트 하나
+위시리스트 하나에 여러개 집
+집 하나에 위시리스트 하나
+
+위시리스트에 들어가면 유저가 담은 하우스아이디값을 볼 수 있다.
