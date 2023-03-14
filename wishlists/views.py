@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, ParseError
 from . import serializers
 from .models import Wishlist
 from houses.serializers import TinyHouseSerializer
@@ -17,34 +17,23 @@ class Wishlists(APIView):
         operation_summary="요청한 유저의 wishlist 를 가져오는 api",
         responses={200: "OK", 404: "Not Found"},
     )
-    def get(self, reqeust):
-        wishlist = Wishlist.objects.filter(user=reqeust.user)
-        serializer = serializers.WishlistSerializer(wishlist)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = WishlistSerializer(data=request.data)
-        if serializer.is_valid():
-            house = serializers.save(user=request.user)
-            return Response(WishlistSerializer(house).data)
-        else:
-            return Response(serializer.errors)
-
-
-class WishlistDetail(APIView):
-
-    permission_classes = [IsAuthenticatedOrReadOnly]
-
-    def get_object(self, pk):
-        try:
-            return Wishlist.objects.get(pk=pk)
-        except Wishlist.DoesNotExist:
-            raise NotFound
-
     def get(self, request, pk):
         wishlist = self.get_object(pk)
         serializers = serializers.WishlistSerializer(wishlist)
         return Response(serializers.data)
+
+    def post(self, request, pk):
+        serializer = WishlistSerializer(data=request.data)
+        if serializer.is_valid():
+            house_pk = request.data.get("house_pk")
+            if not house_pk:
+                raise ParseError("house_pk is required")
+            try:
+                house_pk = Wishlist.objects.get(pk=house_pk)
+            except Wishlist.DoesNotExist:
+                raise ParseError("house_pk is invalid")
+        else:
+            return Response(serializer.errors)
 
     def delete(self, request, pk):
         wishlist = self.get_object(pk).delete()
