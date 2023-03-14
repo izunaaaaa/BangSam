@@ -40,7 +40,6 @@ class HouseSerializer(ModelSerializer):
             "room_kind",
             "cell_kind",
             "address",
-            "photo",
             "description",
             "visited",
             "owner",

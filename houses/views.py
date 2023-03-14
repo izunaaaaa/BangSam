@@ -1,15 +1,15 @@
 from django.core.paginator import Paginator
+from django.utils import timezone
+from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from . import serializers
-from .models import House, Gu_list, Dong_list
 from houselists.models import HouseList
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-from django.db.models import Q
-from django.utils import timezone
+from .models import House, Gu_list, Dong_list
+from . import serializers
 
 
 class Houses(APIView):
@@ -278,12 +278,6 @@ class HouseDetail(APIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    def get_object(self, pk):
-        try:
-            return House.objects.get(pk=pk)
-        except House.DoesNotExist:
-            raise NotFound
-
     @swagger_auto_schema(
         operation_summary="각 방에 대한 정보를 가져오는 api",
         responses={
@@ -294,6 +288,12 @@ class HouseDetail(APIView):
             404: "Not Found",
         },
     )
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
+
     def get(self, request, pk):
 
         # 조회 횟수
@@ -322,7 +322,6 @@ class HouseDetail(APIView):
                 )
 
         serializer = serializers.HouseDetailSerializer(house)
-
 
         return Response(serializer.data)
 
