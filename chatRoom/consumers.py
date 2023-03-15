@@ -34,7 +34,7 @@ class TextRoomConsumer(WebsocketConsumer):
             self.user = user
         except User.DoesNotExist:
             return
-        room = Chatting_Room.objects.get(pk=self.room_name)
+        room = ChatRoom.objects.get(pk=self.room_name)
         if not type:
             msg = Message.objects.create(text=text, sender=user, room=room)
             user = TinyUserSerializer(user).data
@@ -72,7 +72,7 @@ class TextRoomConsumer(WebsocketConsumer):
 
         elif type == "read_msg":
             dict_data = text_data_json
-            room = Chatting_Room.objects.get(pk=dict_data.get("room"))
+            room = ChatRoom.objects.get(pk=dict_data.get("room"))
             for user in room.users.all():
                 if user.username != dict_data.get("sender"):
                     async_to_sync(self.channel_layer.group_send)(
@@ -107,11 +107,10 @@ class TextRoomConsumer(WebsocketConsumer):
         text = event["message"]
         sender = event["sender"]
         time = str(event["time"])
-        print(time)
         self.send(text_data=json.dumps({"text": text, "sender": sender, "time": time}))
 
 
-from .models import Message, Chatting_Room
+from .models import Message, ChatRoom
 
 
 class NotificationConsumer(JsonWebsocketConsumer):
@@ -143,7 +142,7 @@ class NotificationConsumer(JsonWebsocketConsumer):
     def receive(self, text_data):
         dict_data = eval(text_data)
         if dict_data.get("room"):
-            room = Chatting_Room.objects.get(pk=dict_data.get("room"))
+            room = ChatRoom.objects.get(pk=dict_data.get("room"))
         else:
             return
         for user in room.users.all():

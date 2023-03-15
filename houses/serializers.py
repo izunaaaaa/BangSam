@@ -32,8 +32,6 @@ class TinyHouseSerializer(ModelSerializer):
 
 
 class HouseSerializer(ModelSerializer):
-    dong = DonglistSerializer(read_only=True)
-
     class Meta:
         model = House
         fields = (
