@@ -10,7 +10,7 @@ services:
     env: python
     region: singapore
     buildCommand: "./build.sh"
-    startCommand: "gunicorn config.wsgi:application"
+    startCommand:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
