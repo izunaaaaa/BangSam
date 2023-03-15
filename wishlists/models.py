@@ -7,8 +7,9 @@ class Wishlist(CommonModel):
         "users.User",
         on_delete=models.CASCADE,
     )
-    house = models.ManyToManyField(
+    house = models.ForeignKey(
         "houses.House",
+        on_delete=models.CASCADE,
         related_name="wishlist",
     )
 

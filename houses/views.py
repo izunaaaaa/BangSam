@@ -1,15 +1,15 @@
 from django.core.paginator import Paginator
+from django.utils import timezone
+from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from . import serializers
-from .models import House, Gu_list, Dong_list
 from houselists.models import HouseList
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-from django.db.models import Q
-from django.utils import timezone
+from .models import House, Gu_list, Dong_list
+from . import serializers
 
 
 class Houses(APIView):
@@ -100,6 +100,12 @@ class Houses(APIView):
                 description="평수 : 10(10, 19), 20(20, 29), 30(30, 39), 40(40, 49), 50(pyeongsu__gt=50), 0(1-9)",
                 type=openapi.TYPE_INTEGER,
             ),
+            # openapi.Parameter(
+            #     "gu",
+            #     openapi.IN_QUERY,
+            #     description="구",
+            #     type=openapi.TYPE_INTEGER,
+            # ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
@@ -155,7 +161,7 @@ class Houses(APIView):
         # 평수
         pyeongsu = request.GET.get("pyeongsu")
 
-        # 주소(서울시, 구, 동)
+        # 주소 : 동
         dong = request.GET.get("dong")
 
         filters = []
@@ -225,7 +231,7 @@ class Houses(APIView):
         elif pyeongsu == "0":
             filters.append(Q(pyeongsu__range=(1, 9)))
 
-        # 주소(서울시, 구, 동) 필터링
+        # 동 필터링
         if dong != None:
             filters.append(Q(dong=dong))
 
@@ -234,10 +240,19 @@ class Houses(APIView):
         else:
             house = House.objects.all()
 
+        # # 주소 구
+        # gu = request.GET.get("gu")
+        # if gu:
+        #     try:
+        #         gu = Gu_list.objects.get(pk=gu).name
+        #         house = [i for i in house if i.gu == gu]
+        #     except:
+        #         raise NotFound
+
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
-        if sort_by == "price":
+        if sort_by == "row_price":
             if cell_kind == "SALE":
                 house = house.order_by("sale")
             if cell_kind == "CHARTER":
@@ -278,12 +293,6 @@ class HouseDetail(APIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    def get_object(self, pk):
-        try:
-            return House.objects.get(pk=pk)
-        except House.DoesNotExist:
-            raise NotFound
-
     @swagger_auto_schema(
         operation_summary="각 방에 대한 정보를 가져오는 api",
         responses={
@@ -294,6 +303,12 @@ class HouseDetail(APIView):
             404: "Not Found",
         },
     )
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
+
     def get(self, request, pk):
 
         # 조회 횟수
