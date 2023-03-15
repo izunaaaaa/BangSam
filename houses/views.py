@@ -100,6 +100,12 @@ class Houses(APIView):
                 description="평수 : 10(10, 19), 20(20, 29), 30(30, 39), 40(40, 49), 50(pyeongsu__gt=50), 0(1-9)",
                 type=openapi.TYPE_INTEGER,
             ),
+            # openapi.Parameter(
+            #     "gu",
+            #     openapi.IN_QUERY,
+            #     description="구",
+            #     type=openapi.TYPE_INTEGER,
+            # ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
@@ -155,7 +161,7 @@ class Houses(APIView):
         # 평수
         pyeongsu = request.GET.get("pyeongsu")
 
-        # 주소(서울시, 구, 동)
+        # 주소 : 동
         dong = request.GET.get("dong")
 
         filters = []
@@ -225,7 +231,7 @@ class Houses(APIView):
         elif pyeongsu == "0":
             filters.append(Q(pyeongsu__range=(1, 9)))
 
-        # 주소(서울시, 구, 동) 필터링
+        # 동 필터링
         if dong != None:
             filters.append(Q(dong=dong))
 
@@ -234,10 +240,19 @@ class Houses(APIView):
         else:
             house = House.objects.all()
 
+        # # 주소 구
+        # gu = request.GET.get("gu")
+        # if gu:
+        #     try:
+        #         gu = Gu_list.objects.get(pk=gu).name
+        #         house = [i for i in house if i.gu == gu]
+        #     except:
+        #         raise NotFound
+
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
-        if sort_by == "price":
+        if sort_by == "row_price":
             if cell_kind == "SALE":
                 house = house.order_by("sale")
             if cell_kind == "CHARTER":
