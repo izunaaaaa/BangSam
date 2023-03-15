@@ -237,7 +237,7 @@ class Houses(APIView):
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
-        if sort_by == "price":
+        if sort_by == "row_price":
             if cell_kind == "SALE":
                 house = house.order_by("sale")
             if cell_kind == "CHARTER":
