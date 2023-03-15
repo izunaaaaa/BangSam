@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import ChatRoom, Message
 from users.serializers import TinyUserSerializer
 from django.utils import timezone
+from houses.serializers import TinyHouseSerializer
 
 
 class ChatListSerializer(serializers.ModelSerializer):
@@ -48,6 +49,15 @@ class ChatRoomListSerializer(serializers.ModelSerializer):
             is_read=False,
         ).count()
         return num_unread_messages
+
+
+class ChatRoomSerialzier(serializers.ModelSerializer):
+    users = TinyUserSerializer(read_only=True, many=True)
+    house = TinyHouseSerializer(read_only=True)
+
+    class Meta:
+        model = ChatRoom
+        fields = "__all__"
 
 
 class MessageSerializer(serializers.ModelSerializer):

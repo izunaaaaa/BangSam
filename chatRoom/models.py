@@ -15,6 +15,11 @@ class ChatRoom(CommonModel):
         "users.User",
         related_name="chatRoom",
     )
+    house = models.ForeignKey(
+        "houses.House",
+        on_delete=models.CASCADE,
+        related_name="chatRoom",
+    )
     name = models.CharField(
         max_length=100,
         null=True,

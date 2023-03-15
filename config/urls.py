@@ -34,7 +34,7 @@ urlpatterns = [
     path("api/v1/users/", include("users.urls")),
     path("api/v1/houses/", include("houses.urls")),
     path("api/v1/wishlists/", include("wishlists.urls")),
-    path("api/v1/chat/", include("chatRoom.urls")),
+    path("api/v1/chatlist/", include("chatRoom.urls")),
     path("api/v1/images/", include("images.urls")),
     path("api/v1/houselists/", include("houselists.urls")),
     path(

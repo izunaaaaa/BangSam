@@ -82,12 +82,6 @@ class House(CommonModel):
         choices=CellKindChoices.choices,
     )
     address = models.CharField(max_length=100)
-
-    photo = models.URLField(
-        null=True,
-        blank=True,
-    )
-
     description = models.TextField(
         blank=True,
     )

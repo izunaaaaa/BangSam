@@ -23,7 +23,6 @@ class DonglistSerializer(ModelSerializer):
 
 class HouseSerializer(ModelSerializer):
     Image = ImageSerializer(many=True, read_only=True)
-    dong = DonglistSerializer(read_only=True)
 
     class Meta:
         model = House
@@ -43,7 +42,6 @@ class HouseSerializer(ModelSerializer):
             "room_kind",
             "cell_kind",
             "address",
-            "photo",
             "description",
             "visited",
             "owner",
@@ -54,8 +52,8 @@ class HouseSerializer(ModelSerializer):
 
 
 class HouseDetailSerializer(ModelSerializer):
-
-    # houselist = HouseListSerializer(many=True)
+    Image = ImageSerializer(many=True, read_only=True)
+    dong = DonglistSerializer(read_only=True)
 
     class Meta:
         model = House

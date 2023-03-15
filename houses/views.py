@@ -19,85 +19,85 @@ class Houses(APIView):
             openapi.Parameter(
                 "page",
                 openapi.IN_QUERY,
-                description="1 페이지당 24개의 데이터",
+                description="1 페이지당 24개의 데이터 : num_pages(총 페이지수),current_page(현재 페이지),count(총 개수),results(순서)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "room_kind_params",
+                "room_kind",
                 openapi.IN_QUERY,
                 description="방종류 : ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
-                "cell_kind_params",
+                "cell_kind",
                 openapi.IN_QUERY,
                 description="매매종류 : SALE, CHARTER, MONTHLY_RENT ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
-                "sale_start_params",
+                "sale_start",
                 openapi.IN_QUERY,
-                description="매매가 최소금액",
+                description="매매가 최소금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "sale_end_params",
+                "sale_end",
                 openapi.IN_QUERY,
-                description="매매가 최대금액",
+                description="매매가 최대금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "deposit_start_params",
+                "deposit_start",
                 openapi.IN_QUERY,
-                description="보증금 최소금액",
+                description="보증금 최소금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "deposit_end_params",
+                "deposit_end",
                 openapi.IN_QUERY,
-                description="보증금 최대금액 ",
+                description="보증금 최대금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "monthly_rent_start_params",
+                "monthly_rent_start",
                 openapi.IN_QUERY,
-                description="월세 최소금액",
+                description="월세 최소금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "monthly_rent_end_params",
+                "monthly_rent_end",
                 openapi.IN_QUERY,
-                description="월세 최대금액 ",
+                description="월세 최대금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "maintenance_cost_start_params",
+                "maintenance_cost_start",
                 openapi.IN_QUERY,
-                description="관리비 최소금액",
+                description="관리비 최소금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
-                "maintenance_cost_end_params",
+                "maintenance_cost_end",
                 openapi.IN_QUERY,
-                description="관리비 최대금액 ",
+                description="관리비 최대금액(default=0)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "num_of_room",
                 openapi.IN_QUERY,
-                description="방개수",
+                description="방개수 : 1(1개), 2(2개), 3(3개), 4 (4개이상)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "num_of_toilet",
                 openapi.IN_QUERY,
-                description="화장실 개수 ",
+                description="화장실 개수 : 1(1개), 2(2개), 3(3개), 4 (4개이상)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="평수 : 10(10, 19),20(20, 29),30(30, 39),40(40, 49),50(pyeongsu__gt=50),0(1-9)",
+                description="평수 : 10(10, 19), 20(20, 29), 30(30, 39), 40(40, 49), 50(pyeongsu__gt=50), 0(1-9)",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
@@ -109,7 +109,7 @@ class Houses(APIView):
             openapi.Parameter(
                 "sort_by",
                 openapi.IN_QUERY,
-                description="row_price,visited,lastest",
+                description="row_price, visited, lastest",
                 type=openapi.TYPE_INTEGER,
             ),
         ],
@@ -123,27 +123,28 @@ class Houses(APIView):
     def get(self, request):
 
         house = House.objects.all()
+
         # 방종류
-        room_kind_params = request.query_params.get("room_kind_params")
+        room_kind = request.GET.get("room_kind")
 
         # 매매종류
-        cell_kind_params = request.query_params.get("cell_kind_params")
+        cell_kind = request.GET.get("cell_kind")
 
         # 매매가
-        sale_start_params = request.GET.get("sale_start_params")
-        sale_end_params = request.GET.get("sale_end_params")
+        sale_start = request.GET.get("sale_start")
+        sale_end = request.GET.get("sale_end")
 
         # 보증금
-        deposit_start_params = request.GET.get("deposit_start_params")
-        deposit_end_params = request.GET.get("deposit_end_params")
+        deposit_start = request.GET.get("deposit_start")
+        deposit_end = request.GET.get("deposit_end")
 
         # 월세
-        monthly_rent_start_params = request.GET.get("monthly_rent_start_params")
-        monthly_rent_end_params = request.GET.get("monthly_rent_end_params")
+        monthly_rent_start = request.GET.get("monthly_rent_start")
+        monthly_rent_end = request.GET.get("monthly_rent_end")
 
         # 관리비
-        maintenance_cost_start_params = request.GET.get("maintenance_cost_start_params")
-        maintenance_cost_end_params = request.GET.get("maintenance_cost_end_params")
+        maintenance_cost_start = request.GET.get("maintenance_cost_start")
+        maintenance_cost_end = request.GET.get("maintenance_cost_end")
 
         # 방개수
         num_of_room = request.GET.get("num_of_room")
@@ -155,46 +156,43 @@ class Houses(APIView):
         pyeongsu = request.GET.get("pyeongsu")
 
         # 주소(서울시, 구, 동)
-        dong_params = request.GET.get("dong")
+        dong = request.GET.get("dong")
 
         filters = []
         # 방종류 필터링
-        if room_kind_params != None:
-            filters.append(Q(room_kind=room_kind_params))
+        if room_kind != None:
+            filters.append(Q(room_kind=room_kind))
 
         # 매매종류 필터링
-        if cell_kind_params != None:
-            filters.append(Q(cell_kind=cell_kind_params))
+        if cell_kind != None:
+            filters.append(Q(cell_kind=cell_kind))
 
         # 매매가 필터링
-        if sale_start_params != None and sale_end_params != None:
-            filters.append(Q(sale__range=(sale_start_params, sale_end_params)))
+        if sale_start != None and sale_end != None:
+            filters.append(Q(sale__range=(sale_start, sale_end)))
 
         # 보증금 필터링
-        if deposit_start_params != None and deposit_end_params != None:
-            filters.append(Q(deposit__range=(deposit_start_params, deposit_end_params)))
+        if deposit_start != None and deposit_end != None:
+            filters.append(Q(deposit__range=(deposit_start, deposit_end)))
 
         # 월세 필터링
-        if monthly_rent_start_params != None and monthly_rent_end_params != None:
+        if monthly_rent_start != None and monthly_rent_end != None:
             filters.append(
                 Q(
                     monthly_rent__range=(
-                        monthly_rent_start_params,
-                        monthly_rent_end_params,
+                        monthly_rent_start,
+                        monthly_rent_end,
                     )
                 )
             )
 
         # 관리비 필터링
-        if (
-            maintenance_cost_start_params != None
-            and maintenance_cost_end_params != None
-        ):
+        if maintenance_cost_start != None and maintenance_cost_end != None:
             filters.append(
                 Q(
                     maintenance_cost__range=(
-                        maintenance_cost_start_params,
-                        maintenance_cost_end_params,
+                        maintenance_cost_start,
+                        maintenance_cost_end,
                     )
                 )
             )
@@ -228,8 +226,8 @@ class Houses(APIView):
             filters.append(Q(pyeongsu__range=(1, 9)))
 
         # 주소(서울시, 구, 동) 필터링
-        if dong_params != None:
-            filters.append(Q(dong=dong_params))
+        if dong != None:
+            filters.append(Q(dong=dong))
 
         if filters:
             house = House.objects.filter(*filters)
@@ -240,11 +238,11 @@ class Houses(APIView):
         sort_by = request.GET.get("sort_by")
 
         if sort_by == "price":
-            if cell_kind_params == "SALE":
+            if cell_kind == "SALE":
                 house = house.order_by("sale")
-            if cell_kind_params == "CHARTER":
+            if cell_kind == "CHARTER":
                 house = house.order_by("deposit")
-            if cell_kind_params == "MONTHLY_RENT ":
+            if cell_kind == "MONTHLY_RENT ":
                 house = house.order_by("monthly_rent")
         elif sort_by == "visited":
             house = house.order_by("-visited")
@@ -302,8 +300,15 @@ class HouseDetail(APIView):
         house = self.get_object(pk)
         house.visited += 1
 
+        # 유저인지 확인
+        if request.user == house.owner:
+            house.is_owner = True
+        else:
+            house.is_owner = False
+
         house.save()
 
+        # 조회 목록
         if request.user.is_authenticated:
 
             try:

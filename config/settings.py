@@ -61,6 +61,8 @@ CUSTOM_APPS = [
 ]
 
 SYSTEM_APPS = [
+    "daphne",
+    "channels",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -101,8 +103,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"
+from channels.layers import get_channel_layer
 
+WSGI_APPLICATION = "config.wsgi.application"
+ASGI_APPLICATION = "config.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+channel_layer = get_channel_layer()
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
