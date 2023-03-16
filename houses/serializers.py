@@ -32,14 +32,14 @@ class TinyHouseSerializer(ModelSerializer):
 
 
 class HouseSerializer(ModelSerializer):
-    dong = DonglistSerializer(read_only=True)
-
     class Meta:
         model = House
         fields = (
+            "thumnail",
             "id",
             "is_owner",
             "owner",
+            "is_sale",
             "title",
             "gu",
             "dong",
@@ -70,6 +70,7 @@ class HouseDetailSerializer(ModelSerializer):
             "id",
             "is_owner",
             "owner",
+            "is_sale",
             "title",
             "gu",
             "dong",
