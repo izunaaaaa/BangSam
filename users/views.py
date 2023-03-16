@@ -336,9 +336,9 @@ class NaverLogin(APIView):
                     return Response(status=200)
                 except User.DoesNotExist:
                     user = User.objects.create(
-                        username=response.get("nickname"),
+                        username=response.get("id"),
                         name=response.get("name"),
-                        phone_number=response.get("mobile"),
+                        phone_number=response.get("mobile").replace("-", ""),
                         email=response.get("email"),
                         gender="male" if response.get("gender") == "M" else "female",
                         avatar=response.get("profile_image"),
