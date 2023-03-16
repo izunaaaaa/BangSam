@@ -21,6 +21,9 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        if User.objects.count() == 0:
+            self.stdout.write(self.style.SUCCESS("유저를 먼저 생성해주세요."))
+            return
         if not Gu_list.objects.all():
             self.stdout.write(self.style.SUCCESS("구 리스트를 작성중입니다."))
             Gu_list.objects.get_or_create
@@ -104,4 +107,4 @@ class Command(BaseCommand):
                 house["fields"] = data
                 new_list.append(house)
 
-        self.stdout.write(self.style.SUCCESS(f"{total}명의 방이 작성되었습니다."))
+        self.stdout.write(self.style.SUCCESS(f"{total}개의 방이 작성되었습니다."))

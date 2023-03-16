@@ -8,7 +8,7 @@ class TinyUserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = (
-            "name",
+            "username",
             "email",
             "avatar",
             "is_host",
