@@ -27,6 +27,24 @@ class Dong_list(models.Model):
         return self.name
 
 
+class options(CommonModel):
+    option = models.CharField(max_length=255)
+    description = models.TextField(
+        max_length=150,
+        null=True,
+        blank=True,
+    )
+
+
+class safetyoptions(CommonModel):
+    safetyoption = models.CharField(max_length=255)
+    description = models.TextField(
+        max_length=150,
+        null=True,
+        blank=True,
+    )
+
+
 class House(CommonModel):
     class RoomKindChoices(models.TextChoices):
         ONE_ROOM = ("ONE_ROOM", "원룸")
@@ -36,14 +54,12 @@ class House(CommonModel):
         OFFICETEL = ("OFFICETEL", "오피스텔")
         SHARE_HOUSE = ("SHARE_HOUSE", "쉐어하우스")
 
-    class CellKindChoices(models.TextChoices):
+    class SellKindChoices(models.TextChoices):
         SALE = ("SALE", "매매")
         CHARTER = ("CHARTER", "전세")
         MONTHLY_RENT = ("MONTHLY_RENT", "월세")
 
-    title = models.CharField(
-        max_length=100,
-    )  # 방 이름
+    title = models.CharField(max_length=100)  # 방 이름
 
     sale = models.PositiveIntegerField(default=0)  # 매매가
 
@@ -53,18 +69,10 @@ class House(CommonModel):
 
     maintenance_cost = models.PositiveIntegerField(default=0)  # 관리비
 
-    owner = models.ForeignKey(
+    host = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
-        related_name="owner",
-        null=True,
-        blank=True,
-    )
-
-    realtor = models.ForeignKey(
-        "users.User",
-        on_delete=models.CASCADE,
-        related_name="realtor",
+        related_name="host",
         null=True,
         blank=True,
     )
@@ -77,20 +85,18 @@ class House(CommonModel):
         max_length=20,
         choices=RoomKindChoices.choices,
     )
-    cell_kind = models.CharField(
+    sell_kind = models.CharField(
         max_length=20,
-        choices=CellKindChoices.choices,
+        choices=SellKindChoices.choices,
     )
     address = models.CharField(max_length=100)
-    description = models.TextField(
-        blank=True,
-    )
+    description = models.TextField(blank=True)
     visited = models.PositiveIntegerField(
         editable=False,
         default=0,
     )
     is_sale = models.BooleanField(default=True)
-    is_owner = models.BooleanField(default=False)
+    is_host = models.BooleanField(default=False)
     dong = models.ForeignKey(
         "houses.Dong_list",
         on_delete=models.CASCADE,
@@ -107,19 +113,8 @@ class House(CommonModel):
     def __str__(self) -> str:
         return f"{self.pk}"
 
-    def clean(self):
-        if self.owner and self.realtor:
-            raise ValidationError(
-                "Either owner or realtor can be specified, but not both."
-            )
-        elif not self.owner and not self.realtor:
-            raise ValidationError("Either owner or realtor must be specified.")
-
-
-class Keyword(CommonModel):
-    name = models.CharField(max_length=255)
-    description = models.TextField(
-        max_length=150,
-        null=True,
-        blank=True,
-    )
+    # def clean(self):
+    #     if self.host and self.user:
+    #         raise ValidationError("Either host or user can be specified, but not both.")
+    #     elif not self.host and not self.user:
+    #         raise ValidationError("Either host or user must be specified.")
