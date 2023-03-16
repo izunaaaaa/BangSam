@@ -9,10 +9,9 @@ class HouseAdmin(admin.ModelAdmin):
         "gu",
         "dong",
         "title",
-        "owner",
-        "realtor",
+        "host",
         "room_kind",
-        "cell_kind",
+        "sell_kind",
         "visited",
     )
 

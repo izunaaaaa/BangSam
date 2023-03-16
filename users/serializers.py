@@ -12,7 +12,6 @@ class TinyUserSerializer(ModelSerializer):
             "email",
             "avatar",
             "is_host",
-            "is_realtor",
         )
 
 
