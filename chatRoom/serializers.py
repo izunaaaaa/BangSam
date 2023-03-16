@@ -27,11 +27,13 @@ class ChatListSerializer(serializers.ModelSerializer):
 class ChatRoomListSerializer(serializers.ModelSerializer):
     users = TinyUserSerializer(read_only=True, many=True)
     unread_messages = serializers.SerializerMethodField()
+    house = TinyHouseSerializer(read_only=True)
 
     class Meta:
         model = ChatRoom
         fields = (
             "id",
+            "house",
             "lastMessage",
             "unread_messages",
             "users",
