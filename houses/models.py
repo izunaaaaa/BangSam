@@ -100,6 +100,10 @@ class House(CommonModel):
     def gu(self):
         return self.dong.gu.name
 
+    @property
+    def thumnail(self):
+        return self.Image.all()[0].url
+
     def __str__(self) -> str:
         return f"{self.pk}"
 

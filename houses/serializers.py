@@ -35,9 +35,11 @@ class HouseSerializer(ModelSerializer):
     class Meta:
         model = House
         fields = (
+            "thumnail",
             "id",
             "is_owner",
             "owner",
+            "is_sale",
             "title",
             "gu",
             "dong",
@@ -68,6 +70,7 @@ class HouseDetailSerializer(ModelSerializer):
             "id",
             "is_owner",
             "owner",
+            "is_sale",
             "title",
             "gu",
             "dong",
