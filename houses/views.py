@@ -128,8 +128,6 @@ class Houses(APIView):
     )
     def get(self, request):
 
-        house = House.objects.all()
-
         # 방종류
         room_kind = request.GET.get("room_kind")
 
@@ -231,6 +229,8 @@ class Houses(APIView):
         elif pyeongsu == "0":
             filters.append(Q(pyeongsu__range=(1, 9)))
 
+        filters.append(Q(is_sale=True))
+
         # 동 필터링
         if dong != None:
             filters.append(Q(dong=dong))
@@ -238,7 +238,7 @@ class Houses(APIView):
         if filters:
             house = House.objects.filter(*filters)
         else:
-            house = House.objects.all()
+            house = House.objects.filter(is_sale=True)
 
         # # 주소 구
         # gu = request.GET.get("gu")
