@@ -22,12 +22,7 @@ class CustomUserAdmin(UserAdmin):
         ),
         (
             "User Kind",
-            {
-                "fields": (
-                    "is_host",
-                    "is_realtor",
-                )
-            },
+            {"fields": ("is_host",)},
         ),
         (
             "Permissions",
@@ -56,7 +51,6 @@ class CustomUserAdmin(UserAdmin):
         "username",
         "name",
         "is_host",
-        "is_realtor",
         "username",
         "email",
     )

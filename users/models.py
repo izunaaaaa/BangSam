@@ -34,4 +34,3 @@ class User(AbstractUser):
         null=True,
     )
     is_host = models.BooleanField(default=False)
-    is_realtor = models.BooleanField(default=False)

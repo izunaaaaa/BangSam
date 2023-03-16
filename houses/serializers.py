@@ -37,14 +37,14 @@ class HouseSerializer(ModelSerializer):
         fields = (
             "thumnail",
             "id",
-            "is_owner",
-            "owner",
+            "is_host",
+            "host",
             "is_sale",
             "title",
             "gu",
             "dong",
             "room_kind",
-            "cell_kind",
+            "sell_kind",
             "sale",
             "deposit",
             "monthly_rent",
@@ -62,20 +62,20 @@ class HouseSerializer(ModelSerializer):
 class HouseDetailSerializer(ModelSerializer):
     Image = ImageSerializer(many=True, read_only=True)
     dong = DonglistSerializer(read_only=True)
-    owner = TinyUserSerializer(read_only=True)
+    host = TinyUserSerializer(read_only=True)
 
     class Meta:
         model = House
         fields = (
             "id",
-            "is_owner",
-            "owner",
+            "is_host",
+            "host",
             "is_sale",
             "title",
             "gu",
             "dong",
             "room_kind",
-            "cell_kind",
+            "sell_kind",
             "sale",
             "deposit",
             "monthly_rent",
