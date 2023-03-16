@@ -66,7 +66,7 @@ class Command(BaseCommand):
                     "deposit": random.randint(10, 50),
                     "monthly_rent": random.randint(10, 50),
                     "maintenance_cost": random.randint(10, 50),
-                    "owner": User.objects.get(pk=1),
+                    "host": User.objects.get(pk=1),
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
                     "pyeongsu": random.randint(10, 50),
@@ -83,7 +83,7 @@ class Command(BaseCommand):
                     deposit=data["deposit"],
                     monthly_rent=data["monthly_rent"],
                     maintenance_cost=data["maintenance_cost"],
-                    owner=data["owner"],
+                    host=data["host"],
                     room=data["room"],
                     toilet=data["toilet"],
                     pyeongsu=data["pyeongsu"],
@@ -100,7 +100,7 @@ class Command(BaseCommand):
                         house=create_house,
                         url=f"https://imagedelivery.net/TfkiqSGnbio9VWWQtYee6A/{random.choice(image_key)}/public",
                     )
-                data["owner"] = data["owner"].pk
+                data["host"] = data["host"].pk
                 house["fields"] = data
                 new_list.append(house)
 

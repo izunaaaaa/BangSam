@@ -29,7 +29,7 @@ class Houses(APIView):
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
-                "cell_kind",
+                "sell_kind",
                 openapi.IN_QUERY,
                 description="매매종류 : SALE, CHARTER, MONTHLY_RENT ",
                 type=openapi.TYPE_STRING,
@@ -132,7 +132,7 @@ class Houses(APIView):
         room_kind = request.GET.get("room_kind")
 
         # 매매종류
-        cell_kind = request.GET.get("cell_kind")
+        sell_kind = request.GET.get("sell_kind")
 
         # 매매가
         sale_start = request.GET.get("sale_start")
@@ -168,8 +168,8 @@ class Houses(APIView):
             filters.append(Q(room_kind=room_kind))
 
         # 매매종류 필터링
-        if cell_kind != None:
-            filters.append(Q(cell_kind=cell_kind))
+        if sell_kind != None:
+            filters.append(Q(sell_kind=sell_kind))
 
         # 매매가 필터링
         if sale_start != None and sale_end != None:
@@ -253,11 +253,11 @@ class Houses(APIView):
         sort_by = request.GET.get("sort_by")
 
         if sort_by == "row_price":
-            if cell_kind == "SALE":
+            if sell_kind == "SALE":
                 house = house.order_by("sale")
-            if cell_kind == "CHARTER":
+            if sell_kind == "CHARTER":
                 house = house.order_by("deposit")
-            if cell_kind == "MONTHLY_RENT ":
+            if sell_kind == "MONTHLY_RENT":
                 house = house.order_by("monthly_rent")
         elif sort_by == "visited":
             house = house.order_by("-visited")
@@ -288,6 +288,15 @@ class Houses(APIView):
 
         return Response(data)
 
+    def post(self, request):
+
+        serializer = serializers.HouseSerializer(data=request.data)
+
+        if serializer.is_valid():
+            return Response(serializer.data)
+        else:
+            raise Response(serializer.errors)
+
 
 class HouseDetail(APIView):
 
@@ -316,10 +325,10 @@ class HouseDetail(APIView):
         house.visited += 1
 
         # 유저인지 확인
-        if request.user == house.owner:
-            house.is_owner = True
+        if request.user == house.host:
+            house.is_host = True
         else:
-            house.is_owner = False
+            house.is_host = False
 
         house.save()
 
