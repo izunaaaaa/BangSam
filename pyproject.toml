@@ -21,6 +21,7 @@ dj-database-url = "^1.2.0"
 whitenoise = {extras = ["brotli"], version = "^6.4.0"}
 gunicorn = "^20.1.0"
 Twisted = {extras = ["http2", "tls"], version = "^22.10.0"}
+uvicorn = "^0.21.1"
 
 
 [build-system]
