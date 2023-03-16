@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, PermissionDenied
+from rest_framework.permissions import IsAuthenticated
 from .models import ChatRoom, Message
 from .serializers import ChatListSerializer, ChatRoomListSerializer, ChatRoomSerialzier
 from houses.models import House
@@ -22,6 +23,8 @@ class ChattingRoomList(APIView):
 
 
 class ChattingRoom(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get_object(self, pk):
         try:
             return ChatRoom.objects.get(pk=pk)
@@ -47,12 +50,12 @@ class ChattingRoom(APIView):
         serializer = ChatRoomSerialzier(data=request.data)
         if serializer.is_valid():
             if ChatRoom.objects.filter(
-                house=house, users__in=[request.user, house.owner]
+                house=house, users__in=[request.user, house.host]
             ).exists():
                 return Response({"Already Exist"})
             chat_room = serializer.save(house=house)
             chat_room.users.add(request.user)
-            chat_room.users.add(house.owner)
+            chat_room.users.add(house.host)
             serializer = ChatRoomSerialzier(chat_room)
             return Response(serializer.data)
         else:
