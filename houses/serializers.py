@@ -61,7 +61,7 @@ class HouseSerializer(ModelSerializer):
 
 class HouseDetailSerializer(ModelSerializer):
     Image = ImageSerializer(many=True, read_only=True)
-    dong = DonglistSerializer(read_only=True)
+    dong = DonglistSerializer()
     host = TinyUserSerializer(read_only=True)
 
     class Meta:

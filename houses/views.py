@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
@@ -265,29 +265,27 @@ class Houses(APIView):
             house = house.order_by("-created_at")
 
         # pagenations
-        # current_page = request.GET.get("page", 1)
-        # items_per_page = 24
-        # paginator = Paginator(house, items_per_page)
-        # try:
-        #     page = paginator.page(current_page)
-        # except:
-        #     page = paginator.page(paginator.num_pages)
+        current_page = request.GET.get("page", 1)
+        items_per_page = 24
+        paginator = Paginator(house, items_per_page)
+        try:
+            page = paginator.page(current_page)
+        except:
+            page = paginator.page(paginator.num_pages)
 
         serializer = serializers.HouseSerializer(
-            # page,
-            house,
+            page,
             many=True,
         )
 
-        # data = {
-        #     "num_pages": paginator.num_pages,
-        #     "current_page": page.number,
-        #     "count": paginator.count,
-        #     "results": serializer.data,
-        # }
+        data = {
+            "num_pages": paginator.num_pages,
+            "current_page": page.number,
+            "count": paginator.count,
+            "results": serializer.data,
+        }
 
-        # return Response(data)
-        return Response(serializer.data)
+        return Response(data)
 
     def post(self, request):
 
@@ -405,6 +403,30 @@ class HouseDetail(APIView):
 
     def put(self, request, pk):
         house = self.get_object(pk)
+
+        if house.host != request.user:
+            raise PermissionDenied
+
+        serializer = serializers.HouseDetailSerializer(
+            house,
+            data=request.data,
+            partial=True,
+        )
+        if serializer.is_valid():
+
+            updated_house = serializer.save()
+            serializer = serializers.HouseDetailSerializer(updated_house)
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+
+    def delete(self, request, pk):
+        house = self.get_object(pk)
+
+        if house.host != request.user:
+            raise PermissionDenied
+        house.delete()
+        return Response({"delete success"})
 
 
 class GuList(APIView):
