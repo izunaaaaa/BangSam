@@ -265,39 +265,91 @@ class Houses(APIView):
             house = house.order_by("-created_at")
 
         # pagenations
-        current_page = request.GET.get("page", 1)
-        items_per_page = 24
-        paginator = Paginator(house, items_per_page)
-        try:
-            page = paginator.page(current_page)
-        except:
-            page = paginator.page(paginator.num_pages)
+        # current_page = request.GET.get("page", 1)
+        # items_per_page = 24
+        # paginator = Paginator(house, items_per_page)
+        # try:
+        #     page = paginator.page(current_page)
+        # except:
+        #     page = paginator.page(paginator.num_pages)
 
         serializer = serializers.HouseSerializer(
-            page,
+            # page,
+            house,
             many=True,
         )
 
-        data = {
-            "num_pages": paginator.num_pages,
-            "current_page": page.number,
-            "count": paginator.count,
-            "results": serializer.data,
-        }
-        # /?page=2파람으로 받기
+        # data = {
+        #     "num_pages": paginator.num_pages,
+        #     "current_page": page.number,
+        #     "count": paginator.count,
+        #     "results": serializer.data,
+        # }
 
-        return Response(data)
+        # return Response(data)
+        return Response(serializer.data)
 
     def post(self, request):
 
         serializer = serializers.HouseSerializer(data=request.data)
 
         if serializer.is_valid():
-            house = serializer.save(user=request.user)
+
+            room = request.data.get("room")
+            if room == None:
+                raise ParseError("room not specified")
+
+            toilet = request.data.get("toilet")
+            if toilet == None:
+                raise ParseError("toilet not specified")
+
+            pyeongsu = request.data.get("pyeongsu")
+            if pyeongsu == None:
+                raise ParseError("pyeongsu not specified")
+
+            sell_kind = request.data.get("sell_kind")
+            if sell_kind == "SALE":
+                if (
+                    request.data.get("sale") == 0
+                    or request.data.get("sale") == None
+                    or request.data.get("deposit")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("sale error")
+
+            if sell_kind == "CHARTER":
+                if (
+                    request.data.get("deposit") == 0
+                    or request.data.get("deposit") == None
+                    or request.data.get("sale")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("deposit error")
+
+            if sell_kind == "MONTHLY_RENT":
+                if (
+                    request.data.get("monthly_rent") == 0
+                    or request.data.get("monthly_rent") == None
+                    or request.data.get("deposit")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("monthly_rent error")
+
+            house = serializer.save(
+                host=request.user,
+                room=room,
+                toilet=toilet,
+                pyeongsu=pyeongsu,
+                sell_kind=sell_kind,
+            )
             serializer = serializers.HouseSerializer(house)
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+    def delete(self, request):
+        House.objects.all().delete()
+        return Response({"delete success"})
 
 
 class HouseDetail(APIView):
@@ -350,6 +402,9 @@ class HouseDetail(APIView):
         serializer = serializers.HouseDetailSerializer(house)
 
         return Response(serializer.data)
+
+    def put(self, request, pk):
+        house = self.get_object(pk)
 
 
 class GuList(APIView):

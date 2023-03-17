@@ -75,7 +75,7 @@ class Command(BaseCommand):
                     "pyeongsu": random.randint(10, 50),
                     "distance_to_station": random.randint(5, 20),
                     "room_kind": random.choice(House.RoomKindChoices.values),
-                    "cell_kind": random.choice(House.CellKindChoices.values),
+                    "sell_kind": random.choice(House.SellKindChoices.values),
                     "address": " ".join(i for i in fake.land_address().split(" ")[2:]),
                     "description": "인근에서 가장 좋은 방입니다.",
                 }
@@ -92,7 +92,7 @@ class Command(BaseCommand):
                     pyeongsu=data["pyeongsu"],
                     distance_to_station=data["distance_to_station"],
                     room_kind=data["room_kind"],
-                    cell_kind=data["cell_kind"],
+                    sell_kind=data["sell_kind"],
                     address=data["address"],
                     description=data["description"],
                     dong=i,

@@ -5,6 +5,16 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
+
+    list_display = (
+        "pk",
+        "username",
+        "name",
+        "is_host",
+        "username",
+        "email",
+    )
+
     fieldsets = (
         (
             "Profile",
@@ -44,13 +54,4 @@ class CustomUserAdmin(UserAdmin):
                 "classes": ("collapse",),
             },
         ),
-    )
-
-    list_display = (
-        "pk",
-        "username",
-        "name",
-        "is_host",
-        "username",
-        "email",
     )

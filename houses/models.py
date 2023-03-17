@@ -73,8 +73,6 @@ class House(CommonModel):
         "users.User",
         on_delete=models.CASCADE,
         related_name="host",
-        null=True,
-        blank=True,
     )
 
     room = models.PositiveIntegerField(default=0)
