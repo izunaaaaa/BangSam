@@ -28,7 +28,6 @@ class Wishlists(APIView):
 
     def post(self, request):
         serializer = serializers.WishlistSerializer(data=request.data)
-        print(request.data.get("house"))
         if serializer.is_valid():
             if Wishlist.objects.filter(
                 user=request.user, house=request.data.get("house")
