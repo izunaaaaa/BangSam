@@ -97,6 +97,7 @@ class House(CommonModel):
     )
     is_sale = models.BooleanField(default=True)
     is_host = models.BooleanField(default=False)
+
     dong = models.ForeignKey(
         "houses.Dong_list",
         on_delete=models.CASCADE,

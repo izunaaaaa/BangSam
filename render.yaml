@@ -10,7 +10,7 @@ services:
     env: python
     region: singapore
     buildCommand: "./build.sh"
-    startCommand: "gunicorn config.asgi:application --bind 0.0.0.0:8000 --worker-class uvicorn.workers.UvicornWorker"
+    startCommand: "gunicorn config.asgi:application  --worker-class uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
