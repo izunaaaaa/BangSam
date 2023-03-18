@@ -61,9 +61,9 @@ class House(CommonModel):
 
     title = models.CharField(max_length=100)  # 방 이름
 
-    sale = models.PositiveIntegerField(default=0)  # 매매가
+    sale = models.BigIntegerField(default=0)  # 매매가
 
-    deposit = models.PositiveIntegerField(default=0)  # 보증금
+    deposit = models.BigIntegerField(default=0)  # 보증금
 
     monthly_rent = models.PositiveIntegerField(default=0)  # 월세
 
