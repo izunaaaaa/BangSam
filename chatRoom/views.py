@@ -13,7 +13,9 @@ class ChattingRoomList(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        all_chat_list = ChatRoom.objects.filter(users=request.user)
+        all_chat_list = ChatRoom.objects.filter(users=request.user).order_by(
+            "-updated_at"
+        )
         serializer = ChatRoomListSerializer(
             all_chat_list,
             many=True,

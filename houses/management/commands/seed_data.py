@@ -65,20 +65,29 @@ class Command(BaseCommand):
                 house = {"model": "houses.House"}
                 data = {
                     "title": fake.building_name(),
-                    "sale": random.randint(10, 50),
-                    "deposit": random.randint(10, 50),
-                    "monthly_rent": random.randint(10, 50),
-                    "maintenance_cost": random.randint(10, 50),
+                    "sale": 0,
+                    "deposit": 0,
+                    "monthly_rent": 0,
+                    "maintenance_cost": random.randint(5, 20) * 10000,
                     "host": User.objects.get(pk=1),
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
                     "pyeongsu": random.randint(10, 50),
                     "distance_to_station": random.randint(5, 20),
                     "room_kind": random.choice(House.RoomKindChoices.values),
-                    "cell_kind": random.choice(House.CellKindChoices.values),
+                    "sell_kind": random.choice(House.SellKindChoices.values),
                     "address": " ".join(i for i in fake.land_address().split(" ")[2:]),
                     "description": "인근에서 가장 좋은 방입니다.",
                 }
+                cell_kind = data.get("sell_kind")
+                if cell_kind == "SALE":
+                    data["sale"] = random.randint(5, 300) * 10000000
+                elif cell_kind == "CHARTER":
+                    data["deposit"] = random.randint(5, 200) * 1000000
+                elif cell_kind == "MONTHLY_RENT":
+                    data["deposit"] = random.randint(5, 200) * 1000000
+                    data["monthly_rent"] = random.randint(1, 20) * 100000
+
                 create_house = House.objects.create(
                     pk=House.objects.count() + 1,
                     title=data["title"],
@@ -92,7 +101,7 @@ class Command(BaseCommand):
                     pyeongsu=data["pyeongsu"],
                     distance_to_station=data["distance_to_station"],
                     room_kind=data["room_kind"],
-                    cell_kind=data["cell_kind"],
+                    sell_kind=data["sell_kind"],
                     address=data["address"],
                     description=data["description"],
                     dong=i,

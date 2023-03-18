@@ -21,7 +21,6 @@ class PrivateUserSerializer(ModelSerializer):
     class Meta:
         model = User
         exclude = (
-            "avatar",
             "first_name",
             "last_name",
             "last_login",
