@@ -22,6 +22,7 @@ whitenoise = {extras = ["brotli"], version = "^6.4.0"}
 gunicorn = "^20.1.0"
 Twisted = {extras = ["http2", "tls"], version = "^22.10.0"}
 uvicorn = {extras = ["standard"], version = "^0.21.1"}
+sentry-sdk = "^1.17.0"
 
 
 [build-system]
