@@ -10,6 +10,7 @@ class TinyUserSerializer(ModelSerializer):
         model = User
         fields = (
             "username",
+            "name",
             "email",
             "avatar",
             "is_host",
