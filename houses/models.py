@@ -106,7 +106,10 @@ class House(CommonModel):
 
     @property
     def thumnail(self):
-        return self.Image.all()[0].url
+        if self.Image.all().count() > 0:
+            return self.Image.all()[0].url
+        else:
+            return ""
 
     def __str__(self) -> str:
         return f"{self.pk}"

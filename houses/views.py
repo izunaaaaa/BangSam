@@ -291,6 +291,9 @@ class Houses(APIView):
 
         serializer = serializers.HouseSerializer(data=request.data)
 
+        if request.user.is_host == False:
+            raise PermissionDenied
+
         if serializer.is_valid():
 
             room = request.data.get("room")
@@ -335,10 +338,10 @@ class Houses(APIView):
 
             house = serializer.save(
                 host=request.user,
-                room=room,
-                toilet=toilet,
-                pyeongsu=pyeongsu,
-                sell_kind=sell_kind,
+                # room=room,
+                # toilet=toilet,
+                # pyeongsu=pyeongsu,
+                # sell_kind=sell_kind,
             )
             serializer = serializers.HouseSerializer(house)
             return Response(serializer.data)
