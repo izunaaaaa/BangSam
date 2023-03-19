@@ -412,7 +412,38 @@ class HouseDetail(APIView):
             data=request.data,
             partial=True,
         )
+
+        print(house.sell_kind)
+
         if serializer.is_valid():
+
+            # sell_kind = request.data.get("sell_kind")
+            # if sell_kind == "SALE":
+            #     if (
+            #         request.data.get("sale") == 0
+            #         or request.data.get("sale") == None
+            #         or request.data.get("deposit")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("sale error")
+
+            # if sell_kind == "CHARTER":
+            #     if (
+            #         request.data.get("deposit") == 0
+            #         or request.data.get("deposit") == None
+            #         or request.data.get("sale")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("deposit error")
+
+            # if sell_kind == "MONTHLY_RENT":
+            #     if (
+            #         request.data.get("monthly_rent") == 0
+            #         or request.data.get("monthly_rent") == None
+            #         or request.data.get("deposit")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("monthly_rent error")
 
             updated_house = serializer.save()
             serializer = serializers.HouseDetailSerializer(updated_house)
