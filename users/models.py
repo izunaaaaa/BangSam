@@ -19,7 +19,7 @@ class User(AbstractUser):
         editable=False,
     )
     phone_number = models.CharField(
-        max_length=11,
+        max_length=13,
     )
     email = models.EmailField(
         max_length=100,
