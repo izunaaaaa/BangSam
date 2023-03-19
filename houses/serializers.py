@@ -1,5 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+from rest_framework.exceptions import ParseError
 from .models import House, Gu_list, Dong_list
 from houselists.serializers import HouseListSerializer
 from images.serializers import ImageSerializer
@@ -19,7 +20,6 @@ class DonglistSerializer(ModelSerializer):
     class Meta:
         model = Dong_list
         fields = (
-            # "gu",
             "pk",
             "name",
         )
@@ -38,11 +38,9 @@ class HouseSerializer(ModelSerializer):
             "thumnail",
             "id",
             "is_host",
-            # "host",
             "is_sale",
             "title",
-            # "gu",
-            # "dong",
+            "dong",
             "room_kind",
             "sell_kind",
             "sale",
@@ -57,6 +55,38 @@ class HouseSerializer(ModelSerializer):
             "description",
             "visited",
         )
+
+    def validate(self, data):
+
+        room = data["room"]
+        if room == None:
+            raise ParseError("room not specified")
+
+        toilet = data["toilet"]
+        if toilet == None:
+            raise ParseError("toilet not specified")
+
+        pyeongsu = data["pyeongsu"]
+        if pyeongsu == None:
+            raise ParseError("pyeongsu not specified")
+
+        sell_kind = data["sell_kind"]
+        if sell_kind == "SALE":
+            if not data.get("sale") or data.get("deposit") or data.get("monthly_rent"):
+                raise ParseError("sale error")
+
+        if sell_kind == "CHARTER":
+            if not data.get("deposit") or data.get("sale") or data.get("monthly_rent"):
+                raise ParseError("deposit error")
+
+        if sell_kind == "MONTHLY_RENT":
+            if (
+                not data.get("monthly_rent")
+                or not data.get("deposit")
+                or data.get("sale")
+            ):
+                raise ParseError("monthly_rent error")
+        return data
 
 
 class HouseDetailSerializer(ModelSerializer):
@@ -89,22 +119,3 @@ class HouseDetailSerializer(ModelSerializer):
             "visited",
             "Image",
         )
-
-    def update(self, instance, validated_data):
-        # 중첩된 필드의 값을 가져옵니다.
-        dong_data = validated_data.pop("dong", None)
-
-        # instance의 값을 업데이트합니다.
-        instance = super().update(instance, validated_data)
-
-        # dong_data가 존재하면 Dong 객체를 업데이트합니다.
-        if dong_data is not None:
-            # dong_serializer = DonglistSerializer(instance.dong, data=dong_data)
-            # dong_serializer.is_valid(raise_exception=True)
-            # dong_serializer.save()
-            dong_instance, _ = Dong_list.objects.get_or_create(pk=dong_data.get("pk"))
-            dong_instance.name = dong_data.get("name")
-            dong_instance.save()
-            instance.dong = dong_instance
-
-        return instance

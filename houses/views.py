@@ -10,6 +10,7 @@ from drf_yasg import openapi
 from .models import House, Gu_list, Dong_list
 from . import serializers
 from houselists.models import HouseList
+from images.models import Image
 
 
 class Houses(APIView):
@@ -295,54 +296,14 @@ class Houses(APIView):
             raise PermissionDenied
 
         if serializer.is_valid():
-
-            room = request.data.get("room")
-            if room == None:
-                raise ParseError("room not specified")
-
-            toilet = request.data.get("toilet")
-            if toilet == None:
-                raise ParseError("toilet not specified")
-
-            pyeongsu = request.data.get("pyeongsu")
-            if pyeongsu == None:
-                raise ParseError("pyeongsu not specified")
-
-            sell_kind = request.data.get("sell_kind")
-            if sell_kind == "SALE":
-                if (
-                    request.data.get("sale") == 0
-                    or request.data.get("sale") == None
-                    or request.data.get("deposit")
-                    or request.data.get("monthly_rent")
-                ):
-                    raise ParseError("sale error")
-
-            if sell_kind == "CHARTER":
-                if (
-                    request.data.get("deposit") == 0
-                    or request.data.get("deposit") == None
-                    or request.data.get("sale")
-                    or request.data.get("monthly_rent")
-                ):
-                    raise ParseError("deposit error")
-
-            if sell_kind == "MONTHLY_RENT":
-                if (
-                    request.data.get("monthly_rent") == 0
-                    or request.data.get("monthly_rent") == None
-                    or request.data.get("deposit")
-                    or request.data.get("monthly_rent")
-                ):
-                    raise ParseError("monthly_rent error")
-
             house = serializer.save(
                 host=request.user,
-                # room=room,
-                # toilet=toilet,
-                # pyeongsu=pyeongsu,
-                # sell_kind=sell_kind,
             )
+            image = request.data.get("Image")
+            if isinstance(image, list):
+                if len(image) == 5:
+                    for i in image:
+                        Image.objects.create(house=house, URL=i)
             serializer = serializers.HouseSerializer(house)
             return Response(serializer.data)
         else:
