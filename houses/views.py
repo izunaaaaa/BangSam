@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
@@ -284,7 +284,6 @@ class Houses(APIView):
             "count": paginator.count,
             "results": serializer.data,
         }
-        # /?page=2파람으로 받기
 
         return Response(data)
 
@@ -292,12 +291,66 @@ class Houses(APIView):
 
         serializer = serializers.HouseSerializer(data=request.data)
 
+        if request.user.is_host == False:
+            raise PermissionDenied
+
         if serializer.is_valid():
-            house = serializer.save(user=request.user)
+
+            room = request.data.get("room")
+            if room == None:
+                raise ParseError("room not specified")
+
+            toilet = request.data.get("toilet")
+            if toilet == None:
+                raise ParseError("toilet not specified")
+
+            pyeongsu = request.data.get("pyeongsu")
+            if pyeongsu == None:
+                raise ParseError("pyeongsu not specified")
+
+            sell_kind = request.data.get("sell_kind")
+            if sell_kind == "SALE":
+                if (
+                    request.data.get("sale") == 0
+                    or request.data.get("sale") == None
+                    or request.data.get("deposit")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("sale error")
+
+            if sell_kind == "CHARTER":
+                if (
+                    request.data.get("deposit") == 0
+                    or request.data.get("deposit") == None
+                    or request.data.get("sale")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("deposit error")
+
+            if sell_kind == "MONTHLY_RENT":
+                if (
+                    request.data.get("monthly_rent") == 0
+                    or request.data.get("monthly_rent") == None
+                    or request.data.get("deposit")
+                    or request.data.get("monthly_rent")
+                ):
+                    raise ParseError("monthly_rent error")
+
+            house = serializer.save(
+                host=request.user,
+                # room=room,
+                # toilet=toilet,
+                # pyeongsu=pyeongsu,
+                # sell_kind=sell_kind,
+            )
             serializer = serializers.HouseSerializer(house)
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+    def delete(self, request):
+        House.objects.all().delete()
+        return Response({"delete success"})
 
 
 class HouseDetail(APIView):
@@ -350,6 +403,64 @@ class HouseDetail(APIView):
         serializer = serializers.HouseDetailSerializer(house)
 
         return Response(serializer.data)
+
+    def put(self, request, pk):
+        house = self.get_object(pk)
+
+        if house.host != request.user:
+            raise PermissionDenied
+
+        serializer = serializers.HouseDetailSerializer(
+            house,
+            data=request.data,
+            partial=True,
+        )
+
+        print(house.sell_kind)
+
+        if serializer.is_valid():
+
+            # sell_kind = request.data.get("sell_kind")
+            # if sell_kind == "SALE":
+            #     if (
+            #         request.data.get("sale") == 0
+            #         or request.data.get("sale") == None
+            #         or request.data.get("deposit")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("sale error")
+
+            # if sell_kind == "CHARTER":
+            #     if (
+            #         request.data.get("deposit") == 0
+            #         or request.data.get("deposit") == None
+            #         or request.data.get("sale")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("deposit error")
+
+            # if sell_kind == "MONTHLY_RENT":
+            #     if (
+            #         request.data.get("monthly_rent") == 0
+            #         or request.data.get("monthly_rent") == None
+            #         or request.data.get("deposit")
+            #         or request.data.get("monthly_rent")
+            #     ):
+            #         raise ParseError("monthly_rent error")
+
+            updated_house = serializer.save()
+            serializer = serializers.HouseDetailSerializer(updated_house)
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+
+    def delete(self, request, pk):
+        house = self.get_object(pk)
+
+        if house.host != request.user:
+            raise PermissionDenied
+        house.delete()
+        return Response({"delete success"})
 
 
 class GuList(APIView):
