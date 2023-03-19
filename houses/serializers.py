@@ -32,11 +32,17 @@ class TinyHouseSerializer(ModelSerializer):
 
 
 class HouseSerializer(ModelSerializer):
+
+    Image = ImageSerializer(many=True, read_only=True)
+    dong = DonglistSerializer()
+    host = TinyUserSerializer(read_only=True)
+
     class Meta:
         model = House
         fields = (
-            "thumnail",
+            "visited",
             "id",
+            "host",
             "is_host",
             "is_sale",
             "title",
@@ -53,7 +59,8 @@ class HouseSerializer(ModelSerializer):
             "distance_to_station",
             "address",
             "description",
-            "visited",
+            "thumnail",
+            "Image",
         )
 
     def validate(self, data):
@@ -87,35 +94,3 @@ class HouseSerializer(ModelSerializer):
             ):
                 raise ParseError("monthly_rent error")
         return data
-
-
-class HouseDetailSerializer(ModelSerializer):
-    Image = ImageSerializer(many=True, read_only=True)
-    dong = DonglistSerializer()
-    host = TinyUserSerializer(read_only=True)
-
-    class Meta:
-        model = House
-        fields = (
-            "id",
-            "is_host",
-            "host",
-            "is_sale",
-            "title",
-            "gu",
-            "dong",
-            "room_kind",
-            "sell_kind",
-            "sale",
-            "deposit",
-            "monthly_rent",
-            "maintenance_cost",
-            "room",
-            "toilet",
-            "pyeongsu",
-            "distance_to_station",
-            "address",
-            "description",
-            "visited",
-            "Image",
-        )
