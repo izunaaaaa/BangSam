@@ -2,6 +2,7 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from .models import User
 from rest_framework.exceptions import ParseError
+import re
 
 
 class TinyUserSerializer(ModelSerializer):
@@ -31,3 +32,10 @@ class PrivateUserSerializer(ModelSerializer):
             "groups",
             "user_permissions",
         )
+
+    def validate_phone_number(self, data):
+        phone_regex = re.compile(r"^010\d{4}\d{4}$")
+        data = data.replace("-", "")
+        if not phone_regex.match(data):
+            raise serializers.ValidationError("유효한 형식을 입력하세요.")
+        return data
