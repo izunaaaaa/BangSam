@@ -12,4 +12,7 @@ urlpatterns = [
     path("logout/", views.LogOut.as_view()),
     path("changepassword/", views.ChangePassword.as_view()),
     path("@<str:username>/", views.UserDetail.as_view()),
+    path("selllist/all", views.AllSellList.as_view()),
+    path("selllist/sell", views.SellList.as_view()),
+    path("selllist/notsell", views.NotSellList.as_view()),
 ]
