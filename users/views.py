@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.status import HTTP_409_CONFLICT
 from . import serializers
 from .models import User
@@ -12,6 +12,9 @@ from drf_yasg import openapi
 import re
 import requests
 from rest_framework_simplejwt.tokens import RefreshToken
+from houses.models import House
+from houses.serializers import TinyHouseSerializer
+from django.core.paginator import Paginator
 
 
 class UserMe(APIView):
@@ -217,10 +220,29 @@ class LogOut(APIView):
 
 
 class CheckID(APIView):
+    @swagger_auto_schema(
+        operation_summary="중복 아이디 체크 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+            ),
+            409: "Conflct Response",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="id",
+                in_=openapi.IN_QUERY,
+                description="검사할 아이디",
+                type=openapi.TYPE_STRING,
+                required=True,
+            )
+        ],
+    )
     def get(self, request):
         id = request.GET.get("id")
         if User.objects.filter(username=id).exists():
             return Response(status=HTTP_409_CONFLICT)
+        return Response(status=200)
 
 
 class CheckValidate(APIView):
@@ -231,6 +253,16 @@ class CheckValidate(APIView):
                 "비밀번호를 확인하세요. 최소 1개 이상의 소문자, 숫자, 특수문자로 구성되어야 하며 길이는 8자리 이상이어야 합니다."
             )
 
+    @swagger_auto_schema(
+        operation_summary="회원가입 유효성 체크용 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+            ),
+            400: "Bad request",
+        },
+        # request_body=serializers.PrivateUserSerializer(),
+    )
     def post(self, request):
         password = str(request.data.get("password"))
         if not password:
@@ -245,6 +277,27 @@ class CheckValidate(APIView):
 
 
 class KakaoLogin(APIView):
+    @swagger_auto_schema(
+        operation_summary="카카오 로그인 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+            ),
+            201: openapi.Response(
+                description="Create user ",
+            ),
+            400: "Bad request",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="code",
+                in_=openapi.IN_QUERY,
+                description="카카오톡에서 제공해주는 code",
+                type=openapi.TYPE_STRING,
+                required=True,
+            )
+        ],
+    )
     def post(self, request):
         try:
             code = request.data.get("code")
@@ -300,6 +353,27 @@ class KakaoLogin(APIView):
 
 
 class NaverLogin(APIView):
+    @swagger_auto_schema(
+        operation_summary="카카오 로그인 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+            ),
+            201: openapi.Response(
+                description="Create user ",
+            ),
+            400: "Bad request",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="code",
+                in_=openapi.IN_QUERY,
+                description="네이버에서 제공해주는 code",
+                type=openapi.TYPE_STRING,
+                required=True,
+            )
+        ],
+    )
     def post(self, request):
         code = request.data.get("code")
         state = request.data.get("state")
@@ -353,3 +427,330 @@ class NaverLogin(APIView):
                     )
 
             return Response(status=400)
+
+
+class AllSellList(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(
+        operation_summary="유저가 올린 모든방의 리스트를 보여주는 api",
+        produces=["application/json"],
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        "num_pages": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Number of pages",
+                        ),
+                        "current_page": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Current page number",
+                        ),
+                        "count": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Total number of houses",
+                        ),
+                        "results": openapi.Schema(
+                            type=openapi.TYPE_ARRAY,
+                            items=openapi.Schema(
+                                type=openapi.TYPE_OBJECT,
+                                properties={
+                                    "id": openapi.Schema(
+                                        type=openapi.TYPE_INTEGER,
+                                        description="House ID",
+                                    ),
+                                    "title": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="House title",
+                                    ),
+                                    "thumbnail": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        format=openapi.FORMAT_URI,
+                                        description="House thumbnail URL",
+                                    ),
+                                    "room_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of room",
+                                    ),
+                                    "deposit": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Deposit amount",
+                                    ),
+                                    "sell_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of sale",
+                                    ),
+                                    "sale": openapi.Schema(
+                                        type=openapi.TYPE_BOOLEAN,
+                                        description="Whether the house is for sale",
+                                    ),
+                                    "monthly_rent": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Monthly rent amount",
+                                    ),
+                                },
+                            ),
+                            description="Houses for sale",
+                        ),
+                    },
+                ),
+            ),
+            403: "permission denied",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="page",
+                in_=openapi.IN_QUERY,
+                description="Page number",
+                type=openapi.TYPE_INTEGER,
+            )
+        ],
+    )
+    def get(self, request):
+        if not request.user.is_host:
+            raise PermissionDenied
+        house = House.objects.filter(host=request.user)
+        current_page = request.GET.get("page", 1)
+        items_per_page = 24
+        paginator = Paginator(house, items_per_page)
+        try:
+            page = paginator.page(current_page)
+        except:
+            page = paginator.page(paginator.num_pages)
+
+        serializer = TinyHouseSerializer(
+            page,
+            many=True,
+            context={"request": request},
+        )
+
+        data = {
+            "num_pages": paginator.num_pages,
+            "current_page": page.number,
+            "count": paginator.count,
+            "results": serializer.data,
+        }
+        return Response(data)
+
+
+class NotSellList(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(
+        operation_summary="유저가 올린 방 중 이미 팔린 방의 리스트를 보여주는 api",
+        produces=["application/json"],
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        "num_pages": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Number of pages",
+                        ),
+                        "current_page": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Current page number",
+                        ),
+                        "count": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Total number of houses",
+                        ),
+                        "results": openapi.Schema(
+                            type=openapi.TYPE_ARRAY,
+                            items=openapi.Schema(
+                                type=openapi.TYPE_OBJECT,
+                                properties={
+                                    "id": openapi.Schema(
+                                        type=openapi.TYPE_INTEGER,
+                                        description="House ID",
+                                    ),
+                                    "title": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="House title",
+                                    ),
+                                    "thumbnail": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        format=openapi.FORMAT_URI,
+                                        description="House thumbnail URL",
+                                    ),
+                                    "room_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of room",
+                                    ),
+                                    "deposit": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Deposit amount",
+                                    ),
+                                    "sell_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of sale",
+                                    ),
+                                    "sale": openapi.Schema(
+                                        type=openapi.TYPE_BOOLEAN,
+                                        description="Whether the house is for sale",
+                                    ),
+                                    "monthly_rent": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Monthly rent amount",
+                                    ),
+                                },
+                            ),
+                            description="Houses for sale",
+                        ),
+                    },
+                ),
+            ),
+            403: "permission denied",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="page",
+                in_=openapi.IN_QUERY,
+                description="Page number",
+                type=openapi.TYPE_INTEGER,
+            )
+        ],
+    )
+    def get(self, request):
+        if not request.user.is_host:
+            raise PermissionDenied
+        house = House.objects.filter(host=request.user, is_sale=False)
+        current_page = request.GET.get("page", 1)
+        items_per_page = 24
+        paginator = Paginator(house, items_per_page)
+        try:
+            page = paginator.page(current_page)
+        except:
+            page = paginator.page(paginator.num_pages)
+
+        serializer = TinyHouseSerializer(
+            page,
+            many=True,
+            context={"request": request},
+        )
+
+        data = {
+            "num_pages": paginator.num_pages,
+            "current_page": page.number,
+            "count": paginator.count,
+            "results": serializer.data,
+        }
+        return Response(data)
+
+
+class SellList(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(
+        operation_summary="유저가 올린 방중 파는중인 방의 리스트를 보여주는 api",
+        produces=["application/json"],
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        "num_pages": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Number of pages",
+                        ),
+                        "current_page": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Current page number",
+                        ),
+                        "count": openapi.Schema(
+                            type=openapi.TYPE_INTEGER,
+                            description="Total number of houses",
+                        ),
+                        "results": openapi.Schema(
+                            type=openapi.TYPE_ARRAY,
+                            items=openapi.Schema(
+                                type=openapi.TYPE_OBJECT,
+                                properties={
+                                    "id": openapi.Schema(
+                                        type=openapi.TYPE_INTEGER,
+                                        description="House ID",
+                                    ),
+                                    "title": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="House title",
+                                    ),
+                                    "thumbnail": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        format=openapi.FORMAT_URI,
+                                        description="House thumbnail URL",
+                                    ),
+                                    "room_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of room",
+                                    ),
+                                    "deposit": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Deposit amount",
+                                    ),
+                                    "sell_kind": openapi.Schema(
+                                        type=openapi.TYPE_STRING,
+                                        description="Type of sale",
+                                    ),
+                                    "sale": openapi.Schema(
+                                        type=openapi.TYPE_BOOLEAN,
+                                        description="Whether the house is for sale",
+                                    ),
+                                    "monthly_rent": openapi.Schema(
+                                        type=openapi.TYPE_NUMBER,
+                                        format=openapi.FORMAT_FLOAT,
+                                        description="Monthly rent amount",
+                                    ),
+                                },
+                            ),
+                            description="Houses for sale",
+                        ),
+                    },
+                ),
+            ),
+            403: "permission denied",
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                name="page",
+                in_=openapi.IN_QUERY,
+                description="Page number",
+                type=openapi.TYPE_INTEGER,
+            )
+        ],
+    )
+    def get(self, request):
+        if not request.user.is_host:
+            raise PermissionDenied
+        house = House.objects.filter(host=request.user, is_sale=True)
+        current_page = request.GET.get("page", 1)
+        items_per_page = 24
+        paginator = Paginator(house, items_per_page)
+        try:
+            page = paginator.page(current_page)
+        except:
+            page = paginator.page(paginator.num_pages)
+
+        serializer = TinyHouseSerializer(
+            page,
+            many=True,
+            context={"request": request},
+        )
+
+        data = {
+            "num_pages": paginator.num_pages,
+            "current_page": page.number,
+            "count": paginator.count,
+            "results": serializer.data,
+        }
+        return Response(data)

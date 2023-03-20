@@ -11,12 +11,23 @@ from . import serializers
 
 
 class Wishlists(APIView):
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
 
     permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
         operation_summary="요청한 유저의 wishlist 를 가져오는 api",
-        responses={200: "OK", 404: "Not Found"},
+        responses={
+            200: openapi.Response(
+                description="Successful Response",
+                schema=serializers.WishlistSerializer(many=True),
+            ),
+            404: "Not Found",
+        },
     )
     def get(self, request):
         wishlist = Wishlist.objects.filter(user=request.user)
@@ -26,19 +37,42 @@ class Wishlists(APIView):
         )
         return Response(serializer.data)
 
+    @swagger_auto_schema(
+        operation_summary="요청한 유저의 wishlist 에 추가 / 삭제하는 api",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=["house"],
+            properties={
+                "house": openapi.Schema(
+                    type=openapi.TYPE_INTEGER,
+                    description="wishlist 에 추가 / 삭제 할 방의 pk",
+                ),
+            },
+        ),
+        responses={
+            200: openapi.Response(
+                description="Successful Response",
+            ),
+            404: "Not Found",
+        },
+    )
     def post(self, request):
+        house = self.get_object(request.data.get("house"))
         serializer = serializers.WishlistSerializer(data=request.data)
         if serializer.is_valid():
             if Wishlist.objects.filter(
-                user=request.user, house=request.data.get("house")
+                user=request.user,
+                house=house,
             ).exists():
                 Wishlist.objects.filter(
-                    user=request.user, house=request.data.get("house")
+                    user=request.user,
+                    house=house,
                 ).delete()
                 return Response({"result": "delete success"})
             else:
                 wishlist = serializer.save(
                     user=request.user,
+                    house=house,
                 )
                 serializer = serializers.WishlistSerializer(wishlist)
                 return Response({"result": "create success"})

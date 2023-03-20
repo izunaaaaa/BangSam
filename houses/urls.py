@@ -7,4 +7,5 @@ urlpatterns = [
     path("gulist", views.GuList.as_view()),
     path("<int:pk>/donglist", views.DongList.as_view()),
     path("deleteroom", views.DeleteRoom.as_view()),
+    path("<int:pk>/changesell", views.ChangeSell.as_view()),
 ]
