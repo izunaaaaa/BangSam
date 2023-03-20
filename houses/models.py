@@ -87,14 +87,19 @@ class House(CommonModel):
         max_length=20,
         choices=SellKindChoices.choices,
     )
-    address = models.CharField(max_length=100)
+    address = models.CharField(
+        max_length=100,
+        default="",
+        blank=True,
+        null=True,
+    )
     description = models.TextField(blank=True)
     visited = models.PositiveIntegerField(
         editable=False,
         default=0,
     )
     is_sale = models.BooleanField(default=True)
-    is_host = models.BooleanField(default=False)
+    # is_host = models.BooleanField(default=False)
 
     dong = models.ForeignKey(
         "houses.Dong_list",

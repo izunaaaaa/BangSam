@@ -43,7 +43,6 @@ class HouseSerializer(ModelSerializer):
             "visited",
             "id",
             "host",
-            "is_host",
             "is_sale",
             "title",
             "dong",
