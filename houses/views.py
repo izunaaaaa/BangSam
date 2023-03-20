@@ -14,6 +14,12 @@ from images.models import Image
 
 
 class Houses(APIView):
+    def get_dong(self, name):
+        try:
+            return Dong_list.objects.get(name=name)
+        except Dong_list.DoesNotExist:
+            raise NotFound
+
     @swagger_auto_schema(
         operation_summary="모든 집 정보 api",
         manual_parameters=[
@@ -277,6 +283,7 @@ class Houses(APIView):
         serializer = serializers.HouseSerializer(
             page,
             many=True,
+            context={"request": request},
         )
 
         data = {
@@ -415,18 +422,20 @@ class Houses(APIView):
             raise PermissionDenied
 
         if serializer.is_valid():
-            house = serializer.save(
-                host=request.user,
-            )
+            dong = self.get_dong(request.data.get("dong"))
+            house = serializer.save(host=request.user, dong=dong)
             image = request.data.get("Image")
             if isinstance(image, list):
                 if len(image) == 5:
                     for i in image:
                         Image.objects.create(house=house, URL=i)
-            serializer = serializers.HouseSerializer(house)
+            serializer = serializers.HouseSerializer(
+                house,
+                context={"request": request},
+            )
             return Response(serializer.data)
         else:
-            return Response(serializer.errors)
+            return Response(serializer.errors, status=400)
 
     def delete(self, request):
         House.objects.all().delete()
@@ -474,7 +483,9 @@ class HouseDetail(APIView):
                     recently_views=house,
                 )
 
-        serializer = serializers.HouseSerializer(house)
+        serializer = serializers.HouseSerializer(house,
+                context={"request": request},
+                                                 )
 
         return Response(serializer.data)
 

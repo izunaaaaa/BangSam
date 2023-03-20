@@ -99,7 +99,6 @@ class House(CommonModel):
         default=0,
     )
     is_sale = models.BooleanField(default=True)
-    is_like = models.BooleanField(default=False)
 
     dong = models.ForeignKey(
         "houses.Dong_list",
