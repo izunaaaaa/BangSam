@@ -2,7 +2,6 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from rest_framework.exceptions import ParseError, ValidationError
 from .models import House, Gu_list, Dong_list
-from houselists.serializers import HouseListSerializer
 from images.serializers import ImageSerializer
 from users.serializers import TinyUserSerializer
 from wishlists.models import Wishlist
@@ -29,7 +28,17 @@ class DonglistSerializer(ModelSerializer):
 class TinyHouseSerializer(ModelSerializer):
     class Meta:
         model = House
-        fields = ("id", "title")
+        fields = (
+            "id",
+            "title",
+            "thumnail",
+            "room_kind",
+            "deposit",
+            "sell_kind",
+            "sale",
+            "monthly_rent",
+            "thumnail",
+        )
 
 
 class HouseSerializer(ModelSerializer):
