@@ -43,9 +43,9 @@ class HouseSerializer(ModelSerializer):
             "visited",
             "id",
             "host",
-            "is_host",
             "is_sale",
             "title",
+            "gu",
             "dong",
             "room_kind",
             "sell_kind",
@@ -63,21 +63,28 @@ class HouseSerializer(ModelSerializer):
             "Image",
         )
 
+    # def validate_room(self,room):
     def validate(self, data):
 
-        room = data["room"]
-        if room == None:
+        dong_name = data.get("dong", {}).get("name")
+        if dong_name:
+            try:
+                dong_list = Dong_list.objects.get(name=dong_name)
+            except Dong_list.DoesNotExist:
+                raise serializers.ValidationError("Invalid dong name")
+
+            data["dong"] = dong_list
+
+        if not data.get("room"):
             raise ParseError("room not specified")
 
-        toilet = data["toilet"]
-        if toilet == None:
-            raise ParseError("toilet not specified")
-
-        pyeongsu = data["pyeongsu"]
-        if pyeongsu == None:
+        if not data.get("pyeongsu"):
             raise ParseError("pyeongsu not specified")
 
-        sell_kind = data["sell_kind"]
+        if data.get("toilet") == None:
+            raise ParseError("toilet not specified")
+
+        sell_kind = data.get("sell_kind")
         if sell_kind == "SALE":
             if not data.get("sale") or data.get("deposit") or data.get("monthly_rent"):
                 raise ParseError("sale error")

@@ -15,7 +15,7 @@ from images.models import Image
 
 class Houses(APIView):
     @swagger_auto_schema(
-        operation_summary="모든 방에 대한 리스트를 가져오는 api",
+        operation_summary="모든 집 정보 api",
         manual_parameters=[
             openapi.Parameter(
                 "page",
@@ -288,11 +288,130 @@ class Houses(APIView):
 
         return Response(data)
 
+    @swagger_auto_schema(
+        operation_summary="houses POST api",
+        manual_parameters=[
+            openapi.Parameter(
+                "host",
+                openapi.IN_QUERY,
+                description="request.user알아서 들어감",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "title",
+                openapi.IN_QUERY,
+                description="[필수] 제목",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "is_sale",
+                openapi.IN_QUERY,
+                description="default true / false로 주면 판매완료",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "dong",
+                openapi.IN_QUERY,
+                description="[필수] pk값",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "room_kind",
+                openapi.IN_QUERY,
+                description="[필수] ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "sell_kind",
+                openapi.IN_QUERY,
+                description="[필수] SALE, CHARTER, MONTHLY_RENT",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "sale",
+                openapi.IN_QUERY,
+                description="int/sell_kind SALE일때만",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "deposit",
+                openapi.IN_QUERY,
+                description="int/sell_kind CHARTER일때만",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "monthely_rent",
+                openapi.IN_QUERY,
+                description="int/sell_kind MONTHLY_RENT일때만",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "maintenance_cost",
+                openapi.IN_QUERY,
+                description="",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "room",
+                openapi.IN_QUERY,
+                description="",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "toilet",
+                openapi.IN_QUERY,
+                description="(int)",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "pyeongsu",
+                openapi.IN_QUERY,
+                description="(int)",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "distance_to_station",
+                openapi.IN_QUERY,
+                description="(int)",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "address",
+                openapi.IN_QUERY,
+                description="(string)",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "description",
+                openapi.IN_QUERY,
+                description="(string)",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "thumnail",
+                openapi.IN_QUERY,
+                description="(url)",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "image",
+                openapi.IN_QUERY,
+                description="(url)",
+                type=openapi.TYPE_STRING,
+            ),
+        ],
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseSerializer(many=True),
+            )
+        },
+    )
     def post(self, request):
 
         serializer = serializers.HouseSerializer(data=request.data)
 
-        if request.user.is_host == False:
+        if request.user == House.host:
             raise PermissionDenied
 
         if serializer.is_valid():
@@ -339,12 +458,6 @@ class HouseDetail(APIView):
         # 조회 횟수
         house = self.get_object(pk)
         house.visited += 1
-
-        # 유저인지 확인
-        if request.user == house.host:
-            house.is_host = True
-        else:
-            house.is_host = False
 
         house.save()
 
