@@ -51,30 +51,31 @@ class HouseSerializer(ModelSerializer):
 
     class Meta:
         model = House
-        fields = "__all__"
-        # fields = (
-        #     "visited",
-        #     "id",
-        #     "host",
-        #     "is_sale",
-        #     "title",
-        #     "gu",
-        #     "dong",
-        #     "room_kind",
-        #     "sell_kind",
-        #     "sale",
-        #     "deposit",
-        #     "monthly_rent",
-        #     "maintenance_cost",
-        #     "room",
-        #     "toilet",
-        #     "pyeongsu",
-        #     "distance_to_station",
-        #     "address",
-        #     "description",
-        #     "thumnail",
-        #     "Image",
-        # )
+        fields = (
+            "visited",
+            "id",
+            "host",
+            "is_sale",
+            "title",
+            "gu",
+            "dong",
+            "room_kind",
+            "sell_kind",
+            "sale",
+            "deposit",
+            "monthly_rent",
+            "maintenance_cost",
+            "room",
+            "toilet",
+            "pyeongsu",
+            "distance_to_station",
+            "address",
+            "description",
+            "thumnail",
+            "Image",
+            "is_host",
+            "is_liked",
+        )
 
     def get_is_host(self, data):
         request = self.context.get("request")
