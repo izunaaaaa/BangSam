@@ -493,7 +493,7 @@ class HouseDetail(APIView):
                 )
 
 
-        serializer = serializers.HouseSerializer(
+        serializer = serializers.HouseDetailSerializer(
             house,
             context={"request": request},
         )
