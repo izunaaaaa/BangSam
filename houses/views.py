@@ -179,34 +179,43 @@ class Houses(APIView):
             filters.append(Q(sell_kind=sell_kind))
 
         # 매매가 필터링
-        if sale_start != None and sale_end != None:
-            filters.append(Q(sale__range=(sale_start, sale_end)))
+
+        if sale_start != None or sale_end != None:
+            if sale_start != None and sale_end != None:
+                filters.append(Q(sale__range=(sale_start, sale_end)))
+            elif sale_start != None:
+                filters.append(Q(sale__gte=sale_start))
+            elif sale_end != None:
+                filters.append(Q(sale__lte=sale_end))
 
         # 보증금 필터링
-        if deposit_start != None and deposit_end != None:
-            filters.append(Q(deposit__range=(deposit_start, deposit_end)))
+        if deposit_start != None or deposit_end != None:
+            if deposit_start != None and deposit_end != None:
+                filters.append(Q(sale__range=(sale_start, deposit_end)))
+            elif deposit_start != None:
+                filters.append(Q(sale__gte=sale_start))
+            elif deposit_end != None:
+                filters.append(Q(sale__lte=deposit_end))
 
         # 월세 필터링
-        if monthly_rent_start != None and monthly_rent_end != None:
-            filters.append(
-                Q(
-                    monthly_rent__range=(
-                        monthly_rent_start,
-                        monthly_rent_end,
-                    )
-                )
-            )
+        if monthly_rent_start != None or monthly_rent_end != None:
+            if monthly_rent_start != None and monthly_rent_end != None:
+                filters.append(Q(sale__range=(monthly_rent_start, monthly_rent_end)))
+            elif monthly_rent_start != None:
+                filters.append(Q(sale__gte=monthly_rent_start))
+            elif monthly_rent_end != None:
+                filters.append(Q(sale__lte=monthly_rent_end))
 
         # 관리비 필터링
-        if maintenance_cost_start != None and maintenance_cost_end != None:
-            filters.append(
-                Q(
-                    maintenance_cost__range=(
-                        maintenance_cost_start,
-                        maintenance_cost_end,
-                    )
+        if maintenance_cost_start != None or maintenance_cost_end != None:
+            if maintenance_cost_start != None and maintenance_cost_end != None:
+                filters.append(
+                    Q(sale__range=(monthly_rent_start, maintenance_cost_end))
                 )
-            )
+            elif maintenance_cost_start != None:
+                filters.append(Q(sale__gte=monthly_rent_start))
+            elif maintenance_cost_end != None:
+                filters.append(Q(sale__lte=maintenance_cost_end))
 
         # 방개수 필터링
         if num_of_room != None:
@@ -410,13 +419,13 @@ class Houses(APIView):
         responses={
             200: openapi.Response(
                 description="Successful response",
-                schema=serializers.HouseSerializer(many=True),
+                schema=serializers.HouseDetailSerializer(many=True),
             )
         },
     )
     def post(self, request):
 
-        serializer = serializers.HouseSerializer(data=request.data)
+        serializer = serializers.HouseDetailSerializer(data=request.data)
 
         if request.user == House.host:
             raise PermissionDenied
@@ -429,7 +438,7 @@ class Houses(APIView):
                 if len(image) == 5:
                     for i in image:
                         Image.objects.create(house=house, URL=i)
-            serializer = serializers.HouseSerializer(
+            serializer = serializers.HouseDetailSerializer(
                 house,
                 context={"request": request},
             )
@@ -451,7 +460,7 @@ class HouseDetail(APIView):
         responses={
             200: openapi.Response(
                 description="Successful response",
-                schema=serializers.HouseSerializer(),
+                schema=serializers.HouseDetailSerializer(),
             ),
             404: "Not Found",
         },
@@ -483,6 +492,7 @@ class HouseDetail(APIView):
                     recently_views=house,
                 )
 
+
         serializer = serializers.HouseSerializer(
             house,
             context={"request": request},
@@ -496,7 +506,7 @@ class HouseDetail(APIView):
         if house.host != request.user:
             raise PermissionDenied
 
-        serializer = serializers.HouseSerializer(
+        serializer = serializers.HouseDetailSerializer(
             house,
             data=request.data,
             partial=True,
@@ -504,7 +514,7 @@ class HouseDetail(APIView):
 
         if serializer.is_valid():
             updated_house = serializer.save()
-            serializer = serializers.HouseSerializer(updated_house)
+            serializer = serializers.HouseDetailSerializer(updated_house)
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
