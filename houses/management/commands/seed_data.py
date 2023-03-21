@@ -89,7 +89,6 @@ class Command(BaseCommand):
                     data["monthly_rent"] = random.randint(1, 20) * 100000
 
                 create_house = House.objects.create(
-                    pk=House.objects.count() + 1,
                     title=data["title"],
                     sale=data["sale"],
                     deposit=data["deposit"],

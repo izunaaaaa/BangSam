@@ -14,12 +14,18 @@ from images.models import Image
 
 
 class Houses(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    def get_dong(self, name):
+    def get_gu(self, gu):
         try:
-            return Dong_list.objects.get(name=name)
+            return Gu_list.objects.get(name=gu)
+        except Gu_list.DoesNotExist:
+            raise NotFound
+
+    def get_dong(self, dong, gu):
+        gu = self.get_gu(gu)
+        try:
+            return Dong_list.objects.get(gu=gu, name=dong)
         except Dong_list.DoesNotExist:
             raise NotFound
 
@@ -430,20 +436,24 @@ class Houses(APIView):
 
         serializer = serializers.HouseDetailSerializer(data=request.data)
 
-        if request.user == House.host:
+        if not request.user.is_host:
             raise PermissionDenied
 
         if serializer.is_valid():
-            dong = self.get_dong(request.data.get("dong"))
-            house = serializer.save(
-                host=request.user,
-                dong=dong,
-            )
+
+            if not request.data.get("dong"):
+                raise ParseError("Error")
+            if not request.data.get("gu"):
+                raise ParseError("Error")
+            dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
+            house = serializer.save(host=request.user, dong=dong)
+
             image = request.data.get("Image")
+
             if isinstance(image, list):
                 if len(image) == 5:
                     for i in image:
-                        Image.objects.create(house=house, URL=i)
+                        Image.objects.create(house=house, url=i.get("url"))
             serializer = serializers.HouseDetailSerializer(
                 house,
                 context={"request": request},
