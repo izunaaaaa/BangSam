@@ -5,6 +5,7 @@ from .models import House, Gu_list, Dong_list
 from images.serializers import ImageSerializer
 from users.serializers import TinyUserSerializer
 from wishlists.models import Wishlist
+from drf_yasg import openapi
 
 
 class GulistSerializer(ModelSerializer):
@@ -37,7 +38,6 @@ class TinyHouseSerializer(ModelSerializer):
             "sell_kind",
             "sale",
             "monthly_rent",
-            "thumnail",
         )
 
 

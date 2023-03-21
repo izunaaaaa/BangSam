@@ -4,7 +4,7 @@ from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .models import House, Gu_list, Dong_list
@@ -492,7 +492,8 @@ class HouseDetail(APIView):
                     recently_views=house,
                 )
 
-        serializer = serializers.HouseDetailSerializer(
+
+        serializer = serializers.HouseSerializer(
             house,
             context={"request": request},
         )
@@ -512,7 +513,6 @@ class HouseDetail(APIView):
         )
 
         if serializer.is_valid():
-
             updated_house = serializer.save()
             serializer = serializers.HouseDetailSerializer(updated_house)
             return Response(serializer.data)
@@ -586,3 +586,38 @@ class DeleteRoom(APIView):
     )
     def get(self, request):
         House.objects.all().delete()
+
+
+class ChangeSell(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+
+        except Dong_list.DoesNotExist:
+            raise NotFound
+
+    @swagger_auto_schema(
+        operation_summary="판매 완료로 변경하는 api",
+        request_body=openapi.Schema(
+            type="None",
+            properties={},
+        ),
+        responses={
+            200: openapi.Response(
+                description="Successful Response",
+            ),
+            400: openapi.Response(description="Not Found Pk"),
+            403: openapi.Response(description="Permission Denied"),
+        },
+    )
+    def post(self, request, pk):
+        house = self.get_object(pk)
+        if house.host != request.user:
+            raise PermissionDenied
+        house.is_sale = False
+        house.save()
+
+        return Response(status=200)
