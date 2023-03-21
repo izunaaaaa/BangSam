@@ -128,23 +128,31 @@ class HouseDetailSerializer(ModelSerializer):
     def validate(self, data):
         sell_kind = data.get("sell_kind")
         if sell_kind == "SALE":
-            if not data.get("sale") or data.get("deposit") or data.get("monthly_rent"):
-                if data.get("sale") < 0:
-                    raise ValidationError("sale error")
+            if (
+                not data.get("sale")
+                or data.get("deposit")
+                or data.get("monthly_rent")
+                or data.get("sale") < 0
+            ):
+                raise ValidationError("sale error")
 
         if sell_kind == "CHARTER":
-            if not data.get("deposit") or data.get("sale") or data.get("monthly_rent"):
-                if data.get("deposit") < 0:
-                    raise ValidationError("deposit error")
+            if (
+                not data.get("deposit")
+                or data.get("sale")
+                or data.get("monthly_rent")
+                or int(data.get("deposit")) < 0
+            ):
+                raise ValidationError("deposit error")
 
         if sell_kind == "MONTHLY_RENT":
             if (
                 not data.get("monthly_rent")
                 or not data.get("deposit")
                 or data.get("sale")
+                or data.get("monthly_rent") < 0
             ):
-                if data.get("monthly_rent") < 0 or data.get("deposit"):
-                    raise ValidationError("monthly_rent error")
+                raise ValidationError("monthly_rent error")
         return data
 
     def validate_dong(self, data):
