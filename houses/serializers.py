@@ -155,16 +155,6 @@ class HouseDetailSerializer(ModelSerializer):
                 raise ValidationError("monthly_rent error")
         return data
 
-    def validate_dong(self, data):
-        dong_name = data
-        if dong_name:
-            try:
-                dong_list = Dong_list.objects.get(name=dong_name)
-            except Dong_list.DoesNotExist:
-                raise ValidationError("Invalid dong name")
-
-        return dong_list
-
     def validate_room(self, data):
         if data == None or data < 0:
             raise ValidationError("room not specified")
