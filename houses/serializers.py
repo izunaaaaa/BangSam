@@ -42,6 +42,37 @@ class TinyHouseSerializer(ModelSerializer):
 
 
 class HouseSerializer(ModelSerializer):
+    is_liked = serializers.SerializerMethodField()
+
+    class Meta:
+        model = House
+        fields = (
+            "id",
+            "title",
+            "thumnail",
+            "room_kind",
+            "deposit",
+            "sell_kind",
+            "address",
+            "sell_kind",
+            "sale",
+            "monthly_rent",
+            "thumnail",
+            "is_liked",
+        )
+
+    def get_is_liked(self, data):
+        request = self.context.get("request")
+        if request:
+            if request.user.is_authenticated:
+                return Wishlist.objects.filter(
+                    user=request.user,
+                    house__pk=data.pk,
+                ).exists()
+        return False
+
+
+class HouseDetailSerializer(ModelSerializer):
 
     Image = ImageSerializer(many=True, read_only=True)
     dong = DonglistSerializer(read_only=True)
