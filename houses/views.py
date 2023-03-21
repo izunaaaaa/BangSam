@@ -14,6 +14,8 @@ from images.models import Image
 
 
 class Houses(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
     def get_dong(self, name):
         try:
             return Dong_list.objects.get(name=name)
