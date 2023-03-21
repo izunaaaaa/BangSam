@@ -14,6 +14,9 @@ from images.models import Image
 
 
 class Houses(APIView):
+
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
     def get_dong(self, name):
         try:
             return Dong_list.objects.get(name=name)
@@ -21,7 +24,7 @@ class Houses(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="모든 집 정보 api",
+        operation_summary="집 정보 조회 api",
         manual_parameters=[
             openapi.Parameter(
                 "page",
@@ -305,7 +308,214 @@ class Houses(APIView):
         return Response(data)
 
     @swagger_auto_schema(
-        operation_summary="houses POST api",
+        operation_summary="집 정보 생성 api",
+        manual_parameters=[
+            openapi.Parameter(
+                "host",
+                openapi.IN_QUERY,
+                description="request.user로 알아서 들어감",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "title",
+                openapi.IN_QUERY,
+                description="[필수] 제목",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "is_sale",
+                openapi.IN_QUERY,
+                description="default true / false로 주면 판매완료",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "dong",
+                openapi.IN_QUERY,
+                description="[필수] 동 이름",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "room_kind",
+                openapi.IN_QUERY,
+                description="[필수] ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "sell_kind",
+                openapi.IN_QUERY,
+                description="[필수] SALE, CHARTER, MONTHLY_RENT",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "sale",
+                openapi.IN_QUERY,
+                description="int/sell_kind SALE일때만 [필수]",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "deposit",
+                openapi.IN_QUERY,
+                description="int/sell_kind CHARTER일때만 [필수]",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "monthely_rent",
+                openapi.IN_QUERY,
+                description="int/sell_kind MONTHLY_RENT일때만 [필수]",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "maintenance_cost",
+                openapi.IN_QUERY,
+                description="int",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "room",
+                openapi.IN_QUERY,
+                description="int",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "toilet",
+                openapi.IN_QUERY,
+                description="int",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "pyeongsu",
+                openapi.IN_QUERY,
+                description="int",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "distance_to_station",
+                openapi.IN_QUERY,
+                description="int",
+                type=openapi.TYPE_INTEGER,
+            ),
+            openapi.Parameter(
+                "address",
+                openapi.IN_QUERY,
+                description="string",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "description",
+                openapi.IN_QUERY,
+                description="string",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "thumnail",
+                openapi.IN_QUERY,
+                description="url",
+                type=openapi.TYPE_FILE,
+            ),
+            openapi.Parameter(
+                "image",
+                openapi.IN_QUERY,
+                description="url",
+                type=openapi.TYPE_FILE,
+            ),
+        ],
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseDetailSerializer(many=True),
+            )
+        },
+    )
+    def post(self, request):
+
+        serializer = serializers.HouseDetailSerializer(data=request.data)
+
+        if request.user == House.host:
+            raise PermissionDenied
+
+        if serializer.is_valid():
+            dong = self.get_dong(request.data.get("dong"))
+            house = serializer.save(
+                host=request.user,
+                dong=dong,
+            )
+            image = request.data.get("Image")
+            if isinstance(image, list):
+                if len(image) == 5:
+                    for i in image:
+                        Image.objects.create(house=house, URL=i)
+            serializer = serializers.HouseDetailSerializer(
+                house,
+                context={"request": request},
+            )
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
+    @swagger_auto_schema(
+        operation_summary="집 정보 삭제 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseSerializer(many=True),
+            )
+        },
+    )
+    def delete(self, request):
+        House.objects.all().delete()
+        return Response({"delete success"})
+
+
+class HouseDetail(APIView):
+
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    @swagger_auto_schema(
+        operation_summary="집 디테일 정보 조회 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.HouseDetailSerializer(),
+            ),
+            404: "Not Found",
+        },
+    )
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
+
+    def get(self, request, pk):
+
+        # 조회 횟수
+        house = self.get_object(pk)
+        house.visited += 1
+
+        house.save()
+
+        # 조회 목록
+        if request.user.is_authenticated:
+
+            try:
+                houselist = HouseList.objects.get(recently_views=house)
+                houselist.updated_at = timezone.now()
+
+            except HouseList.DoesNotExist:
+                houselist = HouseList.objects.create(
+                    user=request.user,
+                    recently_views=house,
+                )
+
+        serializer = serializers.HouseDetailSerializer(
+            house,
+            context={"request": request},
+        )
+
+        return Response(serializer.data)
+
+    @swagger_auto_schema(
+        operation_summary="집 디테일 정보 수정 api",
         manual_parameters=[
             openapi.Parameter(
                 "host",
@@ -376,31 +586,31 @@ class Houses(APIView):
             openapi.Parameter(
                 "toilet",
                 openapi.IN_QUERY,
-                description="(int)",
+                description="int",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="(int)",
+                description="int",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "distance_to_station",
                 openapi.IN_QUERY,
-                description="(int)",
+                description="int",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "address",
                 openapi.IN_QUERY,
-                description="(string)",
+                description="string",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "description",
                 openapi.IN_QUERY,
-                description="(string)",
+                description="string",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
@@ -423,82 +633,6 @@ class Houses(APIView):
             )
         },
     )
-    def post(self, request):
-
-        serializer = serializers.HouseDetailSerializer(data=request.data)
-
-        if request.user == House.host:
-            raise PermissionDenied
-
-        if serializer.is_valid():
-            dong = self.get_dong(request.data.get("dong"))
-            house = serializer.save(host=request.user, dong=dong)
-            image = request.data.get("Image")
-            if isinstance(image, list):
-                if len(image) == 5:
-                    for i in image:
-                        Image.objects.create(house=house, URL=i)
-            serializer = serializers.HouseDetailSerializer(
-                house,
-                context={"request": request},
-            )
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors, status=400)
-
-    def delete(self, request):
-        House.objects.all().delete()
-        return Response({"delete success"})
-
-
-class HouseDetail(APIView):
-
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    @swagger_auto_schema(
-        operation_summary="각 방에 대한 정보를 가져오는 api",
-        responses={
-            200: openapi.Response(
-                description="Successful response",
-                schema=serializers.HouseDetailSerializer(),
-            ),
-            404: "Not Found",
-        },
-    )
-    def get_object(self, pk):
-        try:
-            return House.objects.get(pk=pk)
-        except House.DoesNotExist:
-            raise NotFound
-
-    def get(self, request, pk):
-
-        # 조회 횟수
-        house = self.get_object(pk)
-        house.visited += 1
-
-        house.save()
-
-        # 조회 목록
-        if request.user.is_authenticated:
-
-            try:
-                houselist = HouseList.objects.get(recently_views=house)
-                houselist.updated_at = timezone.now()
-
-            except HouseList.DoesNotExist:
-                houselist = HouseList.objects.create(
-                    user=request.user,
-                    recently_views=house,
-                )
-
-        serializer = serializers.HouseDetailSerializer(
-            house,
-            context={"request": request},
-        )
-
-        return Response(serializer.data)
-
     def put(self, request, pk):
         house = self.get_object(pk)
 
