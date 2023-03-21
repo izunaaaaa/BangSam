@@ -447,10 +447,11 @@ class Houses(APIView):
             dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
             house = serializer.save(host=request.user, dong=dong)
             image = request.data.get("Image")
+
             if isinstance(image, list):
                 if len(image) == 5:
                     for i in image:
-                        Image.objects.create(house=house, URL=i)
+                        Image.objects.create(house=house, url=i.get("url"))
             serializer = serializers.HouseDetailSerializer(
                 house,
                 context={"request": request},
