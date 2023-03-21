@@ -16,9 +16,9 @@ from images.models import Image
 class Houses(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-    def get_dong(self, name):
+    def get_dong(self, pk):
         try:
-            return Dong_list.objects.get(name=name)
+            return Dong_list.objects.get(pk=pk)
         except Dong_list.DoesNotExist:
             raise NotFound
 
@@ -429,7 +429,7 @@ class Houses(APIView):
 
         serializer = serializers.HouseDetailSerializer(data=request.data)
 
-        if request.user.is_host:
+        if not request.user.is_host:
             raise PermissionDenied
 
         if serializer.is_valid():

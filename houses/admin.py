@@ -70,6 +70,8 @@ class GuAdmin(admin.ModelAdmin):
 
 @admin.register(Dong_list)
 class GuAdmin(admin.ModelAdmin):
+    search_fields = ["name"]
+
     list_display = (
         "pk",
         "gu",
