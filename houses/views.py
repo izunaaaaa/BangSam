@@ -429,10 +429,12 @@ class Houses(APIView):
 
         serializer = serializers.HouseDetailSerializer(data=request.data)
 
-        if request.user == House.host:
+        if request.user.is_host:
             raise PermissionDenied
 
         if serializer.is_valid():
+            if not request.data.get("dong"):
+                raise ParseError("Error")
             dong = self.get_dong(request.data.get("dong"))
             house = serializer.save(host=request.user, dong=dong)
             image = request.data.get("Image")
