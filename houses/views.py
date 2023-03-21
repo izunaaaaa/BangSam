@@ -492,7 +492,6 @@ class HouseDetail(APIView):
                     recently_views=house,
                 )
 
-
         serializer = serializers.HouseDetailSerializer(
             house,
             context={"request": request},
