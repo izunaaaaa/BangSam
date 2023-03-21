@@ -49,7 +49,7 @@ class UserMe(APIView):
     )
     def put(self, request):
         serializer = serializers.PrivateUserSerializer(
-            user=request.user,
+            request.user,
             data=request.data,
             partial=True,
         )

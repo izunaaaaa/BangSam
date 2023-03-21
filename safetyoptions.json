@@ -9,6 +9,9 @@
     "safetyoption": "일산화탄소 경보기"
   },
   {
-    "safetyoption": "소화기"
+    "safetyoption": "경비실"
+  },
+  {
+    "safetyoption": "도어락"
   }
 ]
