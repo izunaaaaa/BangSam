@@ -16,9 +16,16 @@ from images.models import Image
 class Houses(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-    def get_dong(self, pk):
+    def get_gu(self, gu):
         try:
-            return Dong_list.objects.get(pk=pk)
+            return Gu_list.objects.get(name=gu)
+        except Gu_list.DoesNotExist:
+            raise NotFound
+
+    def get_dong(self, dong, gu):
+        gu = self.get_gu(gu)
+        try:
+            return Dong_list.objects.get(gu=gu, name=dong)
         except Dong_list.DoesNotExist:
             raise NotFound
 
@@ -435,7 +442,9 @@ class Houses(APIView):
         if serializer.is_valid():
             if not request.data.get("dong"):
                 raise ParseError("Error")
-            dong = self.get_dong(request.data.get("dong"))
+            if not request.data.get("gu"):
+                raise ParseError("Error")
+            dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
             house = serializer.save(host=request.user, dong=dong)
             image = request.data.get("Image")
             if isinstance(image, list):
