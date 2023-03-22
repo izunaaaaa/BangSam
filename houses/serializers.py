@@ -99,7 +99,6 @@ class HouseDetailSerializer(ModelSerializer):
             "room",
             "toilet",
             "pyeongsu",
-            "distance_to_station",
             "address",
             "description",
             "thumnail",
