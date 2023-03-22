@@ -452,17 +452,6 @@ class Houses(APIView):
         else:
             return Response(serializer.errors, status=400)
 
-    @swagger_auto_schema(
-        operation_summary="집 정보 삭제 api",
-        responses={
-            200: openapi.Response(
-                description="Successful response",
-                schema=serializers.HouseSerializer(many=True),
-            )
-        },
-    )
-
-
 
 class HouseDetail(APIView):
 
