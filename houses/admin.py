@@ -4,7 +4,10 @@ from .models import House, Gu_list, Dong_list
 
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
-
+    list_filter = (
+        "room_kind",
+        "sell_kind",
+    )
     list_display = (
         "pk",
         "gu",
