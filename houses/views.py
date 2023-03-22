@@ -194,31 +194,38 @@ class Houses(APIView):
         # 보증금 필터링
         if deposit_start != None or deposit_end != None:
             if deposit_start != None and deposit_end != None:
-                filters.append(Q(sale__range=(deposit_start, deposit_end)))
+                filters.append(Q(deposit__range=(deposit_start, deposit_end)))
             elif deposit_start != None:
-                filters.append(Q(sale__gte=deposit_start))
+                filters.append(Q(deposit__gte=deposit_start))
             elif deposit_end != None:
-                filters.append(Q(sale__lte=deposit_end))
+                filters.append(Q(deposit__lte=deposit_end))
 
         # 월세 필터링
         if monthly_rent_start != None or monthly_rent_end != None:
             if monthly_rent_start != None and monthly_rent_end != None:
-                filters.append(Q(sale__range=(monthly_rent_start, monthly_rent_end)))
+                filters.append(
+                    Q(monthly_rent__range=(monthly_rent_start, monthly_rent_end))
+                )
             elif monthly_rent_start != None:
-                filters.append(Q(sale__gte=monthly_rent_start))
+                filters.append(Q(monthly_rent__gte=monthly_rent_start))
             elif monthly_rent_end != None:
-                filters.append(Q(sale__lte=monthly_rent_end))
+                filters.append(Q(monthly_rent__lte=monthly_rent_end))
 
         # 관리비 필터링
         if maintenance_cost_start != None or maintenance_cost_end != None:
             if maintenance_cost_start != None and maintenance_cost_end != None:
                 filters.append(
-                    Q(sale__range=(maintenance_cost_start, maintenance_cost_end))
+                    Q(
+                        maintenance_cost__range=(
+                            maintenance_cost_start,
+                            maintenance_cost_end,
+                        )
+                    )
                 )
             elif maintenance_cost_start != None:
-                filters.append(Q(sale__gte=maintenance_cost_start))
+                filters.append(Q(maintenance_cost__gte=maintenance_cost_start))
             elif maintenance_cost_end != None:
-                filters.append(Q(sale__lte=maintenance_cost_end))
+                filters.append(Q(maintenance_cost__lte=maintenance_cost_end))
 
         # 방개수 필터링
         if num_of_room != None:
