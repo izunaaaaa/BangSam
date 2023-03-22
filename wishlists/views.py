@@ -92,7 +92,11 @@ class Isliked(APIView):
 
     def get(self, request, pk):
         house = self.get_object(pk)
-        return Wishlist.objects.filter(
-            user=request.user,
-            house=house,
-        ).exists()
+        return Response(
+            {
+                "result": Wishlist.objects.filter(
+                    user=request.user,
+                    house=house,
+                ).exists()
+            }
+        )
