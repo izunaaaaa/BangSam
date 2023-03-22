@@ -11,13 +11,13 @@ from . import serializers
 
 
 class Wishlists(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get_object(self, pk):
         try:
             return House.objects.get(pk=pk)
         except House.DoesNotExist:
             raise NotFound
-
-    permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
         operation_summary="요청한 유저의 wishlist 를 가져오는 api",
@@ -78,3 +78,21 @@ class Wishlists(APIView):
                 return Response({"result": "create success"})
         else:
             return Response(serializer.errors, status=400)
+
+
+class Isliked(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
+
+    def get(self, request, pk):
+        house = self.get_object(pk)
+        return Wishlist.objects.filter(
+            user=request.user,
+            house=house,
+        ).exists()
