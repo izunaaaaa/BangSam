@@ -471,9 +471,7 @@ class Houses(APIView):
             )
         },
     )
-    def delete(self, request):
-        House.objects.all().delete()
-        return Response({"delete success"})
+
 
 
 class HouseDetail(APIView):
@@ -720,15 +718,6 @@ class DongList(APIView):
             many=True,
         )
         return Response(serializer.data)
-
-
-class DeleteRoom(APIView):
-    @swagger_auto_schema(
-        operation_summary="모든 방 삭제 ( 개발용 임시 api, 사용 금지 )",
-        responses={200: "OK"},
-    )
-    def get(self, request):
-        House.objects.all().delete()
 
 
 class ChangeSell(APIView):
