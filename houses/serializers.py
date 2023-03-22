@@ -78,7 +78,6 @@ class HouseDetailSerializer(ModelSerializer):
     dong = DonglistSerializer(read_only=True)
     host = TinyUserSerializer(read_only=True)
     is_host = serializers.SerializerMethodField()
-    is_liked = serializers.SerializerMethodField()
 
     class Meta:
         model = House
@@ -104,7 +103,6 @@ class HouseDetailSerializer(ModelSerializer):
             "thumnail",
             "Image",
             "is_host",
-            "is_liked",
         )
 
     def get_is_host(self, data):
