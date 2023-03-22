@@ -461,6 +461,10 @@ class Houses(APIView):
                 if len(image) == 5:
                     for i in image:
                         Image.objects.create(house=house, url=i.get("url"))
+                else:
+                    raise ParseError("Error")
+            else:
+                raise ParseError("Error")
             serializer = serializers.HouseDetailSerializer(
                 house,
                 context={"request": request},
