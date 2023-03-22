@@ -194,9 +194,9 @@ class Houses(APIView):
         # 보증금 필터링
         if deposit_start != None or deposit_end != None:
             if deposit_start != None and deposit_end != None:
-                filters.append(Q(sale__range=(sale_start, deposit_end)))
+                filters.append(Q(sale__range=(deposit_start, deposit_end)))
             elif deposit_start != None:
-                filters.append(Q(sale__gte=sale_start))
+                filters.append(Q(sale__gte=deposit_start))
             elif deposit_end != None:
                 filters.append(Q(sale__lte=deposit_end))
 
@@ -213,10 +213,10 @@ class Houses(APIView):
         if maintenance_cost_start != None or maintenance_cost_end != None:
             if maintenance_cost_start != None and maintenance_cost_end != None:
                 filters.append(
-                    Q(sale__range=(monthly_rent_start, maintenance_cost_end))
+                    Q(sale__range=(maintenance_cost_start, maintenance_cost_end))
                 )
             elif maintenance_cost_start != None:
-                filters.append(Q(sale__gte=monthly_rent_start))
+                filters.append(Q(sale__gte=maintenance_cost_start))
             elif maintenance_cost_end != None:
                 filters.append(Q(sale__lte=maintenance_cost_end))
 

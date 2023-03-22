@@ -78,7 +78,6 @@ class House(CommonModel):
     room = models.PositiveIntegerField(default=0)
     toilet = models.PositiveIntegerField(default=0)
     pyeongsu = models.PositiveIntegerField(default=0)
-    distance_to_station = models.PositiveIntegerField(default=0)
     room_kind = models.CharField(
         max_length=20,
         choices=RoomKindChoices.choices,
