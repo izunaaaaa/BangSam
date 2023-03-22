@@ -169,6 +169,13 @@ class SignUp(APIView):
 
 
 class ChangePassword(APIView):
+    def validate_password(self, password):
+        REGEX_PASSWORD = "^(?=.*[\d])(?=.*[a-z])(?=.*[!@#$%^&*()])[\w\d!@#$%^&*()]{8,}$"
+        if not re.fullmatch(REGEX_PASSWORD, password):
+            raise ParseError(
+                "비밀번호를 확인하세요. 최소 1개 이상의 소문자, 숫자, 특수문자로 구성되어야 하며 길이는 8자리 이상이어야 합니다."
+            )
+
     permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
@@ -198,6 +205,7 @@ class ChangePassword(APIView):
         if not old_password or not new_password:
             raise ParseError("Invalid password")
         if user.check_password(old_password):
+            self.validate_password(new_password)
             user.set_password(new_password)
             user.save()
             return Response(status=200)
@@ -338,6 +346,7 @@ class KakaoLogin(APIView):
                     name=profile.get("nickname"),
                     avatar=profile.get("profile_image_url"),
                     gender=kakao_account.get("gender"),
+                    is_kakao=True,
                 )
             user.set_unusable_password()
             user.save()
@@ -415,6 +424,7 @@ class NaverLogin(APIView):
                         email=response.get("email"),
                         gender="male" if response.get("gender") == "M" else "female",
                         avatar=response.get("profile_image"),
+                        is_naver=True,
                     )
                     user.set_unusable_password()
                     user.save()

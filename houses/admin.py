@@ -2,8 +2,17 @@ from django.contrib import admin
 from .models import House, Gu_list, Dong_list
 
 
+@admin.action(description="Delete None Image House")
+def delete_house(model_admin, request, houses):
+    for room in houses:
+        if room.Image.all().count == 0:
+            room.delete()
+
+
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
+    actions = (delete_house,)
+
     list_filter = (
         "room_kind",
         "sell_kind",

@@ -14,6 +14,8 @@ class TinyUserSerializer(ModelSerializer):
             "email",
             "avatar",
             "is_host",
+            "is_naver",
+            "is_kakao",
         )
 
 
