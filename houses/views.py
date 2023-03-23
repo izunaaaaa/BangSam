@@ -30,108 +30,102 @@ class Houses(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="집 정보 조회 api",
+        operation_summary="집 전체 조회 api",
         manual_parameters=[
             openapi.Parameter(
                 "page",
                 openapi.IN_QUERY,
-                description="1 페이지당 24개의 데이터 : num_pages(총 페이지수),current_page(현재 페이지),count(총 개수),results(순서)",
+                description="1 페이지당 24개의 데이터 \n - num_pages : 총 페이지수 \n - current_page : 현재 페이지 \n - count : 총 개수 \n - results : 순서",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "room_kind",
                 openapi.IN_QUERY,
-                description="방종류 : ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE ",
+                description="방종류 \n - ONE_ROOM : 원룸 \n - HOME : 주택 \n - APART : 아파트 \n - VILLA : 빌라 \n - OFFICETEL : 오피스텔 \n - SHARE_HOUSE : 쉐어하우스 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sell_kind",
                 openapi.IN_QUERY,
-                description="매매종류 : SALE, CHARTER, MONTHLY_RENT ",
+                description="매매종류 \n - SALE : 매매 \n - CHARTER : 전세 \n - MONTHLY_RENT : 월세 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sale_start",
                 openapi.IN_QUERY,
-                description="매매가 최소금액(default=0)",
+                description="매매가 최소금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "sale_end",
                 openapi.IN_QUERY,
-                description="매매가 최대금액(default=0)",
+                description="매매가 최대금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "deposit_start",
                 openapi.IN_QUERY,
-                description="보증금 최소금액(default=0)",
+                description="보증금 최소금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "deposit_end",
                 openapi.IN_QUERY,
-                description="보증금 최대금액(default=0)",
+                description="보증금 최대금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthly_rent_start",
                 openapi.IN_QUERY,
-                description="월세 최소금액(default=0)",
+                description="월세 최소금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthly_rent_end",
                 openapi.IN_QUERY,
-                description="월세 최대금액(default=0)",
+                description="월세 최대금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "maintenance_cost_start",
                 openapi.IN_QUERY,
-                description="관리비 최소금액(default=0)",
+                description="관리비 최소금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "maintenance_cost_end",
                 openapi.IN_QUERY,
-                description="관리비 최대금액(default=0)",
+                description="관리비 최대금액 \n - default=0",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "num_of_room",
                 openapi.IN_QUERY,
-                description="방개수 : 1(1개), 2(2개), 3(3개), 4 (4개이상)",
+                description="방개수 \n - 1 : 1개 \n - 2 : 2개 \n - 3 : 3개 \n - 4 : 4개이상",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "num_of_toilet",
                 openapi.IN_QUERY,
-                description="화장실 개수 : 1(1개), 2(2개), 3(3개), 4 (4개이상)",
+                description="화장실 개수 \n - 1 : 1개 \n - 2 : 2개 \n - 3 : 3개 \n - 4 : 4개이상",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="평수 : 10(10, 19), 20(20, 29), 30(30, 39), 40(40, 49), 50(pyeongsu__gt=50), 0(1-9)",
+                description="평수 \n - 0 : 1 ~ 9 \n - 10 : 10 ~ 19 \n - 20 : 20 ~ 29 \n - 30 : 30 ~ 39 \n - 40 : 40 ~ 49 \n - 50 : 50이상",
                 type=openapi.TYPE_INTEGER,
             ),
-            # openapi.Parameter(
-            #     "gu",
-            #     openapi.IN_QUERY,
-            #     description="구",
-            #     type=openapi.TYPE_INTEGER,
-            # ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
-                description="동",
-                type=openapi.TYPE_INTEGER,
+                description="동 \n - 동 이름",
+                type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sort_by",
                 openapi.IN_QUERY,
-                description="row_price, visited, lastest",
+                description="정렬 \n - row_price : 최저가순 \n - visited : 조회순 \n - lastest : 최신순",
                 type=openapi.TYPE_INTEGER,
             ),
         ],
@@ -321,12 +315,12 @@ class Houses(APIView):
         return Response(data)
 
     @swagger_auto_schema(
-        operation_summary="집 정보 생성 api",
+        operation_summary="집 생성 api",
         manual_parameters=[
             openapi.Parameter(
                 "host",
                 openapi.IN_QUERY,
-                description="request.user로 알아서 들어감",
+                description="자동 생성 \n - 입력 X",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
@@ -338,97 +332,91 @@ class Houses(APIView):
             openapi.Parameter(
                 "is_sale",
                 openapi.IN_QUERY,
-                description="default true / false로 주면 판매완료",
-                type=openapi.TYPE_STRING,
+                description="판매상태 \n - default true \n - false로 주면 판매완료",
+                type=openapi.TYPE_BOOLEAN,
             ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
-                description="[필수] 동 이름",
-                type=openapi.TYPE_INTEGER,
+                description="[필수] 동 \n - 동 이름으로",
+                type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "room_kind",
                 openapi.IN_QUERY,
-                description="[필수] ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE",
+                description="[필수] 방종류 \n - ONE_ROOM : 원룸 \n - HOME : 주택 \n - APART : 아파트 \n - VILLA : 빌라 \n - OFFICETEL : 오피스텔 \n - SHARE_HOUSE : 쉐어하우스 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sell_kind",
                 openapi.IN_QUERY,
-                description="[필수] SALE, CHARTER, MONTHLY_RENT",
+                description="[필수] 매매종류 \n - SALE : 매매 \n - CHARTER : 전세 \n - MONTHLY_RENT : 월세 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sale",
                 openapi.IN_QUERY,
-                description="int/sell_kind SALE일때만 [필수]",
+                description="[선택적 필수] 매매 \n - sell_kind = SALE일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "deposit",
                 openapi.IN_QUERY,
-                description="int/sell_kind CHARTER일때만 [필수]",
+                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthely_rent",
                 openapi.IN_QUERY,
-                description="int/sell_kind MONTHLY_RENT일때만 [필수]",
+                description="[선택적 필수] \n - sell_kind = MONTHLY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "maintenance_cost",
                 openapi.IN_QUERY,
-                description="int",
+                description="[필수] 관리비",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "room",
                 openapi.IN_QUERY,
-                description="int",
+                description="[필수] 방 개수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "toilet",
                 openapi.IN_QUERY,
-                description="int",
+                description="[필수] 화장실 개수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="int",
-                type=openapi.TYPE_INTEGER,
-            ),
-            openapi.Parameter(
-                "distance_to_station",
-                openapi.IN_QUERY,
-                description="int",
+                description="[필수] 평수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "address",
                 openapi.IN_QUERY,
-                description="string",
+                description="상세주소",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "description",
                 openapi.IN_QUERY,
-                description="string",
+                description="자세한 설명",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "thumnail",
                 openapi.IN_QUERY,
-                description="url",
+                description="썸네일",
                 type=openapi.TYPE_FILE,
             ),
             openapi.Parameter(
                 "image",
                 openapi.IN_QUERY,
-                description="url",
+                description="이미지",
                 type=openapi.TYPE_FILE,
             ),
         ],
@@ -478,8 +466,22 @@ class HouseDetail(APIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
+    def get_object(self, pk):
+        try:
+            return House.objects.get(pk=pk)
+        except House.DoesNotExist:
+            raise NotFound
+
     @swagger_auto_schema(
         operation_summary="집 디테일 정보 조회 api",
+        manual_parameters=[
+            openapi.Parameter(
+                "id",
+                openapi.IN_QUERY,
+                description="해당 id값을 가진 집 정보",
+                type=openapi.TYPE_INTEGER,
+            )
+        ],
         responses={
             200: openapi.Response(
                 description="Successful response",
@@ -488,12 +490,6 @@ class HouseDetail(APIView):
             404: "Not Found",
         },
     )
-    def get_object(self, pk):
-        try:
-            return House.objects.get(pk=pk)
-        except House.DoesNotExist:
-            raise NotFound
-
     def get(self, request, pk):
 
         # 조회 횟수
@@ -528,110 +524,104 @@ class HouseDetail(APIView):
             openapi.Parameter(
                 "host",
                 openapi.IN_QUERY,
-                description="request.user알아서 들어감",
+                description="자동 생성 \n - 입력 X",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "title",
                 openapi.IN_QUERY,
-                description="[필수] 제목",
+                description="제목",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "is_sale",
                 openapi.IN_QUERY,
-                description="default true / false로 주면 판매완료",
-                type=openapi.TYPE_STRING,
+                description="판매상태 \n - default true \n - false로 주면 판매완료",
+                type=openapi.TYPE_BOOLEAN,
             ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
-                description="[필수] pk값",
-                type=openapi.TYPE_INTEGER,
+                description="동 \n - 동 이름으로",
+                type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "room_kind",
                 openapi.IN_QUERY,
-                description="[필수] ONE_ROOM, HOME, APART, VILLA, OFFICETEL, SHARE_HOUSE",
+                description="방종류 \n - ONE_ROOM : 원룸 \n - HOME : 주택 \n - APART : 아파트 \n - VILLA : 빌라 \n - OFFICETEL : 오피스텔 \n - SHARE_HOUSE : 쉐어하우스 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sell_kind",
                 openapi.IN_QUERY,
-                description="[필수] SALE, CHARTER, MONTHLY_RENT",
+                description="매매종류 \n - SALE : 매매 \n - CHARTER : 전세 \n - MONTHLY_RENT : 월세 ",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "sale",
                 openapi.IN_QUERY,
-                description="int/sell_kind SALE일때만",
+                description="[선택적 필수] 매매 \n - sell_kind = SALE일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "deposit",
                 openapi.IN_QUERY,
-                description="int/sell_kind CHARTER일때만",
+                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthely_rent",
                 openapi.IN_QUERY,
-                description="int/sell_kind MONTHLY_RENT일때만",
+                description="[선택적 필수] \n - sell_kind = MONTHLY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "maintenance_cost",
                 openapi.IN_QUERY,
-                description="",
+                description="관리비",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "room",
                 openapi.IN_QUERY,
-                description="",
+                description="방 개수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "toilet",
                 openapi.IN_QUERY,
-                description="int",
+                description="화장실 개수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "pyeongsu",
                 openapi.IN_QUERY,
-                description="int",
-                type=openapi.TYPE_INTEGER,
-            ),
-            openapi.Parameter(
-                "distance_to_station",
-                openapi.IN_QUERY,
-                description="int",
+                description="평수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "address",
                 openapi.IN_QUERY,
-                description="string",
+                description="상세주소",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "description",
                 openapi.IN_QUERY,
-                description="string",
+                description="자세한 설명",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
                 "thumnail",
                 openapi.IN_QUERY,
-                description="(url)",
-                type=openapi.TYPE_STRING,
+                description="썸네일",
+                type=openapi.TYPE_FILE,
             ),
             openapi.Parameter(
                 "image",
                 openapi.IN_QUERY,
-                description="(url)",
-                type=openapi.TYPE_STRING,
+                description="이미지",
+                type=openapi.TYPE_FILE,
             ),
         ],
         responses={
@@ -660,6 +650,15 @@ class HouseDetail(APIView):
         else:
             return Response(serializer.errors)
 
+    @swagger_auto_schema(
+        operation_summary="집 디테일 정보 삭제 api",
+        responses={
+            200: openapi.Response(
+                description="Successful response",
+                schema=serializers.DonglistSerializer(many=True),
+            )
+        },
+    )
     def delete(self, request, pk):
         house = self.get_object(pk)
 
@@ -674,7 +673,7 @@ class GuList(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @swagger_auto_schema(
-        operation_summary="구 리스트 가져오기 위한 api",
+        operation_summary="구 전체 api",
         responses={
             200: openapi.Response(
                 description="Successful response",
@@ -703,7 +702,7 @@ class DongList(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="동 리스트 가져오기 위한 api",
+        operation_summary="동 전체 api",
         responses={
             200: openapi.Response(
                 description="Successful response",
@@ -732,7 +731,7 @@ class ChangeSell(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="판매 완료로 변경하는 api",
+        operation_summary="판매상태(완료) 변경 api",
         request_body=openapi.Schema(
             type="None",
             properties={},
