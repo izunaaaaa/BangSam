@@ -16,6 +16,7 @@ class TinyUserSerializer(ModelSerializer):
             "is_host",
             "is_naver",
             "is_kakao",
+            "desc",
         )
 
 

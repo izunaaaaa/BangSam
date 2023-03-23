@@ -33,6 +33,10 @@ class User(AbstractUser):
         blank=True,
         null=True,
     )
+    desc = models.TextField(
+        blank=True,
+        null=True,
+    )
     is_host = models.BooleanField(default=False)
     is_naver = models.BooleanField(default=False)
     is_kakao = models.BooleanField(default=False)
