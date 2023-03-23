@@ -38,6 +38,7 @@ class TinyHouseSerializer(ModelSerializer):
             "sell_kind",
             "sale",
             "monthly_rent",
+            "is_sale",
         )
 
 
