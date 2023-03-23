@@ -15,7 +15,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(
             "--total",
-            default=1,
+            default=0,
             type=int,
             help="몇 명의 유저를 만드나",
         )
@@ -26,7 +26,6 @@ class Command(BaseCommand):
             return
         if not Gu_list.objects.all():
             self.stdout.write(self.style.SUCCESS("구 리스트를 작성중입니다."))
-            Gu_list.objects.get_or_create
             with open("gu_list.json", "r", encoding="UTF-8") as gu_data:
                 gu = json.load(gu_data)
             for i in gu:
