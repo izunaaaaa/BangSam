@@ -11,7 +11,7 @@ class HouseLists(APIView):
     permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
-        operation_summary="요청한 유저의 최근 본 방 목록을 가져오는 api (최대 10개)",
+        operation_summary="유저의 최근 본 방 조회(최대 10개) api",
         responses={
             200: openapi.Response(
                 description="Successful response",

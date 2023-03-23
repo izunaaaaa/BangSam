@@ -20,7 +20,7 @@ class Wishlists(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="요청한 유저의 wishlist 를 가져오는 api",
+        operation_summary="유저의 wishlist 조회 api",
         responses={
             200: openapi.Response(
                 description="Successful Response",
@@ -38,7 +38,7 @@ class Wishlists(APIView):
         return Response(serializer.data)
 
     @swagger_auto_schema(
-        operation_summary="요청한 유저의 wishlist 에 추가 / 삭제하는 api",
+        operation_summary="유저의 wishlist 추가 / 삭제 api",
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
             required=["house"],
