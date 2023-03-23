@@ -35,6 +35,9 @@ class Option(CommonModel):
         blank=True,
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Safetyoption(CommonModel):
     name = models.CharField(max_length=255)
@@ -43,6 +46,9 @@ class Safetyoption(CommonModel):
         null=True,
         blank=True,
     )
+
+    def __str__(self):
+        return self.name
 
 
 class House(CommonModel):

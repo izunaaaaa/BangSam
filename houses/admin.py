@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import House, Gu_list, Dong_list
+from .models import House, Gu_list, Dong_list, Option, Safetyoption
 
 
 @admin.action(description="Delete None Image House")
@@ -69,6 +69,15 @@ class HouseAdmin(admin.ModelAdmin):
                 "fields": ("is_sale",),
             },
         ),
+        (
+            "Option",
+            {
+                "fields": (
+                    "option",
+                    "Safetyoption",
+                ),
+            },
+        ),
     )
 
 
@@ -81,7 +90,7 @@ class GuAdmin(admin.ModelAdmin):
 
 
 @admin.register(Dong_list)
-class GuAdmin(admin.ModelAdmin):
+class DongAdmin(admin.ModelAdmin):
     search_fields = ["name"]
 
     list_display = (
@@ -90,3 +99,23 @@ class GuAdmin(admin.ModelAdmin):
         "name",
     )
     list_filter = ("gu",)
+
+
+@admin.register(Option)
+class OptionAdmin(admin.ModelAdmin):
+    search_fields = ["name"]
+    list_display = (
+        "pk",
+        "name",
+    )
+    list_filter = ("name",)
+
+
+@admin.register(Safetyoption)
+class Safetyoption(admin.ModelAdmin):
+    search_fields = ["name"]
+    list_display = (
+        "pk",
+        "name",
+    )
+    list_filter = ("name",)
