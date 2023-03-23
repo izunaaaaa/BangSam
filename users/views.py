@@ -763,3 +763,74 @@ class SellList(APIView):
             "results": serializer.data,
         }
         return Response(data)
+
+
+class FindId(APIView):
+    def post(self, request):
+        name = request.data.get("name")
+        email = request.data.get("email")
+        phone_number = request.data.get("phone_number")
+        if not name or not email or not phone_number:
+            raise ParseError("Invalid field")
+        try:
+            user = User.objects.get(
+                name=name,
+                email=email,
+                phone_number=phone_number,
+            )
+        except User.DoesNotExist:
+            return Response(status=404)
+
+        return Response({"id": user.username}, status=200)
+
+
+class FindPassword(APIView):
+    def post(self, request):
+        username = request.data.get("id")
+        name = request.data.get("name")
+        email = request.data.get("email")
+        phone_number = request.data.get("phone_number")
+        if not username or not name or not email or not phone_number:
+            raise ParseError("Invalid field")
+        try:
+            user = User.objects.get(
+                username=username,
+                name=name,
+                email=email,
+                phone_number=phone_number,
+            )
+        except User.DoesNotExist:
+            return Response(status=404)
+        return Response(status=200)
+
+
+class NewPassword(APIView):
+    def validate_password(self, password):
+        REGEX_PASSWORD = "^(?=.*[\d])(?=.*[a-z])(?=.*[!@#$%^&*()])[\w\d!@#$%^&*()]{8,}$"
+        if not re.fullmatch(REGEX_PASSWORD, password):
+            raise ParseError(
+                "비밀번호를 확인하세요. 최소 1개 이상의 소문자, 숫자, 특수문자로 구성되어야 하며 길이는 8자리 이상이어야 합니다."
+            )
+
+    def put(self, request):
+        username = request.data.get("id")
+        name = request.data.get("name")
+        email = request.data.get("email")
+        phone_number = request.data.get("phone_number")
+        password = request.data.get("password")
+        if not username or not name or not email or not phone_number or not password:
+            raise ParseError("Invalid field")
+        try:
+            user = User.objects.get(
+                username=username,
+                name=name,
+                email=email,
+                phone_number=phone_number,
+            )
+        except User.DoesNotExist:
+            return Response(status=404)
+
+        self.validate_password(password)
+        user.set_password(password)
+        user.save()
+        return Response(status=200)

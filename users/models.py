@@ -8,7 +8,7 @@ class User(AbstractUser):
         FEMALE = ("female", "Female")
 
     name = models.CharField(
-        max_length=100,
+        max_length=10,
     )
     first_name = models.CharField(
         max_length=100,
