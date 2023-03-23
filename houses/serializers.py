@@ -1,11 +1,23 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from rest_framework.exceptions import ParseError, ValidationError
-from .models import House, Gu_list, Dong_list
+from .models import House, Gu_list, Dong_list, Option, Safetyoption
 from images.serializers import ImageSerializer
 from users.serializers import TinyUserSerializer
 from wishlists.models import Wishlist
 from drf_yasg import openapi
+
+
+class OptionSerializer(ModelSerializer):
+    class Meta:
+        model = Option
+        fields = ("name",)
+
+
+class SafetyOptionSerializer(ModelSerializer):
+    class Meta:
+        model = Safetyoption
+        fields = ("name",)
 
 
 class GulistSerializer(ModelSerializer):
@@ -79,6 +91,8 @@ class HouseDetailSerializer(ModelSerializer):
     dong = DonglistSerializer(read_only=True)
     host = TinyUserSerializer(read_only=True)
     is_host = serializers.SerializerMethodField()
+    option = OptionSerializer(many=True, read_only=True)
+    Safetyoption = SafetyOptionSerializer(many=True, read_only=True)
 
     class Meta:
         model = House
@@ -103,6 +117,8 @@ class HouseDetailSerializer(ModelSerializer):
             "description",
             "Image",
             "is_host",
+            "option",
+            "Safetyoption",
         )
 
     def get_is_host(self, data):

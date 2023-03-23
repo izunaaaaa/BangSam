@@ -3,9 +3,8 @@ from faker import Faker
 from houses.models import Dong_list
 import random
 from users.models import User
-from houses.models import House, Dong_list, Gu_list
+from houses.models import House, Dong_list, Gu_list, Option, Safetyoption
 from images.models import Image
-
 import json
 
 
@@ -24,7 +23,7 @@ class Command(BaseCommand):
         if User.objects.count() == 0:
             self.stdout.write(self.style.SUCCESS("유저를 먼저 생성해주세요."))
             return
-        if not Gu_list.objects.all():
+        if not Gu_list.objects.exists():
             self.stdout.write(self.style.SUCCESS("구 리스트를 작성중입니다."))
             with open("gu_list.json", "r", encoding="UTF-8") as gu_data:
                 gu = json.load(gu_data)
@@ -35,7 +34,27 @@ class Command(BaseCommand):
                 )
             self.stdout.write(self.style.SUCCESS("구 리스트가 작성되었습니다."))
 
-        if not Dong_list.objects.all():
+        if not Option.objects.exists():
+            self.stdout.write(self.style.SUCCESS("옵션 리스트를 작성중입니다."))
+            with open("option_list.json", "r", encoding="UTF-8") as option_data:
+                option_list = json.load(option_data)
+            for option in option_list:
+                Option.objects.create(
+                    name=option.get("fields").get("name"),
+                )
+            self.stdout.write(self.style.SUCCESS("옵션 리스트가 작성되었습니다."))
+
+        if not Safetyoption.objects.exists():
+            self.stdout.write(self.style.SUCCESS("보안 옵션 리스트를 작성중입니다."))
+            with open("safetyoptions.json", "r", encoding="UTF-8") as option_data:
+                option_list = json.load(option_data)
+            for option in option_list:
+                Safetyoption.objects.create(
+                    name=option.get("safetyoption"),
+                )
+            self.stdout.write(self.style.SUCCESS("보안 옵션 리스트가 작성되었습니다."))
+
+        if not Dong_list.objects.exists():
             self.stdout.write(self.style.SUCCESS("동 리스트를 작성중입니다."))
             with open("dong_list.json", "r", encoding="UTF-8") as dong_data:
                 dong_list = json.load(dong_data)
@@ -59,6 +78,8 @@ class Command(BaseCommand):
             "5cd3caef-5455-42ae-0928-819766aade00",
         ]
         self.stdout.write(self.style.SUCCESS("새로운 방을 작성중입니다."))
+        all_option = Option.objects.all()
+        all_safety_option = Safetyoption.objects.all()
         for i in Dong_list.objects.all():
             for k in range(total):
                 house = {"model": "houses.House"}
@@ -72,7 +93,6 @@ class Command(BaseCommand):
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
                     "pyeongsu": random.randint(10, 50),
-                    "distance_to_station": random.randint(5, 20),
                     "room_kind": random.choice(House.RoomKindChoices.values),
                     "sell_kind": random.choice(House.SellKindChoices.values),
                     "address": " ".join(i for i in fake.land_address().split(" ")[2:]),
@@ -97,7 +117,6 @@ class Command(BaseCommand):
                     room=data["room"],
                     toilet=data["toilet"],
                     pyeongsu=data["pyeongsu"],
-                    distance_to_station=data["distance_to_station"],
                     room_kind=data["room_kind"],
                     sell_kind=data["sell_kind"],
                     address=data["address"],
@@ -105,6 +124,17 @@ class Command(BaseCommand):
                     dong=i,
                     is_sale=True,
                 )
+                for i in range(random.randint(1, all_option.count() + 1)):
+                    create_house.option.add(
+                        all_option[random.randint(0, all_option.count() - 1)]
+                    )
+                for i in range(random.randint(1, all_safety_option.count() + 1)):
+                    create_house.Safetyoption.add(
+                        all_safety_option[
+                            random.randint(0, all_safety_option.count() - 1)
+                        ]
+                    )
+                create_house.save()
                 for j in range(5):
                     Image.objects.create(
                         house=create_house,

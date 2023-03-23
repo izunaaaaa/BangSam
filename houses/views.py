@@ -7,7 +7,7 @@ from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-from .models import House, Gu_list, Dong_list
+from .models import House, Gu_list, Dong_list, Option, Safetyoption
 from . import serializers
 from houselists.models import HouseList
 from images.models import Image
@@ -769,3 +769,35 @@ class ChangeSell(APIView):
         house.save()
 
         return Response(status=200)
+
+
+class All_Option(APIView):
+    @swagger_auto_schema(
+        operation_summary="옵션 리스트 불러오는 api",
+        responses={
+            200: openapi.Response(
+                description="Successful Response",
+                schema=serializers.OptionSerializer(),
+            ),
+        },
+    )
+    def get(self, request):
+        all_option = Option.objects.all()
+        serializer = serializers.OptionSerializer(all_option, many=True)
+        return Response(serializer.data)
+
+
+class All_Safety_Option(APIView):
+    @swagger_auto_schema(
+        operation_summary="보안 옵션 리스트 불러오는 api",
+        responses={
+            200: openapi.Response(
+                description="Successful Response",
+                schema=serializers.SafetyOptionSerializer(),
+            ),
+        },
+    )
+    def get(self, request):
+        all_option = Safetyoption.objects.all()
+        serializer = serializers.SafetyOptionSerializer(all_option, many=True)
+        return Response(serializer.data)
