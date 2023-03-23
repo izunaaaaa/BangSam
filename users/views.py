@@ -37,7 +37,7 @@ class UserMe(APIView):
         return Response(serializer.data)
 
     @swagger_auto_schema(
-        operation_summary="요청한 유저의 정보를 수정하는 api",
+        operation_summary="유저의 정보 수정 api",
         responses={
             200: openapi.Response(
                 description="Successful response",

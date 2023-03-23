@@ -15,7 +15,7 @@ class ChattingRoomList(APIView):
     permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
-        operation_summary="유저의 채팅방 리스트를 보여주는 api",
+        operation_summary="유저 채팅방 전체 조회 api",
         responses={
             200: openapi.Response(
                 description="Succfull Response",

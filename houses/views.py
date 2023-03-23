@@ -24,7 +24,10 @@ class Houses(APIView):
             raise NotFound
 
     @swagger_auto_schema(
-        operation_summary="집 정보 조회 api",
+        method="post",  # 사용하는 용도
+        operation_summary="집 전체 조회 api",  # 해당 내용의 주제
+        operation_description="",  # 경로나 내용 입력
+        properties={},
         manual_parameters=[
             openapi.Parameter(
                 "page",
@@ -110,12 +113,6 @@ class Houses(APIView):
                 description="평수 : 10(10, 19), 20(20, 29), 30(30, 39), 40(40, 49), 50(pyeongsu__gt=50), 0(1-9)",
                 type=openapi.TYPE_INTEGER,
             ),
-            # openapi.Parameter(
-            #     "gu",
-            #     openapi.IN_QUERY,
-            #     description="구",
-            #     type=openapi.TYPE_INTEGER,
-            # ),
             openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
@@ -132,7 +129,7 @@ class Houses(APIView):
         responses={
             200: openapi.Response(
                 description="Successful response",
-                schema=serializers.HouseSerializer(many=True),
+                schema=HouseSerializer(many=True),
             )
         },
     )
@@ -266,15 +263,6 @@ class Houses(APIView):
         else:
             house = House.objects.filter(is_sale=True)
 
-        # # 주소 구
-        # gu = request.GET.get("gu")
-        # if gu:
-        #     try:
-        #         gu = Gu_list.objects.get(pk=gu).name
-        #         house = [i for i in house if i.gu == gu]
-        #     except:
-        #         raise NotFound
-
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
@@ -316,7 +304,7 @@ class Houses(APIView):
 
     @swagger_auto_schema(
         operation_summary="집 정보 생성 api",
-        manual_parameters=[
+        properties=[
             openapi.Parameter(
                 "host",
                 openapi.IN_QUERY,
