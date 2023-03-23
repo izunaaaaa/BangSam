@@ -126,3 +126,6 @@ class House(CommonModel):
 
     def __str__(self) -> str:
         return f"{self.pk}"
+
+    class Meta:
+        ordering = ["-created_at"]
