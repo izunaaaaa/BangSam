@@ -89,7 +89,7 @@ class Command(BaseCommand):
                     "deposit": 0,
                     "monthly_rent": 0,
                     "maintenance_cost": random.randint(5, 20) * 10000,
-                    "host": User.objects.get(pk=1),
+                    "host": User.objects.get(pk=random.choice([1, 4, 7])),
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
                     "pyeongsu": random.randint(10, 50),
@@ -140,8 +140,5 @@ class Command(BaseCommand):
                         house=create_house,
                         url=f"https://imagedelivery.net/TfkiqSGnbio9VWWQtYee6A/{random.choice(image_key)}/public",
                     )
-                data["host"] = data["host"].pk
-                house["fields"] = data
-                new_list.append(house)
 
         self.stdout.write(self.style.SUCCESS(f"{total}개의 방이 작성되었습니다."))
