@@ -46,7 +46,6 @@ class HouseAdmin(admin.ModelAdmin):
                     "room_kind",
                     "room",
                     "toilet",
-                    "distance_to_station",
                     "description",
                 )
             },

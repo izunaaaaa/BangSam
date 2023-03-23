@@ -27,8 +27,8 @@ class Dong_list(models.Model):
         return self.name
 
 
-class options(CommonModel):
-    option = models.CharField(max_length=255)
+class Option(CommonModel):
+    name = models.CharField(max_length=255)
     description = models.TextField(
         max_length=150,
         null=True,
@@ -36,8 +36,8 @@ class options(CommonModel):
     )
 
 
-class safetyoptions(CommonModel):
-    safetyoption = models.CharField(max_length=255)
+class Safetyoption(CommonModel):
+    name = models.CharField(max_length=255)
     description = models.TextField(
         max_length=150,
         null=True,
