@@ -15,4 +15,7 @@ urlpatterns = [
     path("selllist/all", views.AllSellList.as_view()),
     path("selllist/sell", views.SellList.as_view()),
     path("selllist/notsell", views.NotSellList.as_view()),
+    path("find/id", views.FindId.as_view()),
+    path("find/password", views.FindPassword.as_view()),
+    path("new-password", views.NewPassword.as_view()),
 ]
