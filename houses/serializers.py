@@ -101,7 +101,6 @@ class HouseDetailSerializer(ModelSerializer):
             "pyeongsu",
             "address",
             "description",
-            "thumnail",
             "Image",
             "is_host",
         )

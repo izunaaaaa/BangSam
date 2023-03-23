@@ -11,6 +11,7 @@ from .models import House, Gu_list, Dong_list
 from . import serializers
 from houselists.models import HouseList
 from images.models import Image
+from django.db import transaction
 
 
 class Houses(APIView):
@@ -644,9 +645,25 @@ class HouseDetail(APIView):
         )
 
         if serializer.is_valid():
-            updated_house = serializer.save()
-            serializer = serializers.HouseDetailSerializer(updated_house)
-            return Response(serializer.data)
+            with transaction.atomic():
+                updated_house = serializer.save()
+                image = request.data.get("Image")
+                if image:
+                    if isinstance(image, list):
+                        if len(image) == 5:
+                            updated_house.Image.all().delete()
+                            for i in image:
+                                Image.objects.create(
+                                    house=updated_house, url=i.get("url")
+                                )
+                            # for i in image:
+                            # updated_house.Image.add(i)
+                        else:
+                            raise ParseError("Error")
+                    else:
+                        raise ParseError("Error")
+                serializer = serializers.HouseDetailSerializer(updated_house)
+                return Response(serializer.data)
         else:
             return Response(serializer.errors)
 
