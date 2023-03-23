@@ -1,0 +1,87 @@
+[
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "싱크대"
+    }
+  },
+
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "에어컨"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "신발장"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "세탁기"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "냉장고"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "옷장"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "인덕션"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "침대"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "전자레인지"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "tv"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "무선인터넷"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "가스레인지"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "인덕션"
+    }
+  },
+  {
+    "model": "houses.Option",
+    "fields": {
+      "name": "오븐"
+    }
+  }
+]
