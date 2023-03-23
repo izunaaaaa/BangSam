@@ -104,6 +104,9 @@ class House(CommonModel):
         on_delete=models.CASCADE,
     )
 
+    option = models.ManyToManyField("houses.Option")
+    Safetyoption = models.ManyToManyField("houses.Safetyoption")
+
     @property
     def gu(self):
         return self.dong.gu.name
@@ -117,9 +120,3 @@ class House(CommonModel):
 
     def __str__(self) -> str:
         return f"{self.pk}"
-
-    # def clean(self):
-    #     if self.host and self.user:
-    #         raise ValidationError("Either host or user can be specified, but not both.")
-    #     elif not self.host and not self.user:
-    #         raise ValidationError("Either host or user must be specified.")
