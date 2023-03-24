@@ -1,0 +1,170 @@
+[변경전]
+
+Table user {
+  pk int [pk, increment]
+  username string [pk]
+  password string 
+  name string
+  email string
+  address string
+  gender string
+  avatar url
+  is_host boolean
+  is_custom boolean
+  is_realtor boolean 
+}
+Table wishlist{
+  pk int [pk, increment]
+  user int [ref: - user.pk]
+  house int [ref: <> House.pk]
+}
+
+Table House{
+  pk int [pk, increment]
+  title string
+  keyword string
+  owner int [ref: > user.pk]
+  realtor int [ref: > user.pk]
+  room_kind string
+  cell_kind string
+  address string
+  description string
+  visited int
+}
+Table image{
+  pk int [pk, increment]
+  house int [ref: > House.pk]
+  url url
+}
+Table review{
+  pk int [pk, increment]
+  user int [ref: > user.pk]
+  house int [ref: > House.pk]
+  comment string
+}
+
+Table ChatingList{
+  pk int [pk, increment]
+  user int [ref: <> user.pk]
+}
+Table Chat{
+  pk int [pk, increment]
+  user int [ref: > user.pk]
+  chat int [ref: > ChatingList.pk]
+  room int [ref: <> House.pk]
+  is_realtor boolean
+}
+
+Ref: "Chat"."room" < "Chat"."pk"
+
+Ref: "House"."owner" < "House"."room_kind" 
+
+[변경후]
+
+Table wishlists {
+  id int [pk, increment]
+  user int 
+  house int
+}
+
+Table users{
+  id int [pk, increment]
+  name char
+  phone_number char
+  email email
+  gender char
+  avatar URL
+  is_host boolean
+}
+
+Table images{
+  id int [pk, increment]
+  house int
+  url URL
+}
+
+Table houses{
+  id int [pk, increment]
+  title char
+  sale biginteger
+  deposit biginteger
+  monthly_rent positiveinteger
+  maintenance_cost positiveinteger
+  host int
+  room positiveinteger
+  toilet positiveinteger
+  pyeongsu positiveinteger
+  room_kind char
+  sell_kind char
+  address char
+  description text
+  visited positiveinteger
+  is_sale boolean
+  dong int
+  option int
+  safetyoption int
+}
+
+Table gu_list{
+  id int [pk, increment]
+  name char
+}
+
+Table dong_list{
+  id int [pk, increment]
+  gu int
+}
+
+Table options{
+  id int [pk, increment]
+  option char
+  description text
+}
+
+Table safetyoptions{
+  id int [pk, increment]
+  safetyoption char
+  description text
+}
+
+Table houselists{
+  id int [pk, increment]
+  user int
+  recently_view int
+}
+
+Table chatroom{
+  id int [pk, increment]
+  user int
+  house int
+  name char
+}
+
+Table message{
+  id int [pk, increment]
+  text text
+  sender int
+  room int
+  is_read boolean
+  sequence_number positiveinteger
+}
+
+Table chatroommanager{
+  id int [pk, increment]
+  oldest_allowed_last_activity time
+}
+
+Ref : wishlists.user > users.id
+Ref : wishlists.house > houses.id
+Ref : images.house > houses.id
+Ref : houses.host > users.id
+Ref : houses.dong > dong_list.id
+Ref : dong_list.gu > gu_list.id
+Ref : houselists.user > users.id
+Ref : houselists.recently_view > houses.id
+Ref : chatroom.user <> users.id
+Ref : chatroom.house > houses.id
+Ref : message.sender > users.id
+Ref : message.room > chatroom.id
+Ref : houses.option < options.id
+Ref : houses.safetyoption < safetyoptions.id
