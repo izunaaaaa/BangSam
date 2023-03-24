@@ -267,15 +267,6 @@ class Houses(APIView):
         else:
             house = House.objects.filter(is_sale=True)
 
-        # # 주소 구
-        # gu = request.GET.get("gu")
-        # if gu:
-        #     try:
-        #         gu = Gu_list.objects.get(pk=gu).name
-        #         house = [i for i in house if i.gu == gu]
-        #     except:
-        #         raise NotFound
-
         # 조회(최저가격순, 방문순, 최신순)
         sort_by = request.GET.get("sort_by")
 
@@ -337,6 +328,12 @@ class Houses(APIView):
                 type=openapi.TYPE_BOOLEAN,
             ),
             openapi.Parameter(
+                "gu",
+                openapi.IN_QUERY,
+                description="[필수] 구 \n - 구 이름으로",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
                 "dong",
                 openapi.IN_QUERY,
                 description="[필수] 동 \n - 동 이름으로",
@@ -363,13 +360,13 @@ class Houses(APIView):
             openapi.Parameter(
                 "deposit",
                 openapi.IN_QUERY,
-                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER일때만 필수",
+                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER, MONTHELY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthely_rent",
                 openapi.IN_QUERY,
-                description="[선택적 필수] \n - sell_kind = MONTHLY_RENT일때만 필수",
+                description="[선택적 필수] \n - sell_kind = CHARTER, MONTHLY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
@@ -409,6 +406,18 @@ class Houses(APIView):
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
+                "option",
+                openapi.IN_QUERY,
+                description="옵션 \n - 이름으로 입력 \n - 배열로 입력",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "Safetyoption",
+                openapi.IN_QUERY,
+                description="안전 옵션 \n - 이름으로 입력 \n 배열로 입력",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
                 "thumnail",
                 openapi.IN_QUERY,
                 description="썸네일",
@@ -417,7 +426,7 @@ class Houses(APIView):
             openapi.Parameter(
                 "image",
                 openapi.IN_QUERY,
-                description="이미지",
+                description="이미지 \n - 5개 필수 입력",
                 type=openapi.TYPE_FILE,
             ),
         ],
@@ -440,9 +449,9 @@ class Houses(APIView):
             with transaction.atomic():
 
                 if not request.data.get("dong"):
-                    raise ParseError("Error")
+                    raise ParseError("required input data 'dong'")
                 if not request.data.get("gu"):
-                    raise ParseError("Error")
+                    raise ParseError("required input data 'gu'")
                 dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
 
                 house = serializer.save(host=request.user, dong=dong)
@@ -451,13 +460,13 @@ class Houses(APIView):
 
                 if options_name:
                     if not isinstance(options_name, list):
-                        raise ParseError("it is not a list")
+                        raise ParseError("option should be written as a list")
 
                     for name in options_name:
                         try:
                             option = Option.objects.get(name=name)
                         except Option.DoesNotExist:
-                            raise ParseError("it is not a option")
+                            raise ParseError("That option doesn't exist")
                         house.option.add(option)
 
                 safetyoption_name = request.data.get("Safetyoption")
@@ -470,7 +479,7 @@ class Houses(APIView):
                         try:
                             safetyoption = Safetyoption.objects.get(name=name)
                         except Safetyoption.DoesNotExist:
-                            raise ParseError("it is not a Safetyoption")
+                            raise ParseError("That safetyoption doesn't exist")
                         house.Safetyoption.add(safetyoption)
 
                 image = request.data.get("Image")
@@ -480,9 +489,9 @@ class Houses(APIView):
                         for i in image:
                             Image.objects.create(house=house, url=i.get("url"))
                     else:
-                        raise ParseError("Error")
+                        raise ParseError("5 images are required")
                 else:
-                    raise ParseError("Error")
+                    raise ParseError("image should be written as a list")
 
                 serializer = serializers.HouseDetailSerializer(
                     house,
@@ -597,13 +606,13 @@ class HouseDetail(APIView):
             openapi.Parameter(
                 "deposit",
                 openapi.IN_QUERY,
-                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER일때만 필수",
+                description="[선택적 필수] 보증금 \n - sell_kind = CHARTER, MONTHLY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
                 "monthely_rent",
                 openapi.IN_QUERY,
-                description="[선택적 필수] \n - sell_kind = MONTHLY_RENT일때만 필수",
+                description="[선택적 필수] \n - sell_kind = CHARTER, MONTHLY_RENT일때만 필수",
                 type=openapi.TYPE_INTEGER,
             ),
             openapi.Parameter(
@@ -640,6 +649,18 @@ class HouseDetail(APIView):
                 "description",
                 openapi.IN_QUERY,
                 description="자세한 설명",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "option",
+                openapi.IN_QUERY,
+                description="옵션 \n - 이름으로 입력 \n - 배열로 입력",
+                type=openapi.TYPE_STRING,
+            ),
+            openapi.Parameter(
+                "Safetyoption",
+                openapi.IN_QUERY,
+                description="안전 옵션 \n - 이름으로 입력 \n 배열로 입력",
                 type=openapi.TYPE_STRING,
             ),
             openapi.Parameter(
@@ -688,7 +709,7 @@ class HouseDetail(APIView):
                         try:
                             option = Option.objects.get(name=name)
                         except Option.DoesNotExist:
-                            raise ParseError("it is not a option")
+                            raise ParseError("That option doesn't exist")
                         house.option.add(option)
 
                 safetyoption_name = request.data.get("Safetyoption")
@@ -701,7 +722,7 @@ class HouseDetail(APIView):
                         try:
                             safetyoption = Safetyoption.objects.get(name=name)
                         except Safetyoption.DoesNotExist:
-                            raise ParseError("it is not a Safetyoption")
+                            raise ParseError("That safetyoption doesn't exist")
                         house.Safetyoption.add(safetyoption)
 
                 image = request.data.get("Image")
@@ -716,9 +737,9 @@ class HouseDetail(APIView):
                             # for i in image:
                             # updated_house.Image.add(i)
                         else:
-                            raise ParseError("Error")
+                            raise ParseError("5 images are required")
                     else:
-                        raise ParseError("Error")
+                        raise ParseError("image should be written as a list")
                 serializer = serializers.HouseDetailSerializer(updated_house)
                 return Response(serializer.data)
         else:

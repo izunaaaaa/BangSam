@@ -147,50 +147,50 @@ class HouseDetailSerializer(ModelSerializer):
                 not data.get("sale")
                 or data.get("deposit")
                 or data.get("monthly_rent")
-                or data.get("sale") < 0
+                # or data.get("sale") < 0
             ):
-                raise ValidationError("sale error")
+                raise ValidationError("no sale or deposit / monthly_rent is exist")
 
         if sell_kind == "CHARTER":
             if (
                 not data.get("deposit")
-                or data.get("sale")
+                or not data.get("sale")
                 or data.get("monthly_rent")
-                or int(data.get("deposit")) < 0
+                # or int(data.get("deposit")) < 0
             ):
-                raise ValidationError("deposit error")
+                raise ValidationError("no deposit or no sale or monthly_rent is exist")
 
         if sell_kind == "MONTHLY_RENT":
             if (
                 not data.get("monthly_rent")
                 or not data.get("deposit")
                 or data.get("sale")
-                or data.get("monthly_rent") < 0
+                # or data.get("monthly_rent") < 0
             ):
-                raise ValidationError("monthly_rent error")
+                raise ValidationError("no monthly_rent or no deposit or sale is exist")
         return data
 
     def validate_room(self, data):
         if data == None or data < 0:
-            raise ValidationError("room not specified")
+            raise ValidationError("room data must be required")
         return data
 
     def validate_pyeongsu(self, data):
         if data == None or data < 0:
-            raise ValidationError("pyeongsu not specified")
+            raise ValidationError("pyeongsu data must be required")
         return data
 
     def validate_toilet(self, data):
         if data == None or data < 0:
-            raise ValidationError("toilet not specified")
+            raise ValidationError("toilet data must be required")
         return data
 
     def validate_maintenance_cost(self, data):
         if data == None or data < 0:
-            raise ValidationError("Maintenance cost not specified")
+            raise ValidationError("Maintenance cost data must be required")
         return data
 
     def validate_distance_to_station(self, data):
         if data == None or data < 0:
-            raise ValidationError("Maintenance cost not specified")
+            raise ValidationError("Maintenance cost data must be required")
         return data
