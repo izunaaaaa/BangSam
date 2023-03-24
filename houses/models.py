@@ -111,7 +111,10 @@ class House(CommonModel):
     )
 
     option = models.ManyToManyField("houses.Option")
-    Safetyoption = models.ManyToManyField("houses.Safetyoption")
+    Safetyoption = models.ManyToManyField(
+        "houses.Safetyoption",
+        related_name="safetyoption",
+    )
 
     @property
     def gu(self):
