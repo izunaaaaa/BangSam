@@ -437,28 +437,58 @@ class Houses(APIView):
 
         if serializer.is_valid():
 
-            if not request.data.get("dong"):
-                raise ParseError("Error")
-            if not request.data.get("gu"):
-                raise ParseError("Error")
-            dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
-            house = serializer.save(host=request.user, dong=dong)
+            with transaction.atomic():
 
-            image = request.data.get("Image")
+                if not request.data.get("dong"):
+                    raise ParseError("Error")
+                if not request.data.get("gu"):
+                    raise ParseError("Error")
+                dong = self.get_dong(request.data.get("dong"), request.data.get("gu"))
 
-            if isinstance(image, list):
-                if len(image) == 5:
-                    for i in image:
-                        Image.objects.create(house=house, url=i.get("url"))
+                house = serializer.save(host=request.user, dong=dong)
+
+                options_name = request.data.get("option")
+
+                if options_name:
+                    if not isinstance(options_name, list):
+                        raise ParseError("it is not a list")
+
+                    for name in options_name:
+                        try:
+                            option = Option.objects.get(name=name)
+                        except Option.DoesNotExist:
+                            raise ParseError("it is not a option")
+                        house.option.add(option)
+
+                safetyoption_name = request.data.get("Safetyoption")
+
+                if safetyoption_name:
+                    if not isinstance(safetyoption_name, list):
+                        raise ParseError("it is not a list")
+
+                    for name in safetyoption_name:
+                        try:
+                            safetyoption = Safetyoption.objects.get(name=name)
+                        except Safetyoption.DoesNotExist:
+                            raise ParseError("it is not a Safetyoption")
+                        house.Safetyoption.add(safetyoption)
+
+                image = request.data.get("Image")
+
+                if isinstance(image, list):
+                    if len(image) == 5:
+                        for i in image:
+                            Image.objects.create(house=house, url=i.get("url"))
+                    else:
+                        raise ParseError("Error")
                 else:
                     raise ParseError("Error")
-            else:
-                raise ParseError("Error")
-            serializer = serializers.HouseDetailSerializer(
-                house,
-                context={"request": request},
-            )
-            return Response(serializer.data)
+
+                serializer = serializers.HouseDetailSerializer(
+                    house,
+                    context={"request": request},
+                )
+                return Response(serializer.data)
         else:
             return Response(serializer.errors, status=400)
 
@@ -647,6 +677,33 @@ class HouseDetail(APIView):
         if serializer.is_valid():
             with transaction.atomic():
                 updated_house = serializer.save()
+
+                options_name = request.data.get("option")
+
+                if options_name:
+                    if not isinstance(options_name, list):
+                        raise ParseError("it is not a list")
+                    house.option.clear()
+                    for name in options_name:
+                        try:
+                            option = Option.objects.get(name=name)
+                        except Option.DoesNotExist:
+                            raise ParseError("it is not a option")
+                        house.option.add(option)
+
+                safetyoption_name = request.data.get("Safetyoption")
+
+                if safetyoption_name:
+                    if not isinstance(safetyoption_name, list):
+                        raise ParseError("it is not a list")
+                    house.Safetyoption.clear()
+                    for name in safetyoption_name:
+                        try:
+                            safetyoption = Safetyoption.objects.get(name=name)
+                        except Safetyoption.DoesNotExist:
+                            raise ParseError("it is not a Safetyoption")
+                        house.Safetyoption.add(safetyoption)
+
                 image = request.data.get("Image")
                 if image:
                     if isinstance(image, list):

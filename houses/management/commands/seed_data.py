@@ -89,7 +89,7 @@ class Command(BaseCommand):
                     "deposit": 0,
                     "monthly_rent": 0,
                     "maintenance_cost": random.randint(5, 20) * 10000,
-                    "host": User.objects.get(pk=random.choice([1, 4, 7])),
+                    "host": User.objects.get(pk=random.choice([1])),
                     "room": random.randint(1, 3),
                     "toilet": random.randint(1, 3),
                     "pyeongsu": random.randint(10, 50),

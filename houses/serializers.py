@@ -56,6 +56,7 @@ class TinyHouseSerializer(ModelSerializer):
 
 class HouseSerializer(ModelSerializer):
     is_liked = serializers.SerializerMethodField()
+    dong = DonglistSerializer(read_only=True)
 
     class Meta:
         model = House
