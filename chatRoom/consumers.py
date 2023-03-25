@@ -6,6 +6,7 @@ from users.models import User
 from .models import ChatRoom, Message
 from .serializers import MessageSerializer
 from users.serializers import TinyUserSerializer
+from rest_framework.exceptions import NotFound
 from django.utils import timezone
 
 
@@ -20,6 +21,7 @@ class TextRoomConsumer(WebsocketConsumer):
         self.accept()
 
     def disconnect(self, close_code):
+
         async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name, self.channel_name
         )
@@ -34,7 +36,10 @@ class TextRoomConsumer(WebsocketConsumer):
             self.user = user
         except User.DoesNotExist:
             return
-        room = ChatRoom.objects.get(pk=self.room_name)
+        try:
+            room = ChatRoom.objects.get(pk=self.room_name)
+        except ChatRoom.DoesNotExist:
+            raise NotFound
         if not type:
             msg = Message.objects.create(text=text, sender=user, room=room)
             user = TinyUserSerializer(user).data
