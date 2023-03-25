@@ -189,8 +189,3 @@ class HouseDetailSerializer(ModelSerializer):
         if data == None or data < 0:
             raise ValidationError("Maintenance cost data must be required")
         return data
-
-    def validate_distance_to_station(self, data):
-        if data == None or data < 0:
-            raise ValidationError("Maintenance cost data must be required")
-        return data
