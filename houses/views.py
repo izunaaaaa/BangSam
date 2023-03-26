@@ -879,3 +879,12 @@ class All_Safety_Option(APIView):
         all_option = Safetyoption.objects.all()
         serializer = serializers.SafetyOptionSerializer(all_option, many=True)
         return Response(serializer.data)
+
+
+class TopView(APIView):
+    def get(self, request):
+        top_view_houses = (
+            House.objects.all().filter(is_sale=True).order_by("-visited")[:50]
+        )
+        serializer = serializers.TinyHouseSerializer(top_view_houses, many=True)
+        return Response(serializer.data)

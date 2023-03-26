@@ -75,12 +75,6 @@
   {
     "model": "houses.Option",
     "fields": {
-      "name": "인덕션"
-    }
-  },
-  {
-    "model": "houses.Option",
-    "fields": {
       "name": "오븐"
     }
   }
