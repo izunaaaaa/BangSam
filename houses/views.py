@@ -465,7 +465,7 @@ class Houses(APIView):
 
                     for name in options_name:
                         try:
-                            option = Option.objects.get(name=name)
+                            option = Option.objects.get(name=name.get("name"))
                         except Option.DoesNotExist:
                             raise ParseError("That option doesn't exist")
                         house.option.add(option)
@@ -478,7 +478,9 @@ class Houses(APIView):
 
                     for name in safetyoption_name:
                         try:
-                            safetyoption = Safetyoption.objects.get(name=name)
+                            safetyoption = Safetyoption.objects.get(
+                                name=name.get("name")
+                            )
                         except Safetyoption.DoesNotExist:
                             raise ParseError("That safetyoption doesn't exist")
                         house.Safetyoption.add(safetyoption)
@@ -695,7 +697,24 @@ class HouseDetail(APIView):
         )
 
         if serializer.is_valid():
+
             with transaction.atomic():
+                if request.data.get("sell_kind"):
+                    house.sale = 0
+                    house.deposit = 0
+                    house.monthly_rent = 0
+                    house.save()
+                else:
+                    if request.data.get("sale"):
+                        if house.sell_kind != "SALE":
+                            raise ParseError("can't change sale value")
+                    elif request.data.get("deposit"):
+                        if house.sell_kind == "SALE":
+                            raise ParseError("can't change deposit value")
+                    elif request.data.get("monthly_rent"):
+                        if house.sell_kind != "MONTHLY_RENT":
+                            raise ParseError("can't change monthly rent value")
+
                 updated_house = serializer.save()
 
                 options_name = request.data.get("option")
@@ -706,7 +725,7 @@ class HouseDetail(APIView):
                     house.option.clear()
                     for name in options_name:
                         try:
-                            option = Option.objects.get(name=name)
+                            option = Option.objects.get(name=name.get("name"))
                         except Option.DoesNotExist:
                             raise ParseError("That option doesn't exist")
                         house.option.add(option)
@@ -719,7 +738,9 @@ class HouseDetail(APIView):
                     house.Safetyoption.clear()
                     for name in safetyoption_name:
                         try:
-                            safetyoption = Safetyoption.objects.get(name=name)
+                            safetyoption = Safetyoption.objects.get(
+                                name=name.get("name")
+                            )
                         except Safetyoption.DoesNotExist:
                             raise ParseError("That safetyoption doesn't exist")
                         house.Safetyoption.add(safetyoption)
@@ -742,7 +763,7 @@ class HouseDetail(APIView):
                 serializer = serializers.HouseDetailSerializer(updated_house)
                 return Response(serializer.data)
         else:
-            return Response(serializer.errors)
+            return Response(serializer.errors, status=400)
 
     @swagger_auto_schema(
         operation_summary="집 디테일 정보 삭제 api",
