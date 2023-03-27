@@ -38,7 +38,11 @@ CF_ID = env("CF_ID")
 DEBUG = "RENDER" not in os.environ
 # DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "backend.bangsam.site",
+]
 
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
@@ -187,8 +191,14 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "https://bangsam.site",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "https://bangsam.site",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -204,6 +214,8 @@ SIMPLE_JWT = {
 }
 
 if not DEBUG:
+    SESSION_COOKIE_DOMAIN = ".bangsam.site"
+    CSRF_COOKIE_DOMAIN = ".bangsam.site"
     sentry_sdk.init(
         dsn="https://91a3e59578b94bfd8c5bcb2aea15d9d9@o4504859857387520.ingest.sentry.io/4504859860402176",
         integrations=[
