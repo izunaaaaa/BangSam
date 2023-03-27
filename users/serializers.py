@@ -22,6 +22,7 @@ class TinyUserSerializer(ModelSerializer):
 
 class PrivateUserSerializer(ModelSerializer):
     date_joined = serializers.DateTimeField(read_only=True)
+    avatar = serializers.URLField(read_only=True)
 
     class Meta:
         model = User
