@@ -508,6 +508,19 @@ class HouseDetail(APIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
+    def get_gu(self, gu):
+        try:
+            return Gu_list.objects.get(name=gu)
+        except Gu_list.DoesNotExist:
+            raise NotFound
+
+    def get_dong(self, dong, gu):
+        gu = self.get_gu(gu)
+        try:
+            return Dong_list.objects.get(gu=gu, name=dong)
+        except Dong_list.DoesNotExist:
+            raise NotFound
+
     def get_object(self, pk):
         try:
             return House.objects.get(pk=pk)
@@ -698,6 +711,7 @@ class HouseDetail(APIView):
         if serializer.is_valid():
 
             with transaction.atomic():
+
                 if request.data.get("sell_kind"):
                     house.sale = 0
                     house.deposit = 0
@@ -714,7 +728,14 @@ class HouseDetail(APIView):
                         if house.sell_kind != "MONTHLY_RENT":
                             raise ParseError("can't change monthly rent value")
 
-                updated_house = serializer.save()
+                if request.data.get("dong") or request.data.get("gu"):
+                    if request.data.get("dong") and request.data.get("gu"):
+                        dong = self.get_dong(
+                            request.data.get("dong").get("name"), request.data.get("gu")
+                        )
+                    else:
+                        raise ParseError("동과 구를 함께 입력해주세요")
+                updated_house = serializer.save(dong=dong)
 
                 options_name = request.data.get("option")
 
