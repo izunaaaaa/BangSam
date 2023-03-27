@@ -15,7 +15,7 @@ class HouseList(CommonModel):
     )
 
     def save(self, *args, **kwargs):
-        while self.user.house_list.count() >= 10:
+        while self.user.house_list.count() >= 36:
             self.user.house_list.order_by("updated_at").first().delete()
 
         super(HouseList, self).save(*args, **kwargs)

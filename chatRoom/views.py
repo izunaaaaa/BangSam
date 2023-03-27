@@ -86,10 +86,14 @@ class ChattingRoom(APIView):
         house = self.get_house(pk)
         serializer = ChatRoomSerialzier(data=request.data)
         if serializer.is_valid():
+
             if ChatRoom.objects.filter(
                 house=house, users__in=[request.user, house.host]
             ).exists():
-                return Response({"Already Exist"})
+                pk = ChatRoom.object.get(
+                    house=house, users__in=[request.user, house.house]
+                ).pk
+                return Response({"id": pk})
             chat_room = serializer.save(house=house)
             chat_room.users.add(request.user)
             chat_room.users.add(house.host)
