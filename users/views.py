@@ -55,6 +55,9 @@ class UserMe(APIView):
         )
         if serializer.is_valid():
             updated_user = serializer.save()
+            if request.data.get("avatar"):
+                updated_user.avatar = request.data.get("avatar")
+            updated_user.user.save()
             serializer = serializers.PrivateUserSerializer(updated_user)
             return Response(serializer.data)
         else:
