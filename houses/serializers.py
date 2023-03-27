@@ -147,11 +147,7 @@ class HouseDetailSerializer(ModelSerializer):
                 raise ValidationError("no sale or deposit / monthly_rent is exist")
 
         if sell_kind == "CHARTER":
-            if (
-                not data.get("deposit")
-                or not data.get("sale")
-                or data.get("monthly_rent")
-            ):
+            if not data.get("deposit") or data.get("sale") or data.get("monthly_rent"):
                 raise ValidationError("no deposit or no sale or monthly_rent is exist")
 
         if sell_kind == "MONTHLY_RENT":
@@ -184,17 +180,40 @@ class HouseDetailSerializer(ModelSerializer):
         return data
         
     def validate_sale(self, data):
-        print(self)
-        if data <= 0:
-            raise ValidationError("sale data must be greater than 0")
+        houses = self.context.get("pk")
+        try:
+            sale = House.objects.get(pk=houses).sale
+        except sale.DoesNotExist:
+            raise ValidationError("that pk house does not exist")
+        if sale != 0:
+            if data <= 0:
+                raise ValidationError("sale data must be greater than 0")
+        else:
+            raise ValidationError("can't change sale value")
         return data
 
     def validate_deposit(self, data):
-        if data <= 0:
-            raise ValidationError("deposit data must be greater than 0")
+        houses = self.context.get("pk")
+        try:
+            deposit = House.objects.get(pk=houses).deposit
+        except deposit.DoesNotExist:
+            raise ValidationError("that pk house does not exist")
+        if deposit != 0:
+            if data <= 0:
+                raise ValidationError("deposit data must be greater than 0")
+        else:
+            raise ValidationError("can't change deposit value")
         return data
 
     def validate_monthly_rent(self, data):
-        if data <= 0:
-            raise ValidationError("monthly_rent data must be greater than 0")
+        houses = self.context.get("pk")
+        try:
+            monthly_rent = House.objects.get(pk=houses).monthly_rent
+        except monthly_rent.DoesNotExist:
+            raise ValidationError("that pk house does not exist")
+        if monthly_rent != 0:
+            if data <= 0:
+                raise ValidationError("monthly_rent data must be greater than 0")
+        else:
+            raise ValidationError("can't change monthly_rent value")
         return data
