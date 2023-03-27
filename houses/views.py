@@ -690,9 +690,7 @@ class HouseDetail(APIView):
             raise PermissionDenied
 
         serializer = serializers.HouseDetailSerializer(
-            house,
-            data=request.data,
-            partial=True,
+            house, data=request.data, partial=True, context={"pk": pk}
         )
 
         if serializer.is_valid():
