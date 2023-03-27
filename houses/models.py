@@ -117,6 +117,10 @@ class House(CommonModel):
     )
 
     @property
+    def likeCount(self):
+        return self.wishlist.count()
+
+    @property
     def gu(self):
         return self.dong.gu.name
 

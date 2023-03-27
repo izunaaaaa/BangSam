@@ -178,7 +178,7 @@ class HouseDetailSerializer(ModelSerializer):
         if data == None or data < 0:
             raise ValidationError("Maintenance cost data must be required")
         return data
-        
+
     def validate_sale(self, data):
         houses = self.context.get("pk")
         try:

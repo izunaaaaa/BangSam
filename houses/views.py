@@ -12,6 +12,7 @@ from . import serializers
 from houselists.models import HouseList
 from images.models import Image
 from django.db import transaction
+from django.db.models import Count
 
 
 class Houses(APIView):
@@ -885,4 +886,15 @@ class TopView(APIView):
             House.objects.all().filter(is_sale=True).order_by("-visited")[:50]
         )
         serializer = serializers.TinyHouseSerializer(top_view_houses, many=True)
+        return Response(serializer.data)
+
+
+class TopLikeView(APIView):
+    def get(self, request):
+        houses = (
+            House.objects.annotate(like_count=Count("wishlist"))
+            .order_by("-like_count")
+            .filter(is_sale=True)[:20]
+        )
+        serializer = serializers.TinyHouseSerializer(houses, many=True)
         return Response(serializer.data)
