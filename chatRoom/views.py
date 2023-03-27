@@ -90,10 +90,14 @@ class ChattingRoom(APIView):
             if ChatRoom.objects.filter(
                 house=house, users__in=[request.user, house.host]
             ).exists():
-                pk = ChatRoom.object.get(
-                    house=house, users__in=[request.user, house.house]
-                ).pk
-                return Response({"id": pk})
+                room = list(
+                    set(
+                        ChatRoom.objects.filter(
+                            house=house, users__in=[request.user, house.host]
+                        )
+                    )
+                )[0]
+                return Response({"id": room.id})
             chat_room = serializer.save(house=house)
             chat_room.users.add(request.user)
             chat_room.users.add(house.host)
