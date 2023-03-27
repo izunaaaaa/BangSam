@@ -38,7 +38,11 @@ CF_ID = env("CF_ID")
 DEBUG = "RENDER" not in os.environ
 # DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "backend.bangsam.site"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "backend.bangsam.site",
+]
 
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
@@ -187,8 +191,14 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000", "https://bangsam.site"]
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000", "https://bangsam.site"]
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "https://bangsam.site",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "https://bangsam.site",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
