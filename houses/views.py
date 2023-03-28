@@ -735,7 +735,10 @@ class HouseDetail(APIView):
                         )
                     else:
                         raise ParseError("동과 구를 함께 입력해주세요")
-                updated_house = serializer.save(dong=dong)
+                if dong:
+                    updated_house = serializer.save(dong=dong)
+                else:
+                    updated_house = serializer.save()
 
                 options_name = request.data.get("option")
 
