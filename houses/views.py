@@ -883,11 +883,11 @@ class ChangeSell(APIView):
             403: openapi.Response(description="Permission Denied"),
         },
     )
-    def post(self, request, pk):
+    def put(self, request, pk):
         house = self.get_object(pk)
         if house.host != request.user:
             raise PermissionDenied
-        house.is_sale = False
+        house.is_sale = not (house.is_sale)
         house.save()
 
         return Response(status=200)
