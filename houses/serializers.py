@@ -181,16 +181,16 @@ class HouseDetailSerializer(ModelSerializer):
         return data
 
     def validate_sale(self, data):
-        if data <= 0:
+        if data < 0:
             raise ValidationError("sale data must be greater than 0")
         return data
 
     def validate_deposit(self, data):
-        if data <= 0:
+        if data < 0:
             raise ValidationError("deposit data must be greater than 0")
         return data
 
     def validate_monthly_rent(self, data):
-        if data <= 0:
+        if data < 0:
             raise ValidationError("monthly_rent data must be greater than 0")
         return data
