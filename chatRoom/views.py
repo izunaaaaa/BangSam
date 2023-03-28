@@ -86,17 +86,19 @@ class ChattingRoom(APIView):
         house = self.get_house(pk)
         serializer = ChatRoomSerialzier(data=request.data)
         if serializer.is_valid():
-
-            if ChatRoom.objects.filter(
-                house=house, users__in=[request.user, house.host]
-            ).exists():
-                room = list(
-                    set(
-                        ChatRoom.objects.filter(
-                            house=house, users__in=[request.user, house.host]
-                        )
-                    )
+            if (
+                ChatRoom.objects.filter(house=house)
+                .filter(users__in=[request.user])
+                .filter(users__in=[house.host])
+                .exists()
+            ):
+                room = (
+                    ChatRoom.objects.filter(house=house)
+                    .filter(users__in=[request.user])
+                    .filter(users__in=[house.host])
                 )[0]
+
+                # print(room.users.all())
                 return Response({"id": room.id})
             chat_room = serializer.save(house=house)
             chat_room.users.add(request.user)
