@@ -320,7 +320,7 @@ class KakaoLogin(APIView):
                     data={
                         "grant_type": "authorization_code",
                         "client_id": "69ba16ba77556c01d4a4ea9911fc06ad",
-                        "redirect_uri": "http://127.0.0.1:3000/social/kakao",
+                        "redirect_uri": "https://bangsam.site/social/kakao",
                         "code": code,
                     },
                 )
