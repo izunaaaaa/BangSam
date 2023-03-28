@@ -77,7 +77,10 @@ class TextRoomConsumer(WebsocketConsumer):
 
         elif type == "read_msg":
             dict_data = text_data_json
-            room = ChatRoom.objects.get(pk=dict_data.get("room"))
+            try:
+                room = ChatRoom.objects.get(pk=dict_data.get("room"))
+            except ChatRoom.DoesNotExist:
+                raise NotFound
             for user in room.users.all():
                 if user.username != dict_data.get("sender"):
                     async_to_sync(self.channel_layer.group_send)(
@@ -147,7 +150,10 @@ class NotificationConsumer(JsonWebsocketConsumer):
     def receive(self, text_data):
         dict_data = eval(text_data)
         if dict_data.get("room"):
-            room = ChatRoom.objects.get(pk=dict_data.get("room"))
+            try:
+                room = ChatRoom.objects.get(pk=dict_data.get("room"))
+            except ChatRoom.DoesNotExist:
+                raise NotFound
         else:
             return
         for user in room.users.all():
