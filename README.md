@@ -1,4 +1,4 @@
-# [BACKEND]BANGSAM_Buy and get special room 
+# [BACKEND] BANGSAM_Buy and get special room 
 
 
 <img src="https://user-images.githubusercontent.com/125422608/229361378-60550e62-01e7-4032-8908-4256ea45a3ce.png" width="20%"/>
