@@ -1,5 +1,4 @@
-# BANGSAM - Buy and get special room ( Backend )
-
+# BANGSAM _ Buy and get special room ( Backend )
 
 <img src="https://user-images.githubusercontent.com/125422608/229361378-60550e62-01e7-4032-8908-4256ea45a3ce.png" width="20%"/>
 
@@ -12,7 +11,7 @@
 
 Django와 Django Rest Framework를 이용하여 부동산 앱에 대한 처리를 수행하는 API 를 제공
 
-## distribution
+## Distribution
 
 <img src="https://user-images.githubusercontent.com/125422608/229361962-1a3170fd-debf-4fab-985a-c131656d1a40.png" width="50%"/>
 
@@ -83,7 +82,7 @@ $ gunicorn config.asgi:application  --worker-class uvicorn.workers.UvicornWorker
 
 ![Service](https://user-images.githubusercontent.com/125422608/229364197-ae61c499-fb22-420c-9674-36d843cafcc2.png)
 
-## MAIN FUNCTION 
+## Main Function
 
 ### 부동산 매물 조회, 삭제, 수정, 생성
 - 조회 시 Param 값으로 filtering 가능
@@ -103,5 +102,3 @@ $ # 각 동 별로 10개씩 방 생성, 구와 동의 데이터가 DB 에 없다
 - 1:1 채팅 시 읽지않은 메세지 수, 채팅방의 마지막 메세지 업데이트
 - 채팅방의 유효기간 3개월, 3개월 이후 자동삭제
 - 각 채팅방의 채팅로그는 100개만 저장
-
-
