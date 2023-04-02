@@ -81,5 +81,27 @@ $ gunicorn config.asgi:application  --worker-class uvicorn.workers.UvicornWorker
 
 ## Architecture 
 
-![Service](https://user-images.githubusercontent.com/125422608/229364105-875166ca-c8fe-407b-b81a-f5805cd25be7.png)
+![Service](https://user-images.githubusercontent.com/125422608/229364197-ae61c499-fb22-420c-9674-36d843cafcc2.png)
+
+## MAIN FUNCTION 
+
+### 부동산 매물 조회, 삭제, 수정, 생성
+- 조회 시 Param 값으로 filtering 가능
+
+### python manage.py seed_data (--total 10) 옵션으로 더미 데이터 생성 가능
+``` bash
+$  python manage.py seed_data --total 10
+$ # 각 동 별로 10개씩 방 생성, 구와 동의 데이터가 DB 에 없다면 새로 생성 ( 서울시내 모든 구 / 동 데이터 )
+```
+
+### 조회수별, 좋아요별 Top10 조회
+- 로그인 한 유저만 지원
+
+### 채팅
+- 유저와 공인중개사의 다이렉트 채팅 가능
+- websocket ( django channels 활용 )
+- 1:1 채팅 시 읽지않은 메세지 수, 채팅방의 마지막 메세지 업데이트
+- 채팅방의 유효기간 3개월, 3개월 이후 자동삭제
+- 각 채팅방의 채팅로그는 100개만 저장
+
 
