@@ -1,4 +1,5 @@
-# BANGSAM _ Buy and get special room ( Backend )
+# [BACKEND]BANGSAM_Buy and get special room 
+
 
 <img src="https://user-images.githubusercontent.com/125422608/229361378-60550e62-01e7-4032-8908-4256ea45a3ce.png" width="20%"/>
 
@@ -7,18 +8,18 @@
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fizunaaaaa%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-## Summary
+## SUMMARY
 
 Django와 Django Rest Framework를 이용하여 부동산 앱에 대한 처리를 수행하는 API 를 제공
 
-## Distribution
+## DISTRIBUTION
 
 <img src="https://user-images.githubusercontent.com/125422608/229361962-1a3170fd-debf-4fab-985a-c131656d1a40.png" width="50%"/>
 
 > **Backend** : [https://backend.bangsam.site](https://backend.bangsam.site)<br>
 > **Frontend** : [https://bangsam.site](https://bangsam.site)<br>
 
-## Backend 개발 인원
+## 개발 인원
 
 
 |      김두홍       |         송가연         |                                                                                                                 
@@ -26,7 +27,7 @@ Django와 Django Rest Framework를 이용하여 부동산 앱에 대한 처리�
 |   <img width="160px" src="https://user-images.githubusercontent.com/125422608/229362247-12393ef8-a52c-4835-a933-3dc81c6b5f62.png" />    |<img width="160px" src="https://user-images.githubusercontent.com/125422608/229362286-d467819b-098b-40ab-9941-c0376ad61f94.png" />    |      
 |   [@KimDuHong](https://github.com/KimDuHong)   |    [@SongGaYeon](https://github.com/goeasyonng)  | 
 
-## Stacks
+## STACKS
 
 ### Environment
 
@@ -59,7 +60,7 @@ Django와 Django Rest Framework를 이용하여 부동산 앱에 대한 처리�
 ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
 
-## Installation
+## INSTALLATION
 ``` bash
 $ git clone https://github.com/izunaaaaa/Bangsam
 $ cd Bangsam
@@ -70,7 +71,7 @@ $ python manage.py migrate
 $ gunicorn config.asgi:application  --worker-class uvicorn.workers.UvicornWorker
 ```
 
-## DB diagram
+## DB DIAGRAM
 
 ![DB](https://user-images.githubusercontent.com/125422608/229363458-002cfa1f-8bc0-41e1-9475-46a8c1e064aa.png)
 
@@ -78,11 +79,11 @@ $ gunicorn config.asgi:application  --worker-class uvicorn.workers.UvicornWorker
 
 [API문서](https://backend.bangsam.site/redoc)
 
-## Architecture 
+## ARCHITECTURE 
 
 ![Service](https://user-images.githubusercontent.com/125422608/229364197-ae61c499-fb22-420c-9674-36d843cafcc2.png)
 
-## Main Function
+## MAIN FUNCTION 
 
 ### 부동산 매물 조회, 삭제, 수정, 생성
 - 조회 시 Param 값으로 filtering 가능
@@ -102,3 +103,5 @@ $ # 각 동 별로 10개씩 방 생성, 구와 동의 데이터가 DB 에 없다
 - 1:1 채팅 시 읽지않은 메세지 수, 채팅방의 마지막 메세지 업데이트
 - 채팅방의 유효기간 3개월, 3개월 이후 자동삭제
 - 각 채팅방의 채팅로그는 100개만 저장
+
+
